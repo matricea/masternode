@@ -82,9 +82,9 @@ cd /home/zoomba4
 sudo mkdir /home/zoomba4/.zoomba
 sudo touch /home/zoomba4/.zoomba/zoomba.conf 
 echo -e "rpcuser=dsfjkdsui3874djnaiksk\nrpcpassword=dskasiue98873kjeih87iakj\nrpcallowip=127.0.0.1\nrpcport=5538\nbind=[$(hostname  -I | cut -f2 -d' ')]\ndaemon=1\nserver=1\nport=5537\nlisten=0\nmasternode=1\nlogtimestamps=1\nmaxconnections=256\nmasternodeprivkey=$privkey4\nexternalIP=[$(hostname  -I | cut -f2 -d' ')]:5530" >> /home/zoomba4/.zoomba/zoomba.conf  
-zoombad -datadir=/home/zoomba/.zoomba -daemon -reindex
-zoombad -datadir=/home/zoomba2/.zoomba -daemon -reindex
-zoombad -datadir=/home/zoomba3/.zoomba -daemon -reindex
-zoombad -datadir=/home/zoomba4/.zoomba -daemon -reindex
+zoombad -datadir=/home/zoomba/.zoomba -daemon
+zoombad -datadir=/home/zoomba2/.zoomba -daemon
+zoombad -datadir=/home/zoomba3/.zoomba -daemon
+zoombad -datadir=/home/zoomba4/.zoomba -daemon
 echo -e ${GREEN}"Congrats! Your Masternode is now installed and has started. Please wait from 10-60 minutes in order to give the masternode enough time to sync, then start the node from your Windows wallet."${NC}
 fi
