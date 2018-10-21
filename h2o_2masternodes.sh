@@ -95,8 +95,8 @@ echo "externalip=$(hostname  -I | cut -f1 -d' '):13355" >> /home/h2o2/.h2ocore/h
 echo "masternodeprivkey=$privkey2" >> /home/h2o2/.h2ocore/h2o.conf
 sleep 5 
 fi
-echo -e "${RED}Stopping Client${NC}"
-sudo h2o-cli stop
+#echo -e "${RED}Stopping Client${NC}"
+#sudo h2o-cli stop
 echo "Syncing first node, please wait...";
 h2od -datadir=/home/h2o/.h2ocore -daemon
 sleep 200 
