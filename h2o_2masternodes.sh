@@ -106,7 +106,7 @@ sleep 10
 echo "Syncing second node, please wait...";
 h2od -datadir=/home/h2o2/.h2ocore -daemon
 sleep 10 
-until h2o-cli -datadir=//home/h2o2/.h2ocore mnsync status | grep -m 1 '"IsBlockchainSynced" : true'; do sleep 1 ; done > /dev/null 2>&1
+until h2o-cli -datadir=/home/h2o2/.h2ocore mnsync status | grep -m 1 '"IsBlockchainSynced" : true'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. You 1st masternode is running!"${NC}
 echo""
 echo -e ${GREEN}"Congrats! Your Masternodes are now installed and has started. Please wait 10-15 minutes in order to give the masternode enough time to sync, then start the node from your Windows wallet."${NC}
