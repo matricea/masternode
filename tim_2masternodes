@@ -91,8 +91,6 @@ echo "externalip=$(hostname  -I | cut -f1 -d' '):11333" >> /home/tim2/.tim/mainn
 echo "masternodeprivkey=$privkey2" >> /home/tim2/.tim/mainnet/timeismoney.conf
 sleep 5 
 fi
-#echo -e "${RED}Stopping Client${NC}"
-#sudo timeismoney-cli stop
 timeismoneyd -datadir=/home/tim/.tim/ -daemon
 echo "Syncing first node, please wait...";
 sleep 10 
