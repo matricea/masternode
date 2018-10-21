@@ -91,16 +91,16 @@ echo "externalip=$(hostname  -I | cut -f1 -d' '):11333" >> /home/tim2/.tim/mainn
 echo "masternodeprivkey=$privkey2" >> /home/tim2/.tim/mainnet/timeismoney.conf
 sleep 5 
 fi
-echo -e "${RED}Stopping Client${NC}"
-sudo timeismoney-cli stop
-echo "Syncing first node, please wait...";
+#echo -e "${RED}Stopping Client${NC}"
+#sudo timeismoney-cli stop
 timeismoneyd -datadir=/home/tim/.tim/ -daemon
+echo "Syncing first node, please wait...";
 sleep 10 
 until timeismoney-cli -datadir=/home/tim/.tim/ mnsync status | grep -m 1 '"IsBlockchainSynced" : true'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. You 1st masternode is running!"${NC}
 sleep 10
-echo "Syncing second node, please wait...";
 timeismoneyd -datadir=/home/tim2/.tim/ -daemon
+echo "Syncing second node, please wait...";
 sleep 10 
 until timeismoney-cli -datadir=/home/tim2/.tim/ mnsync status | grep -m 1 '"IsBlockchainSynced" : true'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. You 1st masternode is running!"${NC}
