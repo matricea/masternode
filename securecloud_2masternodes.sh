@@ -102,3 +102,6 @@ until securecloud-cli -datadir=/home/securecloud2/.securecloud mnsync status | g
 echo -e ${GREEN}"Second node is fully synced. You 1st masternode is running!"${NC}
 echo ""
 echo -e ${GREEN}"Congrats! Your SecureCloud Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
+echo "For donations: sUhHTix3QzMLFKKGiQ5U7s9MLJNopr3M6B";
+
+
