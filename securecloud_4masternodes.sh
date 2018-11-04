@@ -20,13 +20,13 @@ echo -e ${GREEN}"Are you sure you want to install a SecureCloud Masternode? type
 read AGREE
 
 if [[ $AGREE =~ "y" ]] ; then
-echo -e ${GREEN}"Please Enter Your Masternodes Private Key:"${NC}
+echo -e ${GREEN}"Please Enter Your Masternodes Private Key for the first node:"${NC}
 read privkey
 echo -e ${GREEN}"Please Enter Your Masternodes Private Key for second node:"${NC}
 read privkey2
-echo -e ${GREEN}"Please Enter Your Masternodes Private Key:"${NC}
+echo -e ${GREEN}"Please Enter Your Masternodes Private Key for the third node:"${NC}
 read privkey3
-echo -e ${GREEN}"Please Enter Your Masternodes Private Key for second node:"${NC}
+echo -e ${GREEN}"Please Enter Your Masternodes Private Key for 4th node:"${NC}
 read privkey4
 echo "Creating 4 SecureCloud system users with no-login access:"
 sudo adduser --system --home /home/securecloud securecloud
