@@ -78,10 +78,10 @@ echo "rpcport=9191" >> /home/securecloud/.securecloud/securecloud.conf
 echo "listen=0" >> /home/securecloud/.securecloud/securecloud.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):9191" >> /home/securecloud/.securecloud/securecloud.conf
 echo "masternodeprivkey=$privkey" >> /home/securecloud/.securecloud/securecloud.conf
-echo "addnode=149.28.238.247" >> /home/securecloud/.securecloud/securecloud.conf
-echo "addnode=45.77.59.64" >> /home/securecloud/.securecloud/securecloud.conf
-echo "addnode=45.63.119.225" >> /home/securecloud/.securecloud/securecloud.conf
-echo "addnode=45.76.131.16" >> /home/securecloud/.securecloud/securecloud.conf
+echo "addnode=93.103.247.155" >> /home/securecloud/.securecloud/securecloud.conf
+echo "addnode=80.211.19.145" >> /home/securecloud/.securecloud/securecloud.conf
+echo "addnode=209.250.252.123" >> /home/securecloud/.securecloud/securecloud.conf
+echo "addnode=128.199.164.15" >> /home/securecloud/.securecloud/securecloud.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for second node${NC}"
 sudo mkdir /home/securecloud2/.securecloud
@@ -97,10 +97,10 @@ echo "rpcport=9192" >> /home/securecloud2/.securecloud/securecloud.conf
 echo "listen=0" >> /home/securecloud2/.securecloud/securecloud.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):9191" >> /home/securecloud2/.securecloud/securecloud.conf
 echo "masternodeprivkey=$privkey2" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "addnode=149.28.238.247" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "addnode=45.77.59.64" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "addnode=45.63.119.225" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "addnode=45.76.131.16" >> /home/securecloud2/.securecloud/securecloud.conf
+echo "addnode=93.103.247.155" >> /home/securecloud2/.securecloud/securecloud.conf
+echo "addnode=80.211.19.145" >> /home/securecloud2/.securecloud/securecloud.conf
+echo "addnode=209.250.252.123" >> /home/securecloud2/.securecloud/securecloud.conf
+echo "addnode=128.199.164.15" >> /home/securecloud2/.securecloud/securecloud.conf
 sleep 5 
 echo -e "${GREEN}Configuring Wallet for third node${NC}"
 sudo mkdir /home/securecloud3/.securecloud
@@ -116,10 +116,10 @@ echo "rpcport=9193" >> /home/securecloud3/.securecloud/securecloud.conf
 echo "listen=0" >> /home/securecloud3/.securecloud/securecloud.conf
 echo "externalip=$(hostname  -I | cut -f2 -d' '):9191" >> /home/securecloud3/.securecloud/securecloud.conf
 echo "masternodeprivkey=$privkey3" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "addnode=149.28.238.247" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "addnode=45.77.59.64" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "addnode=45.63.119.225" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "addnode=45.76.131.16" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "addnode=93.103.247.155" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "addnode=80.211.19.145" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "addnode=209.250.252.123" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "addnode=128.199.164.15" >> /home/securecloud3/.securecloud/securecloud.conf
 sleep 5 
 echo -e "${GREEN}Configuring Wallet for 4th node${NC}"
 sudo mkdir /home/securecloud4/.securecloud
@@ -135,10 +135,10 @@ echo "rpcport=9194" >> /home/securecloud4/.securecloud/securecloud.conf
 echo "listen=0" >> /home/securecloud4/.securecloud/securecloud.conf
 echo "externalip=$(hostname  -I | cut -f2 -d' '):9191" >> /home/securecloud4/.securecloud/securecloud.conf
 echo "masternodeprivkey=$privkey4" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "addnode=149.28.238.247" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "addnode=45.77.59.64" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "addnode=45.63.119.225" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "addnode=45.76.131.16" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "addnode=93.103.247.155" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "addnode=80.211.19.145" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "addnode=209.250.252.123" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "addnode=128.199.164.15" >> /home/securecloud4/.securecloud/securecloud.conf
 sleep 5 
 fi
 echo "Syncing first node, please wait...";
