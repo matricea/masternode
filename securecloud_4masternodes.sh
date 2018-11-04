@@ -106,7 +106,7 @@ echo "maxconnections=250" >> /home/securecloud3/.securecloud/securecloud.conf
 echo "masternode=1" >> /home/securecloud3/.securecloud/securecloud.conf
 echo "rpcport=9193" >> /home/securecloud3/.securecloud/securecloud.conf
 echo "listen=0" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):9191" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "externalip=$(hostname  -I | cut -f2 -d' '):9191" >> /home/securecloud3/.securecloud/securecloud.conf
 echo "masternodeprivkey=$privkey3" >> /home/securecloud3/.securecloud/securecloud.conf
 sleep 5 
 echo -e "${GREEN}Configuring Wallet for 4th node${NC}"
@@ -121,7 +121,7 @@ echo "maxconnections=250" >> /home/securecloud4/.securecloud/securecloud.conf
 echo "masternode=1" >> /home/securecloud4/.securecloud/securecloud.conf
 echo "rpcport=9194" >> /home/securecloud4/.securecloud/securecloud.conf
 echo "listen=0" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):9191" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "externalip=$(hostname  -I | cut -f2 -d' '):9191" >> /home/securecloud4/.securecloud/securecloud.conf
 echo "masternodeprivkey=$privkey4" >> /home/securecloud4/.securecloud/securecloud.conf
 sleep 5 
 fi
