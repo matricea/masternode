@@ -56,7 +56,7 @@ sudo mkdir /root/concierge
 cd /root/concierge
 wget https://github.com/ConciergeCoin/Concierge/releases/download/V1.0.0.1/Concierge-linux.tar.gz
 tar -xzvf Concierge-linux.tar.gz
-sudo mv /root/scn/concierged /root/scn/concierge-cli /usr/local/bin
+sudo mv /root/concierge/concierged /root/concierge/concierge-cli /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/concierge*
 sudo mkdir /home/concierge/.concierge
 sudo touch /home/concierge/.concierge/concierge.conf
