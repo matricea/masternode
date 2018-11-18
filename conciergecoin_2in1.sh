@@ -99,15 +99,15 @@ sleep 5
 fi
 echo "Syncing first node, please wait...";
 concierged -datadir=/home/concierge/.concierge -daemon
-sleep 10
-until concierge-cli -datadir=/home/concierge/.concierge mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
-echo -e ${GREEN}"First node is fully synced. You 1st masternode is running!"${NC}
+sleep 300
+#until concierge-cli -datadir=/home/concierge/.concierge mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+#echo -e ${GREEN}"First node is fully synced. You 1st masternode is running!"${NC}
 sleep 10
 echo "Syncing second node, please wait...";
 concierged -datadir=/home/concierge2/.concierge -daemon
-sleep 10
-until concierge-cli -datadir=/home/concierge2/.concierge mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
-echo -e ${GREEN}"Second node is fully synced. You 1st masternode is running!"${NC}
+sleep 300
+#until concierge-cli -datadir=/home/concierge2/.concierge mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+#echo -e ${GREEN}"Second node is fully synced. You 1st masternode is running!"${NC}
 echo ""
 echo -e ${GREEN}"Congrats! Your Concierge Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
 echo "If you think that this script helped in some way, feel free to donate:"
