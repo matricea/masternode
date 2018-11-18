@@ -99,13 +99,13 @@ sleep 5
 fi
 echo "Syncing first node, please wait...";
 concierged -datadir=/home/concierge/.concierge -daemon
-sleep 300
+sleep 400
 #until concierge-cli -datadir=/home/concierge/.concierge mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 #echo -e ${GREEN}"First node is fully synced. You 1st masternode is running!"${NC}
 sleep 10
 echo "Syncing second node, please wait...";
 concierged -datadir=/home/concierge2/.concierge -daemon
-sleep 300
+sleep 400
 #until concierge-cli -datadir=/home/concierge2/.concierge mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 #echo -e ${GREEN}"Second node is fully synced. You 1st masternode is running!"${NC}
 echo ""
