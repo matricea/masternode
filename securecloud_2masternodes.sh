@@ -27,31 +27,31 @@ read privkey2
 echo "Creating 2 SecureCloud system users with no-login access:"
 sudo adduser --system --home /home/securecloud securecloud
 sudo adduser --system --home /home/securecloud2 securecloud2
-sudo apt-get -y update 
+sudo apt-get -y update
 sudo apt-get -y upgrade
-sudo apt-get -y install software-properties-common 
-sudo apt-get -y install build-essential  
-sudo apt-get -y install libtool autotools-dev autoconf automake  
-sudo apt-get -y install libssl-dev 
-sudo apt-get -y install libevent-dev 
-sudo apt-get -y install libboost-all-dev 
-sudo apt-get -y install pkg-config  
-sudo add-apt-repository ppa:bitcoin/bitcoin 
-sudo apt-get update 
-sudo apt-get -y install libdb4.8-dev 
-sudo apt-get -y install libdb4.8++-dev 
-sudo apt-get -y install libminiupnpc-dev libzmq3-dev libevent-pthreads-2.0-5 
+sudo apt-get -y install software-properties-common
+sudo apt-get -y install build-essential
+sudo apt-get -y install libtool autotools-dev autoconf automake
+sudo apt-get -y install libssl-dev
+sudo apt-get -y install libevent-dev
+sudo apt-get -y install libboost-all-dev
+sudo apt-get -y install pkg-config
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt-get update
+sudo apt-get -y install libdb4.8-dev
+sudo apt-get -y install libdb4.8++-dev
+sudo apt-get -y install libminiupnpc-dev libzmq3-dev libevent-pthreads-2.0-5
 sudo apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev
 sudo apt-get -y install libqrencode-dev bsdmainutils unzip
-#sudo apt install git 
-cd /var 
-sudo touch swap.img 
-sudo chmod 600 swap.img 
-sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=2000 
-sudo mkswap /var/swap.img 
-sudo swapon /var/swap.img 
+#sudo apt install git
+cd /var
+sudo touch swap.img
+sudo chmod 600 swap.img
+sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=2000
+sudo mkswap /var/swap.img
+sudo swapon /var/swap.img
 sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
-cd ~ 
+cd ~
 sudo mkdir /root/scn
 cd /root/scn
 wget https://github.com/securecloudnet/SecureCloud/releases/download/2.0.0/securecloud-2.0.0-x86_64-linux-gnu.tar.gz
@@ -95,21 +95,22 @@ echo "addnode=93.103.247.155" >> /home/securecloud2/.securecloud/securecloud.con
 echo "addnode=80.211.19.145" >> /home/securecloud2/.securecloud/securecloud.conf
 echo "addnode=209.250.252.123" >> /home/securecloud2/.securecloud/securecloud.conf
 echo "addnode=128.199.164.15" >> /home/securecloud2/.securecloud/securecloud.conf
-sleep 5 
+sleep 5
 fi
 echo "Syncing first node, please wait...";
 securecloudd -datadir=/home/securecloud/.securecloud -daemon
-sleep 10 
+sleep 10
 until securecloud-cli -datadir=/home/securecloud/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. You 1st masternode is running!"${NC}
 sleep 10
 echo "Syncing second node, please wait...";
 securecloudd -datadir=/home/securecloud2/.securecloud -daemon
-sleep 10 
+sleep 10
 until securecloud-cli -datadir=/home/securecloud2/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. You 1st masternode is running!"${NC}
 echo ""
 echo -e ${GREEN}"Congrats! Your SecureCloud Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
-echo "For donations: sUhHTix3QzMLFKKGiQ5U7s9MLJNopr3M6B";
-
-
+echo "If you think that this tutorial helped in some way, feel free to donate for our work:"
+echo "SecureCloudNet address: sUhHTix3QzMLFKKGiQ5U7s9MLJNopr3M6B"
+echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
+echo "The END. You can close now the SSH terminal session";
