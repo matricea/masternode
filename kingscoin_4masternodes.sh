@@ -16,7 +16,7 @@ echo -e ${YELLOW}"Welcome to the KingsCoin Automated Install, Durring this Proce
 echo
 echo -e ${YELLOW}"You Will See alot of code flashing across your screen, don't be alarmed it's supposed to do that. This process can take up to an hour and may appear to be stuck, but I can promise you it's not."${NC}
 echo
-echo -e ${GREEN}"Are you sure you want to install SecureCloud Masternode? type y/n followed by [ENTER]:"${NC}
+echo -e ${GREEN}"Are you sure you want to install KingsCoin Masternode? type y/n followed by [ENTER]:"${NC}
 read AGREE
 
 if [[ $AGREE =~ "y" ]] ; then
@@ -29,10 +29,10 @@ read privkey3
 echo -e ${GREEN}"Please Enter Your Masternodes Private Key for 4th node:"${NC}
 read privkey4
 echo "Creating 4 SecureCloud system users with no-login access:"
-sudo adduser --system --home /home/securecloud securecloud
-sudo adduser --system --home /home/securecloud2 securecloud2
-sudo adduser --system --home /home/securecloud3 securecloud3
-sudo adduser --system --home /home/securecloud4 securecloud4
+sudo adduser --system --home /home/kgs kgs
+sudo adduser --system --home /home/kgs2 kgs2
+sudo adduser --system --home /home/kgs3 kgs3
+sudo adduser --system --home /home/kgs4 kgs4
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install software-properties-common
@@ -58,11 +58,11 @@ sudo mkswap /var/swap.img
 sudo swapon /var/swap.img
 sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd ~
-sudo mkdir /root/scn
-cd /root/scn
-wget https://github.com/securecloudnet/SecureCloud/releases/download/2.0.0/securecloud-2.0.0-x86_64-linux-gnu.tar.gz
-tar -xzvf securecloud-2.0.0-x86_64-linux-gnu.tar.gz
-sudo mv /root/scn/securecloudd /root/scn/securecloud-cli /root/scn/securecloud-tx /usr/local/bin
+sudo mkdir /root/kgs
+cd /root/kgs
+wget https://github.com/kingscrypto/KINGSCOIN/releases/download/1.0.0/kingscoin-1.0.0-x86_64-linux-gnu.tar.gz
+tar -xzvf kingscoin-1.0.0-x86_64-linux-gnu.tar.gz
+sudo mv /root/kgs/kingscoind /root/kgs/kingscoin-cli /root/kgs/kingscoin-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/securecloud*
 sudo mkdir /home/securecloud/.securecloud
 sudo touch /home/securecloud/.securecloud/securecloud.conf
