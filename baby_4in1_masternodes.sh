@@ -45,7 +45,8 @@ sudo apt-get -y install pkg-config
 sudo add-apt-repository ppa:bitcoin/bitcoin
 sudo apt-get update
 sudo apt-get -y install libdb4.8-dev
-sudo apt-get -y install libdb4.8++-dev
+#sudo apt-get -y install libdb4.8++-dev 
+sudo apt-get -y install libdb++-dev
 sudo apt-get -y install libminiupnpc-dev libzmq3-dev libevent-pthreads-2.0-5
 sudo apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev
 sudo apt-get -y install libqrencode-dev bsdmainutils unzip
