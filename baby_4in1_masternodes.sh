@@ -62,111 +62,115 @@ sudo mkdir /root/baby
 cd /root/baby
 wget https://github.com/babychain/BABY/releases/download/3.0.99/BABYCHAIN-Linuxdaemon-64bit.zip
 sudo unzip BABYCHAIN-Linuxdaemon-64bit.zip
-sudo mv /root/scn/securecloudd /root/scn/securecloud-cli /root/scn/securecloud-tx /usr/local/bin
-sudo chmod 755 -R  /usr/local/bin/securecloud*
-sudo mkdir /home/securecloud/.securecloud
-sudo touch /home/securecloud/.securecloud/securecloud.conf
+sudo mv /root/baby/babyd /root/baby/baby-cli /root/baby/baby-tx /usr/local/bin
+sudo chmod 755 -R  /usr/local/bin/baby*
+sudo mkdir /home/baby/.baby
+sudo touch /home/baby/.baby/baby.conf
 echo -e "${GREEN}Configuring Wallet for first node${NC}"
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/securecloud/.securecloud/securecloud.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/securecloud/.securecloud/securecloud.conf
-echo "rpcallowip=127.0.0.1" >> /home/securecloud/.securecloud/securecloud.conf
-echo "server=1" >> /home/securecloud/.securecloud/securecloud.conf
-echo "daemon=1" >> /home/securecloud/.securecloud/securecloud.conf
-echo "maxconnections=250" >> /home/securecloud/.securecloud/securecloud.conf
-echo "masternode=1" >> /home/securecloud/.securecloud/securecloud.conf
-echo "rpcport=9191" >> /home/securecloud/.securecloud/securecloud.conf
-echo "listen=0" >> /home/securecloud/.securecloud/securecloud.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):9191" >> /home/securecloud/.securecloud/securecloud.conf
-echo "masternodeprivkey=$privkey" >> /home/securecloud/.securecloud/securecloud.conf
-echo "addnode=93.103.247.155" >> /home/securecloud/.securecloud/securecloud.conf
-echo "addnode=80.211.19.145" >> /home/securecloud/.securecloud/securecloud.conf
-echo "addnode=209.250.252.123" >> /home/securecloud/.securecloud/securecloud.conf
-echo "addnode=128.199.164.15" >> /home/securecloud/.securecloud/securecloud.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/baby/.baby/baby.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/baby/.baby/baby.conf
+echo "rpcallowip=127.0.0.1" >> /home/baby/.baby/baby.conf
+echo "server=1" >> /home/baby/.baby/baby.conf
+echo "daemon=1" >> /home/baby/.baby/baby.conf
+echo "maxconnections=250" >> /home/baby/.baby/baby.conf
+echo "masternode=1" >> /home/baby/.baby/baby.conf
+echo "rpcport=55443" >> /home/baby/.baby/baby.conf
+echo "listen=0" >> /home/baby/.baby/baby.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):55442" >> /home/baby/.baby/baby.conf
+echo "masternodeprivkey=$privkey" >> /home/baby/.baby/baby.conf
+echo "addnode=38.103.14.250" >> /home/baby/.baby/baby.conf
+echo "addnode=95.168.199.10" >> /home/baby/.baby/baby.conf
+echo "addnode=80.211.150.131" >> /home/baby/.baby/baby.conf
+echo "addnode=91.227.50.22" >> /home/baby/.baby/baby.conf
+echo "addnode=118.189.177.112" >> /home/baby/.baby/baby.conf
+echo "addnode=45.63.18.116" >> /home/baby/.baby/baby.conf
+echo "addnode=119.29.145.194" >> /home/baby/.baby/baby.conf
+echo "addnode=212.33.250.118" >> /home/baby/.baby/baby.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for second node${NC}"
-sudo mkdir /home/securecloud2/.securecloud
-sudo touch /home/securecloud2/.securecloud/securecloud.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/securecloud2/.securecloud/securecloud.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/securecloud2/.securecloud/securecloud.conf
-echo "rpcallowip=127.0.0.1" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "server=1" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "daemon=1" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "maxconnections=250" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "masternode=1" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "rpcport=9192" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "listen=0" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):9191" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "masternodeprivkey=$privkey2" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "addnode=93.103.247.155" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "addnode=80.211.19.145" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "addnode=209.250.252.123" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "addnode=128.199.164.15" >> /home/securecloud2/.securecloud/securecloud.conf
+sudo mkdir /home/baby2/.baby
+sudo touch /home/baby2/.baby/baby.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/baby2/.baby/baby.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/baby2/.baby/baby.conf
+echo "rpcallowip=127.0.0.1" >> /home/baby2/.baby/baby.conf
+echo "server=1" >> /home/baby2/.baby/baby.conf
+echo "daemon=1" >> /home/baby2/.baby/baby.conf
+echo "maxconnections=250" >> /home/baby2/.baby/baby.conf
+echo "masternode=1" >> /home/baby2/.baby/baby.conf
+echo "rpcport=55444" >> /home/baby2/.baby/baby.conf
+echo "listen=0" >> /home/baby2/.baby/baby.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):55442" >> /home/baby2/.baby/baby.conf
+echo "masternodeprivkey=$privkey2" >> /home/baby2/.baby/baby.conf
+echo "addnode=93.103.247.155" >> /home/baby2/.baby/baby.conf
+echo "addnode=80.211.19.145" >> /home/baby2/.baby/baby.conf
+echo "addnode=209.250.252.123" >> /home/baby2/.baby/baby.conf
+echo "addnode=128.199.164.15" >> /home/baby2/.baby/baby.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for third node${NC}"
-sudo mkdir /home/securecloud3/.securecloud
-sudo touch /home/securecloud3/.securecloud/securecloud.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/securecloud3/.securecloud/securecloud.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/securecloud3/.securecloud/securecloud.conf
-echo "rpcallowip=127.0.0.1" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "server=1" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "daemon=1" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "maxconnections=250" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "masternode=1" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "rpcport=9193" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "listen=0" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:9191" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "masternodeprivkey=$privkey3" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "addnode=93.103.247.155" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "addnode=80.211.19.145" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "addnode=209.250.252.123" >> /home/securecloud3/.securecloud/securecloud.conf
-echo "addnode=128.199.164.15" >> /home/securecloud3/.securecloud/securecloud.conf
+sudo mkdir /home/baby3/.baby
+sudo touch /home/baby3/.baby/baby.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/baby3/.baby/baby.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/baby3/.baby/baby.conf
+echo "rpcallowip=127.0.0.1" >> /home/baby3/.baby/baby.conf
+echo "server=1" >> /home/baby3/.baby/baby.conf
+echo "daemon=1" >> /home/baby3/.baby/baby.conf
+echo "maxconnections=250" >> /home/baby3/.baby/baby.conf
+echo "masternode=1" >> /home/baby3/.baby/baby.conf
+echo "rpcport=55445" >> /home/baby3/.baby/baby.conf
+echo "listen=0" >> /home/baby3/.baby/baby.conf
+echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:55442" >> /home/baby3/.baby/baby.conf
+echo "masternodeprivkey=$privkey3" >> /home/baby3/.baby/baby.conf
+echo "addnode=93.103.247.155" >> /home/baby3/.baby/baby.conf
+echo "addnode=80.211.19.145" >> /home/baby3/.baby/baby.conf
+echo "addnode=209.250.252.123" >> /home/baby3/.baby/baby.conf
+echo "addnode=128.199.164.15" >> /home/baby3/.baby/baby.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for 4th node${NC}"
-sudo mkdir /home/securecloud4/.securecloud
-sudo touch /home/securecloud4/.securecloud/securecloud.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/securecloud4/.securecloud/securecloud.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/securecloud4/.securecloud/securecloud.conf
-echo "rpcallowip=127.0.0.1" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "server=1" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "daemon=1" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "maxconnections=250" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "masternode=1" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "rpcport=9194" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "listen=0" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:9191" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "masternodeprivkey=$privkey4" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "addnode=93.103.247.155" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "addnode=80.211.19.145" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "addnode=209.250.252.123" >> /home/securecloud4/.securecloud/securecloud.conf
-echo "addnode=128.199.164.15" >> /home/securecloud4/.securecloud/securecloud.conf
+sudo mkdir /home/baby4/.baby
+sudo touch /home/baby4/.baby/baby.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/baby4/.baby/baby.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/baby4/.baby/baby.conf
+echo "rpcallowip=127.0.0.1" >> /home/baby4/.baby/baby.conf
+echo "server=1" >> /home/baby4/.baby/baby.conf
+echo "daemon=1" >> /home/baby4/.baby/baby.conf
+echo "maxconnections=250" >> /home/baby4/.baby/baby.conf
+echo "masternode=1" >> /home/baby4/.baby/baby.conf
+echo "rpcport=55446" >> /home/baby4/.baby/baby.conf
+echo "listen=0" >> /home/baby4/.baby/baby.conf
+echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:55442" >> /home/baby4/.baby/baby.conf
+echo "masternodeprivkey=$privkey4" >> /home/baby4/.baby/baby.conf
+echo "addnode=93.103.247.155" >> /home/baby4/.baby/baby.conf
+echo "addnode=80.211.19.145" >> /home/baby4/.baby/baby.conf
+echo "addnode=209.250.252.123" >> /home/baby4/.baby/baby.conf
+echo "addnode=128.199.164.15" >> /home/baby4/.baby/baby.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
-securecloudd -datadir=/home/securecloud/.securecloud -daemon
+securecloudd -datadir=/home/baby/.baby -daemon
 sleep 10
-until securecloud-cli -datadir=/home/securecloud/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until securecloud-cli -datadir=/home/baby/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. You 1st masternode is running!"${NC}
 sleep 10
 echo "Syncing second node, please wait...";
-securecloudd -datadir=/home/securecloud2/.securecloud -daemon
+securecloudd -datadir=/home/baby2/.baby -daemon
 sleep 10
-until securecloud-cli -datadir=/home/securecloud2/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until securecloud-cli -datadir=/home/baby2/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. You second masternode is running!"${NC}
 sleep 10
 echo "Syncing third node, please wait...";
-securecloudd -datadir=/home/securecloud3/.securecloud -daemon
+securecloudd -datadir=/home/baby3/.baby -daemon
 sleep 10
-until securecloud-cli -datadir=/home/securecloud3/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until securecloud-cli -datadir=/home/baby3/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Third node is fully synced. You third masternode is running!"${NC}
 sleep 10
 echo "Syncing fourth node, please wait...";
-securecloudd -datadir=/home/securecloud4/.securecloud -daemon
+securecloudd -datadir=/home/baby4/.baby -daemon
 sleep 10
-until securecloud-cli -datadir=/home/securecloud4/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until securecloud-cli -datadir=/home/baby4/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Last node is fully synced. You fourth masternode is running!"${NC}
 echo ""
 echo -e ${GREEN}"Congrats! Your SecureCloud Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
 echo "If you think that this tutorial helped in some way, feel free to donate for our work:"
-echo "SecureCloudNet address: sUhHTix3QzMLFKKGiQ5U7s9MLJNopr3M6B"
+echo "Baby address: BBGZmMf6J9NLU8XvVt2czipoRn9a7VVVai"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
 echo "The END. You can close now the SSH terminal session";
