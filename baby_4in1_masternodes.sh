@@ -102,14 +102,14 @@ echo "rpcport=55444" >> /home/baby2/.baby/baby.conf
 echo "listen=0" >> /home/baby2/.baby/baby.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):55442" >> /home/baby2/.baby/baby.conf
 echo "masternodeprivkey=$privkey2" >> /home/baby2/.baby/baby.conf
-echo "addnode=38.103.14.250" >> /home/baby/.baby2/baby.conf
-echo "addnode=95.168.199.10" >> /home/baby/.baby2/baby.conf
-echo "addnode=80.211.150.131" >> /home/baby/.baby2/baby.conf
-echo "addnode=91.227.50.22" >> /home/baby/.baby2/baby.conf
-echo "addnode=118.189.177.112" >> /home/baby/.baby2/baby.conf
-echo "addnode=45.63.18.116" >> /home/baby/.baby2/baby.conf
-echo "addnode=119.29.145.194" >> /home/baby/.baby2/baby.conf
-echo "addnode=212.33.250.118" >> /home/baby/.baby2/baby.conf
+echo "addnode=38.103.14.250" >> /home/baby2/.baby/baby.conf
+echo "addnode=95.168.199.10" >> /home/baby2/.baby/baby.conf
+echo "addnode=80.211.150.131" >> /home/baby2/.baby/baby.conf
+echo "addnode=91.227.50.22" >> /home/baby2/.baby/baby.conf
+echo "addnode=118.189.177.112" >> /home/baby2/.baby/baby.conf
+echo "addnode=45.63.18.116" >> /home/baby2/.baby/baby.conf
+echo "addnode=119.29.145.194" >> /home/baby2/.baby/baby.conf
+echo "addnode=212.33.250.118" >> /home/baby2/.baby/baby.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for third node${NC}"
 sudo mkdir /home/baby3/.baby
@@ -125,14 +125,14 @@ echo "rpcport=55445" >> /home/baby3/.baby/baby.conf
 echo "listen=0" >> /home/baby3/.baby/baby.conf
 echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:55442" >> /home/baby3/.baby/baby.conf
 echo "masternodeprivkey=$privkey3" >> /home/baby3/.baby/baby.conf
-echo "addnode=38.103.14.250" >> /home/baby/.baby3/baby.conf
-echo "addnode=95.168.199.10" >> /home/baby/.baby3/baby.conf
-echo "addnode=80.211.150.131" >> /home/baby/.baby3/baby.conf
-echo "addnode=91.227.50.22" >> /home/baby/.baby3/baby.conf
-echo "addnode=118.189.177.112" >> /home/baby/.baby3/baby.conf
-echo "addnode=45.63.18.116" >> /home/baby/.baby3/baby.conf
-echo "addnode=119.29.145.194" >> /home/baby/.baby3/baby.conf
-echo "addnode=212.33.250.118" >> /home/baby/.baby3/baby.conf
+echo "addnode=38.103.14.250" >> /home/baby3/.baby/baby.conf
+echo "addnode=95.168.199.10" >> /home/baby3/.baby/baby.conf
+echo "addnode=80.211.150.131" >> /home/baby3/.baby/baby.conf
+echo "addnode=91.227.50.22" >> /home/baby3/.baby/baby.conf
+echo "addnode=118.189.177.112" >> /home/baby3/.baby/baby.conf
+echo "addnode=45.63.18.116" >> /home/baby3/.baby/baby.conf
+echo "addnode=119.29.145.194" >> /home/baby3/.baby/baby.conf
+echo "addnode=212.33.250.118" >> /home/baby3/.baby/baby.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for 4th node${NC}"
 sudo mkdir /home/baby4/.baby
@@ -148,14 +148,14 @@ echo "rpcport=55446" >> /home/baby4/.baby/baby.conf
 echo "listen=0" >> /home/baby4/.baby/baby.conf
 echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:55442" >> /home/baby4/.baby/baby.conf
 echo "masternodeprivkey=$privkey4" >> /home/baby4/.baby/baby.conf
-echo "addnode=38.103.14.250" >> /home/baby/.baby4/baby.conf
-echo "addnode=95.168.199.10" >> /home/baby/.baby4/baby.conf
-echo "addnode=80.211.150.131" >> /home/baby/.baby4/baby.conf
-echo "addnode=91.227.50.22" >> /home/baby/.baby4/baby.conf
-echo "addnode=118.189.177.112" >> /home/baby/.baby4/baby.conf
-echo "addnode=45.63.18.116" >> /home/baby/.baby4/baby.conf
-echo "addnode=119.29.145.194" >> /home/baby/.baby4/baby.conf
-echo "addnode=212.33.250.118" >> /home/baby/.baby4/baby.conf
+echo "addnode=38.103.14.250" >> /home/baby4/.baby/baby.conf
+echo "addnode=95.168.199.10" >> /home/baby4/.baby/baby.conf
+echo "addnode=80.211.150.131" >> /home/baby4/.baby/baby.conf
+echo "addnode=91.227.50.22" >> /home/baby4/.baby/baby.conf
+echo "addnode=118.189.177.112" >> /home/baby4/.baby/baby.conf
+echo "addnode=45.63.18.116" >> /home/baby4/.baby/baby.conf
+echo "addnode=119.29.145.194" >> /home/baby4/.baby/baby.conf
+echo "addnode=212.33.250.118" >> /home/baby4/.baby/baby.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
