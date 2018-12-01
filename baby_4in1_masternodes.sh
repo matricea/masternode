@@ -101,10 +101,14 @@ echo "rpcport=55444" >> /home/baby2/.baby/baby.conf
 echo "listen=0" >> /home/baby2/.baby/baby.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):55442" >> /home/baby2/.baby/baby.conf
 echo "masternodeprivkey=$privkey2" >> /home/baby2/.baby/baby.conf
-echo "addnode=93.103.247.155" >> /home/baby2/.baby/baby.conf
-echo "addnode=80.211.19.145" >> /home/baby2/.baby/baby.conf
-echo "addnode=209.250.252.123" >> /home/baby2/.baby/baby.conf
-echo "addnode=128.199.164.15" >> /home/baby2/.baby/baby.conf
+echo "addnode=38.103.14.250" >> /home/baby/.baby2/baby.conf
+echo "addnode=95.168.199.10" >> /home/baby/.baby2/baby.conf
+echo "addnode=80.211.150.131" >> /home/baby/.baby2/baby.conf
+echo "addnode=91.227.50.22" >> /home/baby/.baby2/baby.conf
+echo "addnode=118.189.177.112" >> /home/baby/.baby2/baby.conf
+echo "addnode=45.63.18.116" >> /home/baby/.baby2/baby.conf
+echo "addnode=119.29.145.194" >> /home/baby/.baby2/baby.conf
+echo "addnode=212.33.250.118" >> /home/baby/.baby2/baby.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for third node${NC}"
 sudo mkdir /home/baby3/.baby
@@ -120,10 +124,14 @@ echo "rpcport=55445" >> /home/baby3/.baby/baby.conf
 echo "listen=0" >> /home/baby3/.baby/baby.conf
 echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:55442" >> /home/baby3/.baby/baby.conf
 echo "masternodeprivkey=$privkey3" >> /home/baby3/.baby/baby.conf
-echo "addnode=93.103.247.155" >> /home/baby3/.baby/baby.conf
-echo "addnode=80.211.19.145" >> /home/baby3/.baby/baby.conf
-echo "addnode=209.250.252.123" >> /home/baby3/.baby/baby.conf
-echo "addnode=128.199.164.15" >> /home/baby3/.baby/baby.conf
+echo "addnode=38.103.14.250" >> /home/baby/.baby3/baby.conf
+echo "addnode=95.168.199.10" >> /home/baby/.baby3/baby.conf
+echo "addnode=80.211.150.131" >> /home/baby/.baby3/baby.conf
+echo "addnode=91.227.50.22" >> /home/baby/.baby3/baby.conf
+echo "addnode=118.189.177.112" >> /home/baby/.baby3/baby.conf
+echo "addnode=45.63.18.116" >> /home/baby/.baby3/baby.conf
+echo "addnode=119.29.145.194" >> /home/baby/.baby3/baby.conf
+echo "addnode=212.33.250.118" >> /home/baby/.baby3/baby.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for 4th node${NC}"
 sudo mkdir /home/baby4/.baby
@@ -139,37 +147,41 @@ echo "rpcport=55446" >> /home/baby4/.baby/baby.conf
 echo "listen=0" >> /home/baby4/.baby/baby.conf
 echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:55442" >> /home/baby4/.baby/baby.conf
 echo "masternodeprivkey=$privkey4" >> /home/baby4/.baby/baby.conf
-echo "addnode=93.103.247.155" >> /home/baby4/.baby/baby.conf
-echo "addnode=80.211.19.145" >> /home/baby4/.baby/baby.conf
-echo "addnode=209.250.252.123" >> /home/baby4/.baby/baby.conf
-echo "addnode=128.199.164.15" >> /home/baby4/.baby/baby.conf
+echo "addnode=38.103.14.250" >> /home/baby/.baby4/baby.conf
+echo "addnode=95.168.199.10" >> /home/baby/.baby4/baby.conf
+echo "addnode=80.211.150.131" >> /home/baby/.baby4/baby.conf
+echo "addnode=91.227.50.22" >> /home/baby/.baby4/baby.conf
+echo "addnode=118.189.177.112" >> /home/baby/.baby4/baby.conf
+echo "addnode=45.63.18.116" >> /home/baby/.baby4/baby.conf
+echo "addnode=119.29.145.194" >> /home/baby/.baby4/baby.conf
+echo "addnode=212.33.250.118" >> /home/baby/.baby4/baby.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
-securecloudd -datadir=/home/baby/.baby -daemon
+babyd -datadir=/home/baby/.baby -daemon
 sleep 10
-until securecloud-cli -datadir=/home/baby/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until baby-cli -datadir=/home/baby/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. You 1st masternode is running!"${NC}
 sleep 10
 echo "Syncing second node, please wait...";
-securecloudd -datadir=/home/baby2/.baby -daemon
+babyd -datadir=/home/baby2/.baby -daemon
 sleep 10
-until securecloud-cli -datadir=/home/baby2/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until baby-cli -datadir=/home/baby2/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. You second masternode is running!"${NC}
 sleep 10
 echo "Syncing third node, please wait...";
-securecloudd -datadir=/home/baby3/.baby -daemon
+babyd -datadir=/home/baby3/.baby -daemon
 sleep 10
-until securecloud-cli -datadir=/home/baby3/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until baby-cli -datadir=/home/baby3/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Third node is fully synced. You third masternode is running!"${NC}
 sleep 10
 echo "Syncing fourth node, please wait...";
-securecloudd -datadir=/home/baby4/.baby -daemon
+babyd -datadir=/home/baby4/.baby -daemon
 sleep 10
-until securecloud-cli -datadir=/home/baby4/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until baby-cli -datadir=/home/baby4/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Last node is fully synced. You fourth masternode is running!"${NC}
 echo ""
-echo -e ${GREEN}"Congrats! Your SecureCloud Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
+echo -e ${GREEN}"Congrats! Your Baby Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
 echo "If you think that this tutorial helped in some way, feel free to donate for our work:"
 echo "Baby address: BBGZmMf6J9NLU8XvVt2czipoRn9a7VVVai"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"

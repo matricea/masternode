@@ -171,6 +171,6 @@ echo -e ${GREEN}"Last node is fully synced. You fourth masternode is running!"${
 echo ""
 echo -e ${GREEN}"Congrats! Your Christmas coin Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
 echo "If you think that this tutorial helped in some way, feel free to donate for our work:"
-echo "Christmas coin address: "
+echo "Christmas coin address: CZN3AH8FWD1oqJJJcAkC8ngUbDmDsKbzxi"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
 echo "The END. You can close now the SSH terminal session";
