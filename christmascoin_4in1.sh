@@ -61,7 +61,7 @@ cd ~
 sudo mkdir /root/chmc
 cd /root/chmc
 wget https://github.com/Christmas-Coin/ChristmasCoin-Core/releases/download/2.1.0/christmascoin-2.1.0-i686-pc-linux.zip
-tar -xzvf christmascoin-2.1.0-i686-pc-linux.zip
+sudo unzip christmascoin-2.1.0-i686-pc-linux.zip
 sudo mv /root/chmc/christmascoind /root/chmc/christmascoin-cli /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/christmascoin*
 sudo mkdir /home/chmc/.chmc
