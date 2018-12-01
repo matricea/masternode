@@ -63,7 +63,7 @@ cd /root/baby
 wget https://github.com/babychain/BABY/releases/download/3.0.99/BABYCHAIN-Linuxdaemon-64bit.zip
 sudo unzip BABYCHAIN-Linuxdaemon-64bit.zip
 cd BABYCHAIN-Linuxdaemon-64bit
-sudo mv /root/baby/babyd /root/baby/baby-cli /root/baby/baby-tx /usr/local/bin
+sudo mv babyd baby-cli baby-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/baby*
 sudo mkdir /home/baby/.baby
 sudo touch /home/baby/.baby/baby.conf
