@@ -12,7 +12,7 @@ if [[ $(lsb_release -d) != *16.04* ]]; then
   exit 1
 fi
 
-echo -e ${YELLOW}"Welcome to the SecureCloud Automated Install, Durring this Process Please Hit Enter or Input What is Asked."${NC}
+echo -e ${YELLOW}"Welcome to the KingsCoin Automated Install, Durring this Process Please Hit Enter or Input What is Asked."${NC}
 echo
 echo -e ${YELLOW}"You Will See alot of code flashing across your screen, don't be alarmed it's supposed to do that. This process can take up to an hour and may appear to be stuck, but I can promise you it's not."${NC}
 echo
@@ -20,13 +20,19 @@ echo -e ${GREEN}"Are you sure you want to install SecureCloud Masternode? type y
 read AGREE
 
 if [[ $AGREE =~ "y" ]] ; then
-echo -e ${GREEN}"Please Enter Your Masternodes Private Key:"${NC}
+echo -e ${GREEN}"Please Enter Your Masternodes Private Key for the first node:"${NC}
 read privkey
 echo -e ${GREEN}"Please Enter Your Masternodes Private Key for second node:"${NC}
 read privkey2
-echo "Creating 2 SecureCloud system users with no-login access:"
+echo -e ${GREEN}"Please Enter Your Masternodes Private Key for the third node:"${NC}
+read privkey3
+echo -e ${GREEN}"Please Enter Your Masternodes Private Key for 4th node:"${NC}
+read privkey4
+echo "Creating 4 SecureCloud system users with no-login access:"
 sudo adduser --system --home /home/securecloud securecloud
 sudo adduser --system --home /home/securecloud2 securecloud2
+sudo adduser --system --home /home/securecloud3 securecloud3
+sudo adduser --system --home /home/securecloud4 securecloud4
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install software-properties-common
@@ -96,6 +102,44 @@ echo "addnode=80.211.19.145" >> /home/securecloud2/.securecloud/securecloud.conf
 echo "addnode=209.250.252.123" >> /home/securecloud2/.securecloud/securecloud.conf
 echo "addnode=128.199.164.15" >> /home/securecloud2/.securecloud/securecloud.conf
 sleep 5
+echo -e "${GREEN}Configuring Wallet for third node${NC}"
+sudo mkdir /home/securecloud3/.securecloud
+sudo touch /home/securecloud3/.securecloud/securecloud.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/securecloud3/.securecloud/securecloud.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/securecloud3/.securecloud/securecloud.conf
+echo "rpcallowip=127.0.0.1" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "server=1" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "daemon=1" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "maxconnections=250" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "masternode=1" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "rpcport=9193" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "listen=0" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:9191" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "masternodeprivkey=$privkey3" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "addnode=93.103.247.155" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "addnode=80.211.19.145" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "addnode=209.250.252.123" >> /home/securecloud3/.securecloud/securecloud.conf
+echo "addnode=128.199.164.15" >> /home/securecloud3/.securecloud/securecloud.conf
+sleep 5
+echo -e "${GREEN}Configuring Wallet for 4th node${NC}"
+sudo mkdir /home/securecloud4/.securecloud
+sudo touch /home/securecloud4/.securecloud/securecloud.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/securecloud4/.securecloud/securecloud.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/securecloud4/.securecloud/securecloud.conf
+echo "rpcallowip=127.0.0.1" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "server=1" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "daemon=1" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "maxconnections=250" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "masternode=1" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "rpcport=9194" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "listen=0" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:9191" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "masternodeprivkey=$privkey4" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "addnode=93.103.247.155" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "addnode=80.211.19.145" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "addnode=209.250.252.123" >> /home/securecloud4/.securecloud/securecloud.conf
+echo "addnode=128.199.164.15" >> /home/securecloud4/.securecloud/securecloud.conf
+sleep 5
 fi
 echo "Syncing first node, please wait...";
 securecloudd -datadir=/home/securecloud/.securecloud -daemon
@@ -107,9 +151,21 @@ echo "Syncing second node, please wait...";
 securecloudd -datadir=/home/securecloud2/.securecloud -daemon
 sleep 10
 until securecloud-cli -datadir=/home/securecloud2/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
-echo -e ${GREEN}"Second node is fully synced. You 1st masternode is running!"${NC}
+echo -e ${GREEN}"Second node is fully synced. You second masternode is running!"${NC}
+sleep 10
+echo "Syncing third node, please wait...";
+securecloudd -datadir=/home/securecloud3/.securecloud -daemon
+sleep 10
+until securecloud-cli -datadir=/home/securecloud3/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+echo -e ${GREEN}"Third node is fully synced. You third masternode is running!"${NC}
+sleep 10
+echo "Syncing fourth node, please wait...";
+securecloudd -datadir=/home/securecloud4/.securecloud -daemon
+sleep 10
+until securecloud-cli -datadir=/home/securecloud4/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+echo -e ${GREEN}"Last node is fully synced. You fourth masternode is running!"${NC}
 echo ""
-echo -e ${GREEN}"Congrats! Your SecureCloud Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
+echo -e ${GREEN}"Congrats! Your KingsCoin Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
 echo "If you think that this tutorial helped in some way, feel free to donate for our work:"
 echo "SecureCloudNet address: sUhHTix3QzMLFKKGiQ5U7s9MLJNopr3M6B"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"

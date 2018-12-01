@@ -16,7 +16,7 @@ echo -e ${YELLOW}"Welcome to the SecureCloud Automated Install, Durring this Pro
 echo
 echo -e ${YELLOW}"You Will See alot of code flashing across your screen, don't be alarmed it's supposed to do that. This process can take up to an hour and may appear to be stuck, but I can promise you it's not."${NC}
 echo
-echo -e ${GREEN}"Are you sure you want to install a SecureCloud Masternode? type y/n followed by [ENTER]:"${NC}
+echo -e ${GREEN}"Are you sure you want to install SecureCloud Masternode? type y/n followed by [ENTER]:"${NC}
 read AGREE
 
 if [[ $AGREE =~ "y" ]] ; then
@@ -33,31 +33,31 @@ sudo adduser --system --home /home/securecloud securecloud
 sudo adduser --system --home /home/securecloud2 securecloud2
 sudo adduser --system --home /home/securecloud3 securecloud3
 sudo adduser --system --home /home/securecloud4 securecloud4
-sudo apt-get -y update 
+sudo apt-get -y update
 sudo apt-get -y upgrade
-sudo apt-get -y install software-properties-common 
-sudo apt-get -y install build-essential  
-sudo apt-get -y install libtool autotools-dev autoconf automake  
-sudo apt-get -y install libssl-dev 
-sudo apt-get -y install libevent-dev 
-sudo apt-get -y install libboost-all-dev 
-sudo apt-get -y install pkg-config  
-sudo add-apt-repository ppa:bitcoin/bitcoin 
-sudo apt-get update 
-sudo apt-get -y install libdb4.8-dev 
-sudo apt-get -y install libdb4.8++-dev 
-sudo apt-get -y install libminiupnpc-dev libzmq3-dev libevent-pthreads-2.0-5 
+sudo apt-get -y install software-properties-common
+sudo apt-get -y install build-essential
+sudo apt-get -y install libtool autotools-dev autoconf automake
+sudo apt-get -y install libssl-dev
+sudo apt-get -y install libevent-dev
+sudo apt-get -y install libboost-all-dev
+sudo apt-get -y install pkg-config
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt-get update
+sudo apt-get -y install libdb4.8-dev
+sudo apt-get -y install libdb4.8++-dev
+sudo apt-get -y install libminiupnpc-dev libzmq3-dev libevent-pthreads-2.0-5
 sudo apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev
 sudo apt-get -y install libqrencode-dev bsdmainutils unzip
-#sudo apt install git 
-cd /var 
-sudo touch swap.img 
-sudo chmod 600 swap.img 
-sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=2000 
-sudo mkswap /var/swap.img 
-sudo swapon /var/swap.img 
+#sudo apt install git
+cd /var
+sudo touch swap.img
+sudo chmod 600 swap.img
+sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=2000
+sudo mkswap /var/swap.img
+sudo swapon /var/swap.img
 sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
-cd ~ 
+cd ~
 sudo mkdir /root/scn
 cd /root/scn
 wget https://github.com/securecloudnet/SecureCloud/releases/download/2.0.0/securecloud-2.0.0-x86_64-linux-gnu.tar.gz
@@ -101,7 +101,7 @@ echo "addnode=93.103.247.155" >> /home/securecloud2/.securecloud/securecloud.con
 echo "addnode=80.211.19.145" >> /home/securecloud2/.securecloud/securecloud.conf
 echo "addnode=209.250.252.123" >> /home/securecloud2/.securecloud/securecloud.conf
 echo "addnode=128.199.164.15" >> /home/securecloud2/.securecloud/securecloud.conf
-sleep 5 
+sleep 5
 echo -e "${GREEN}Configuring Wallet for third node${NC}"
 sudo mkdir /home/securecloud3/.securecloud
 sudo touch /home/securecloud3/.securecloud/securecloud.conf
@@ -120,7 +120,7 @@ echo "addnode=93.103.247.155" >> /home/securecloud3/.securecloud/securecloud.con
 echo "addnode=80.211.19.145" >> /home/securecloud3/.securecloud/securecloud.conf
 echo "addnode=209.250.252.123" >> /home/securecloud3/.securecloud/securecloud.conf
 echo "addnode=128.199.164.15" >> /home/securecloud3/.securecloud/securecloud.conf
-sleep 5 
+sleep 5
 echo -e "${GREEN}Configuring Wallet for 4th node${NC}"
 sudo mkdir /home/securecloud4/.securecloud
 sudo touch /home/securecloud4/.securecloud/securecloud.conf
@@ -139,29 +139,29 @@ echo "addnode=93.103.247.155" >> /home/securecloud4/.securecloud/securecloud.con
 echo "addnode=80.211.19.145" >> /home/securecloud4/.securecloud/securecloud.conf
 echo "addnode=209.250.252.123" >> /home/securecloud4/.securecloud/securecloud.conf
 echo "addnode=128.199.164.15" >> /home/securecloud4/.securecloud/securecloud.conf
-sleep 5 
+sleep 5
 fi
 echo "Syncing first node, please wait...";
 securecloudd -datadir=/home/securecloud/.securecloud -daemon
-sleep 10 
+sleep 10
 until securecloud-cli -datadir=/home/securecloud/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. You 1st masternode is running!"${NC}
 sleep 10
 echo "Syncing second node, please wait...";
 securecloudd -datadir=/home/securecloud2/.securecloud -daemon
-sleep 10 
+sleep 10
 until securecloud-cli -datadir=/home/securecloud2/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. You second masternode is running!"${NC}
 sleep 10
 echo "Syncing third node, please wait...";
 securecloudd -datadir=/home/securecloud3/.securecloud -daemon
-sleep 10 
+sleep 10
 until securecloud-cli -datadir=/home/securecloud3/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Third node is fully synced. You third masternode is running!"${NC}
 sleep 10
 echo "Syncing fourth node, please wait...";
 securecloudd -datadir=/home/securecloud4/.securecloud -daemon
-sleep 10 
+sleep 10
 until securecloud-cli -datadir=/home/securecloud4/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Last node is fully synced. You fourth masternode is running!"${NC}
 echo ""
