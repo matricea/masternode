@@ -62,87 +62,87 @@ sudo mkdir /root/chmc
 cd /root/chmc
 wget https://github.com/Christmas-Coin/ChristmasCoin-Core/releases/download/2.1.0/christmascoin-2.1.0-i686-pc-linux.zip
 sudo unzip christmascoin-2.1.0-i686-pc-linux.zip
-sudo mv /root/chmc/christmascoind /root/chmc/christmascoin-cli /usr/local/bin
+sudo mv /root/chmc/christmascoind /root/chmc/christmascoin-tx /root/chmc/christmascoin-cli /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/christmascoin*
 sudo mkdir /home/chmc/.chmc
-sudo touch /home/chmc/.chmc/chmc.conf
+sudo touch /home/chmc/.chmc/christmascoin.conf
 echo -e "${GREEN}Configuring Wallet for first node${NC}"
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/chmc/.chmc/chmc.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/chmc/.chmc/chmc.conf
-echo "rpcallowip=127.0.0.1" >> /home/chmc/.chmc/chmc.conf
-echo "server=1" >> /home/chmc/.chmc/chmc.conf
-echo "daemon=1" >> /home/chmc/.chmc/chmc.conf
-echo "maxconnections=250" >> /home/chmc/.chmc/chmc.conf
-echo "masternode=1" >> /home/chmc/.chmc/chmc.conf
-echo "rpcport=23799" >> /home/chmc/.chmc/chmc.conf
-echo "listen=0" >> /home/chmc/.chmc/chmc.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):23798" >> /home/chmc/.chmc/chmc.conf
-echo "masternodeprivkey=$privkey" >> /home/chmc/.chmc/chmc.conf
-echo "addnode=91.223.147.171" >> /home/chmc/.chmc/chmc.conf
-echo "addnode=80.211.240.4" >> /home/chmc/.chmc/chmc.conf
-echo "addnode=195.181.223.240" >> /home/chmc/.chmc/chmc.conf
-echo "addnode=80.211.46.133" >> /home/chmc/.chmc/chmc.conf
-echo "addnode=45.32.135.15" >> /home/chmc/.chmc/chmc.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/chmc/.chmc/christmascoin.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/chmc/.chmc/christmascoin.conf
+echo "rpcallowip=127.0.0.1" >> /home/chmc/.chmc/christmascoin.conf
+echo "server=1" >> /home/chmc/.chmc/christmascoin.conf
+echo "daemon=1" >> /home/chmc/.chmc/christmascoin.conf
+echo "maxconnections=250" >> /home/chmc/.chmc/christmascoin.conf
+echo "masternode=1" >> /home/chmc/.chmc/christmascoin.conf
+echo "rpcport=23799" >> /home/chmc/.chmc/christmascoin.conf
+echo "listen=0" >> /home/chmc/.chmc/christmascoin.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):23798" >> /home/chmc/.chmc/christmascoin.conf
+echo "masternodeprivkey=$privkey" >> /home/chmc/.chmc/christmascoin.conf
+echo "addnode=91.223.147.171" >> /home/chmc/.chmc/christmascoin.conf
+echo "addnode=80.211.240.4" >> /home/chmc/.chmc/christmascoin.conf
+echo "addnode=195.181.223.240" >> /home/chmc/.chmc/christmascoin.conf
+echo "addnode=80.211.46.133" >> /home/chmc/.chmc/christmascoin.conf
+echo "addnode=45.32.135.15" >> /home/chmc/.chmc/christmascoin.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for second node${NC}"
 sudo mkdir /home/chmc2/.chmc/
-sudo touch /home/chmc2/.chmc/chmc.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/chmc2/.chmc/chmc.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/chmc2/.chmc/chmc.conf
-echo "rpcallowip=127.0.0.1" >> /home/chmc2/.chmc/chmc.conf
-echo "server=1" >> /home/chmc2/.chmc/chmc.conf
-echo "daemon=1" >> /home/chmc2/.chmc/chmc.conf
-echo "maxconnections=250" >> /home/chmc2/.chmc/chmc.conf
-echo "masternode=1" >> /home/chmc2/.chmc/chmc.conf
-echo "rpcport=23800" >> /home/chmc2/.chmc/chmc.conf
-echo "listen=0" >> /home/chmc2/.chmc/chmc.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):23798" >> /home/chmc2/.chmc/chmc.conf
-echo "masternodeprivkey=$privkey2" >> /home/chmc2/.chmc/chmc.conf
-echo "addnode=91.223.147.171" >> /home/chmc2/.chmc/chmc.conf
-echo "addnode=80.211.240.4" >> /home/chmc2/.chmc/chmc.conf
-echo "addnode=195.181.223.240" >> /home/chmc2/.chmc/chmc.conf
-echo "addnode=80.211.46.133" >> /home/chmc2/.chmc/chmc.conf
-echo "addnode=45.32.135.15" >> /home/chmc2/.chmc/chmc.conf
+sudo touch /home/chmc2/.chmc/christmascoin.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/chmc2/.chmc/christmascoin.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/chmc2/.chmc/christmascoin.conf
+echo "rpcallowip=127.0.0.1" >> /home/chmc2/.chmc/christmascoin.conf
+echo "server=1" >> /home/chmc2/.chmc/christmascoin.conf
+echo "daemon=1" >> /home/chmc2/.chmc/christmascoin.conf
+echo "maxconnections=250" >> /home/chmc2/.chmc/christmascoin.conf
+echo "masternode=1" >> /home/chmc2/.chmc/christmascoin.conf
+echo "rpcport=23800" >> /home/chmc2/.chmc/christmascoin.conf
+echo "listen=0" >> /home/chmc2/.chmc/christmascoin.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):23798" >> /home/chmc2/.chmc/christmascoin.conf
+echo "masternodeprivkey=$privkey2" >> /home/chmc2/.chmc/christmascoin.conf
+echo "addnode=91.223.147.171" >> /home/chmc2/.chmc/christmascoin.conf
+echo "addnode=80.211.240.4" >> /home/chmc2/.chmc/christmascoin.conf
+echo "addnode=195.181.223.240" >> /home/chmc2/.chmc/christmascoin.conf
+echo "addnode=80.211.46.133" >> /home/chmc2/.chmc/christmascoin.conf
+echo "addnode=45.32.135.15" >> /home/chmc2/.chmc/christmascoin.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for third node${NC}"
 sudo mkdir /home/chmc3/.chmc/
-sudo touch /home/chmc3/.chmc/chmc.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/chmc3/.chmc/chmc.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/chmc3/.chmc/chmc.conf
-echo "rpcallowip=127.0.0.1" >> /home/chmc3/.chmc/chmc.conf
-echo "server=1" >> /home/chmc3/.chmc/chmc.conf
-echo "daemon=1" >> /home/chmc3/.chmc/chmc.conf
-echo "maxconnections=250" >> /home/chmc3/.chmc/chmc.conf
-echo "masternode=1" >> /home/chmc3/.chmc/chmc.conf
-echo "rpcport=23801" >> /home/chmc3/.chmc/chmc.conf
-echo "listen=0" >> /home/chmc3/.chmc/chmc.conf
-echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:23798" >> /home/chmc3/.chmc/chmc.conf
-echo "masternodeprivkey=$privkey3" >> /home/chmc3/.chmc/chmc.conf
-echo "addnode=91.223.147.171" >> /home/chmc3/.chmc/chmc.conf
-echo "addnode=80.211.240.4" >> /home/chmc3/.chmc/chmc.conf
-echo "addnode=195.181.223.240" >> /home/chmc3/.chmc/chmc.conf
-echo "addnode=80.211.46.133" >> /home/chmc3/.chmc/chmc.conf
-echo "addnode=45.32.135.15" >> /home/chmc3/.chmc/chmc.conf
+sudo touch /home/chmc3/.chmc/christmascoin.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/chmc3/.chmc/christmascoin.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/chmc3/.chmc/christmascoin.conf
+echo "rpcallowip=127.0.0.1" >> /home/chmc3/.chmc/christmascoin.conf
+echo "server=1" >> /home/chmc3/.chmc/christmascoin.conf
+echo "daemon=1" >> /home/chmc3/.chmc/christmascoin.conf
+echo "maxconnections=250" >> /home/chmc3/.chmc/christmascoin.conf
+echo "masternode=1" >> /home/chmc3/.chmc/christmascoin.conf
+echo "rpcport=23801" >> /home/chmc3/.chmc/christmascoin.conf
+echo "listen=0" >> /home/chmc3/.chmc/christmascoin.conf
+echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:23798" >> /home/chmc3/.chmc/christmascoin.conf
+echo "masternodeprivkey=$privkey3" >> /home/chmc3/.chmc/christmascoin.conf
+echo "addnode=91.223.147.171" >> /home/chmc3/.chmc/christmascoin.conf
+echo "addnode=80.211.240.4" >> /home/chmc3/.chmc/christmascoin.conf
+echo "addnode=195.181.223.240" >> /home/chmc3/.chmc/christmascoin.conf
+echo "addnode=80.211.46.133" >> /home/chmc3/.chmc/christmascoin.conf
+echo "addnode=45.32.135.15" >> /home/chmc3/.chmc/christmascoin.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for 4th node${NC}"
 sudo mkdir /home/chmc4/.chmc/
-sudo touch /home/chmc4/.chmc/chmc.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/chmc4/.chmc/chmc.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/chmc4/.chmc/chmc.conf
-echo "rpcallowip=127.0.0.1" >> /home/chmc4/.chmc/chmc.conf
-echo "server=1" >> /home/chmc4/.chmc/chmc.conf
-echo "daemon=1" >> /home/chmc4/.chmc/chmc.conf
-echo "maxconnections=250" >> /home/chmc4/.chmc/chmc.conf
-echo "masternode=1" >> /home/chmc4/.chmc/chmc.conf
-echo "rpcport=23802" >> /home/chmc4/.chmc/chmc.conf
-echo "listen=0" >> /home/chmc4/.chmc/chmc.conf
-echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:23798" >> /home/chmc4/.chmc/chmc.conf
-echo "masternodeprivkey=$privkey4" >> /home/chmc4/.chmc/chmc.conf
-echo "addnode=91.223.147.171" >> /home/chmc3/.chmc/chmc.conf
-echo "addnode=80.211.240.4" >> /home/chmc3/.chmc/chmc.conf
-echo "addnode=195.181.223.240" >> /home/chmc3/.chmc/chmc.conf
-echo "addnode=80.211.46.133" >> /home/chmc3/.chmc/chmc.conf
-echo "addnode=45.32.135.15" >> /home/chmc3/.chmc/chmc.conf
+sudo touch /home/chmc4/.chmc/christmascoin.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/chmc4/.chmc/christmascoin.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/chmc4/.chmc/christmascoin.conf
+echo "rpcallowip=127.0.0.1" >> /home/chmc4/.chmc/christmascoin.conf
+echo "server=1" >> /home/chmc4/.chmc/christmascoin.conf
+echo "daemon=1" >> /home/chmc4/.chmc/christmascoin.conf
+echo "maxconnections=250" >> /home/chmc4/.chmc/christmascoin.conf
+echo "masternode=1" >> /home/chmc4/.chmc/christmascoin.conf
+echo "rpcport=23802" >> /home/chmc4/.chmc/christmascoin.conf
+echo "listen=0" >> /home/chmc4/.chmc/christmascoin.conf
+echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:23798" >> /home/chmc4/.chmc/christmascoin.conf
+echo "masternodeprivkey=$privkey4" >> /home/chmc4/.chmc/christmascoin.conf
+echo "addnode=91.223.147.171" >> /home/chmc3/.chmc/christmascoin.conf
+echo "addnode=80.211.240.4" >> /home/chmc3/.chmc/christmascoin.conf
+echo "addnode=195.181.223.240" >> /home/chmc3/.chmc/christmascoin.conf
+echo "addnode=80.211.46.133" >> /home/chmc3/.chmc/christmascoin.conf
+echo "addnode=45.32.135.15" >> /home/chmc3/.chmc/christmascoin.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
