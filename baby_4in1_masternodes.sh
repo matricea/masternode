@@ -45,7 +45,7 @@ sudo apt-get -y install pkg-config
 sudo add-apt-repository ppa:bitcoin/bitcoin
 sudo apt-get update
 sudo apt-get -y install libdb4.8-dev
-#sudo apt-get -y install libdb4.8++-dev 
+#sudo apt-get -y install libdb4.8++-dev
 sudo apt-get -y install libdb++-dev
 sudo apt-get -y install libminiupnpc-dev libzmq3-dev libevent-pthreads-2.0-5
 sudo apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev
@@ -163,25 +163,25 @@ echo "Syncing first node, please wait...";
 babyd -datadir=/home/baby/.baby -daemon
 sleep 10
 until baby-cli -datadir=/home/baby/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
-echo -e ${GREEN}"First node is fully synced. You 1st masternode is running!"${NC}
+echo -e ${GREEN}"First node is fully synced. Your 1st masternode is running!"${NC}
 sleep 10
 echo "Syncing second node, please wait...";
 babyd -datadir=/home/baby2/.baby -daemon
 sleep 10
 until baby-cli -datadir=/home/baby2/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
-echo -e ${GREEN}"Second node is fully synced. You second masternode is running!"${NC}
+echo -e ${GREEN}"Second node is fully synced. Your second masternode is running!"${NC}
 sleep 10
 echo "Syncing third node, please wait...";
 babyd -datadir=/home/baby3/.baby -daemon
 sleep 10
 until baby-cli -datadir=/home/baby3/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
-echo -e ${GREEN}"Third node is fully synced. You third masternode is running!"${NC}
+echo -e ${GREEN}"Third node is fully synced. Your third masternode is running!"${NC}
 sleep 10
 echo "Syncing fourth node, please wait...";
 babyd -datadir=/home/baby4/.baby -daemon
 sleep 10
 until baby-cli -datadir=/home/baby4/.baby mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
-echo -e ${GREEN}"Last node is fully synced. You fourth masternode is running!"${NC}
+echo -e ${GREEN}"Last node is fully synced. Your fourth masternode is running!"${NC}
 echo ""
 echo -e ${GREEN}"Congrats! Your Baby Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
 echo "If you think that this tutorial helped in some way, feel free to donate for our work:"
