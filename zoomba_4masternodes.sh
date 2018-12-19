@@ -82,14 +82,33 @@ cd /home/zoomba4
 sudo mkdir /home/zoomba4/.zoomba
 sudo touch /home/zoomba4/.zoomba/zoomba.conf
 echo -e "rpcuser=dsfjkdsui3874djnaiksk\nrpcpassword=dskasiue98873kjeih87iakj\nrpcallowip=127.0.0.1\nrpcport=5538\nbind=[$(hostname  -I | cut -f2 -d' ')]\ndaemon=1\nserver=1\nport=5537\nlisten=0\nmasternode=1\nlogtimestamps=1\nmaxconnections=256\nmasternodeprivkey=$privkey4\nexternalIP=[$(hostname  -I | cut -f2 -d' ')]:5530\naddnode=217.69.4.225\naddnode=45.63.97.39\naddnode=136.0.9.13\naddnode=140.82.23.12\naddnode=80.211.184.163\naddnode=196.52.39.2\naddnode=173.239.219.13\naddnode=27.189.70.231\naddnode=201.69.111.172\naddnode=178.137.160.217\naddnode=94.194.188.35\naddnode=136.0.9.13\naddnode=24.159.113.249\naddnode=190.101.28.249\naddnode=173.239.210.39\naddnode=136.0.9.5\naddnode=149.28.236.13" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "Syncing..."
+sleep 5
+echo "Syncing first node, please wait...";
 zoombad -datadir=/home/zoomba/.zoomba -daemon
-sleep 3000
+sleep 10
+until zoomba-cli -datadir=/home/zoomba/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
+echo -e ${GREEN}"First node is fully synced. Your 1st masternode is running!"${NC}
+sleep 10
+echo "Syncing second node, please wait...";
 zoombad -datadir=/home/zoomba2/.zoomba -daemon
-sleep 2000
+sleep 10
+until zoomba-cli -datadir=/home/zoomba2/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
+echo -e ${GREEN}"Second node is fully synced. Your second masternode is running!"${NC}
+sleep 10
+echo "Syncing third node, please wait...";
 zoombad -datadir=/home/zoomba3/.zoomba -daemon
-sleep 1000
+sleep 10
+until zoomba-cli -datadir=/home/zoomba3/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
+echo -e ${GREEN}"Third node is fully synced. Your third masternode is running!"${NC}
+sleep 10
+echo "Syncing fourth node, please wait...";
 zoombad -datadir=/home/zoomba4/.zoomba -daemon
-sleep 500
-echo -e ${GREEN}"Congrats! Your Masternode is now installed and has started. Please wait from 10-60 minutes in order to give the masternode enough time to sync, then start the node from your Windows wallet."${NC}
-fi
+sleep 10
+until zoomba-cli -datadir=/home/zoomba4/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
+echo -e ${GREEN}"Last node is fully synced. Your fourth masternode is running!"${NC}
+echo ""
+echo -e ${GREEN}"Congrats! Your Christmas coin Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
+echo "If you think that this tutorial helped in some way, feel free to donate for our work:"
+echo "Christmas coin address: CZN3AH8FWD1oqJJJcAkC8ngUbDmDsKbzxi"
+echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
+echo "The END. You can close now the SSH terminal session";
