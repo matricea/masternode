@@ -112,3 +112,4 @@ echo "If you think that this tutorial helped in some way, feel free to donate fo
 echo "Zoomba coin address: Zh41h9gnCRxDvWaAF1RJonFZNMRDxyTinT"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
 echo "The END. You can close now the SSH terminal session";
+fi
