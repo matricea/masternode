@@ -49,6 +49,15 @@ sudo apt-get -y install libdb4.8++-dev
 sudo apt-get -y install libminiupnpc-dev libzmq3-dev libevent-pthreads-2.0-5
 sudo apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev
 sudo apt-get -y install libqrencode-dev bsdmainutils unzip
+sudo apt-get -y install libqrencode-dev bsdmainutils unzip
+echo "Installing Fail2ban and Ufw(Firewall)"
+sudo apt-get -y install fail2ban ufw
+service fail2ban restart
+ufw default deny incoming
+ufw default allow outgoing
+ufw allow ssh
+ufw allow 1777/tcp
+yes | ufw enable
 #sudo apt install git
 cd /var
 sudo touch swap.img
