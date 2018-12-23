@@ -184,7 +184,7 @@ until baby-cli -datadir=/home/baby4/.baby mnsync status | grep -m 1 '"IsBlockcha
 echo -e ${GREEN}"Last node is fully synced. Your fourth masternode is running!"${NC}
 echo ""
 echo -e ${GREEN}"Congrats! Your Baby Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
-echo "If you think that this tutorial helped in some way, feel free to donate for our work:"
+echo "If you think that this script helped in some way, feel free to donate for our work:"
 echo "Baby address: BBGZmMf6J9NLU8XvVt2czipoRn9a7VVVai"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
 echo "The END. You can close now the SSH terminal session";
