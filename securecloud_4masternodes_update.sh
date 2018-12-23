@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 echo -e ${YELLOW}"Welcome to the SecureCloud Automated Update."${NC}
 echo "Please wait while updates are performed..."
