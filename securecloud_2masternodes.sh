@@ -54,10 +54,11 @@ sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd ~
 sudo mkdir /root/scn
 cd /root/scn
-wget https://github.com/securecloudnet/SecureCloud/releases/download/2.0.0/securecloud-2.0.0-x86_64-linux-gnu.tar.gz
-tar -xzvf securecloud-2.0.0-x86_64-linux-gnu.tar.gz
+wget https://github.com/securecloudnet/SecureCloud/releases/download/2.1.0/securecloud-2.1.0-x86_64-linux-gnu.tar.gz
+tar -xzvf securecloud-2.1.0-x86_64-linux-gnu.tar.gz
 sudo mv /root/scn/securecloudd /root/scn/securecloud-cli /root/scn/securecloud-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/securecloud*
+rm -rf securecloud-2.1.0-x86_64-linux-gnu.tar.gz
 sudo mkdir /home/securecloud/.securecloud
 sudo touch /home/securecloud/.securecloud/securecloud.conf
 echo -e "${GREEN}Configuring Wallet for first node${NC}"
