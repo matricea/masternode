@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#Setup Variables
+GREEN='\033[0;32m'
+YELLOW='\033[0;93m'
+RED='\033[0;31m'
+NC='\033[0m'
+
 echo -e ${YELLOW}"Welcome to the SecureCloud Automated Update."${NC}
 echo "Please wait while updates are performed..."
 sleep 10
