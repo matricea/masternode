@@ -117,7 +117,7 @@ until zoomba-cli -datadir=/home/zoomba4/.zoomba mnsync status | grep -m 1 '"IsBl
 echo -e ${GREEN}"Last node is fully synced. Your fourth masternode is running!"${NC}
 echo ""
 echo -e ${GREEN}"Congrats! Your Zoomba coin Masternodes are now installed and started. Please wait from 20-30 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
-echo "If you think that this tutorial helped in some way, feel free to donate for our work:"
+echo "If you think that this script helped in some way, feel free to donate for our work:"
 echo "Zoomba coin address: Zh41h9gnCRxDvWaAF1RJonFZNMRDxyTinT"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
 echo "The END. You can close now the SSH terminal session";
