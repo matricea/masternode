@@ -2,6 +2,7 @@
 
 echo -e ${YELLOW}"Welcome to the SecureCloud Automated Update."${NC}
 echo "Please wait while updates are performed..."
+sleep 10
 cd ~
 cd /usr/local/bin
 echo "Stopping first node, please wait...";
@@ -12,6 +13,7 @@ echo "Stopping third node, please wait...";
 securecloud-cli -datadir=/home/securecloud3/.securecloud stop
 echo "Stopping fourth node, please wait...";
 securecloud-cli -datadir=/home/securecloud4/.securecloud stop
+sleep 10
 echo "Removing binaries..."
 rm -rf securecloudd securecloud-cli securecloud-tx
 echo "Downloading latest binaries"
@@ -38,7 +40,7 @@ until securecloud-cli -datadir=/home/securecloud4/.securecloud mnsync status | g
 echo -e ${GREEN}"Fourth node is fully synced. Your masternode is running!"${NC}
 sleep 5
 rm -rf securecloud-2.1.0-x86_64-linux-gnu.tar.gz
-echo "If you think that this script helped in some way, feel free to donate for our work:"
-echo "SecureCloudNet address: sUhHTix3QzMLFKKGiQ5U7s9MLJNopr3M6B"
-echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
-echo "The END. You can close now the SSH terminal session";
+echo -e ${GREEN}"If you think that this script helped in some way, feel free to donate for our work:"${NC}
+echo -e ${GREEN}"SecureCloudNet address: sUhHTix3QzMLFKKGiQ5U7s9MLJNopr3M6B"${NC}
+echo -e ${GREEN}"LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"${NC}
+echo -e ${GREEN}"The END. You can close now the SSH terminal session"${NC};
