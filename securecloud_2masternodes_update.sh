@@ -8,7 +8,7 @@ NC='\033[0m'
 
 echo -e ${YELLOW}"Welcome to the SecureCloud Automated Update."${NC}
 echo "Please wait while updates are performed..."
-sleep 10
+sleep 5
 cd ~
 cd /usr/local/bin
 echo "Stopping first node, please wait...";
