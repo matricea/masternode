@@ -70,8 +70,9 @@ cd /root
 wget https://github.com/kingscrypto/KINGSCOIN/releases/download/v1.1.1.1/kingscoin-1.1.1.1-Ubuntu16.tar.gz
 tar -xzf kingscoin-1.1.1.1-Ubuntu16.tar.gz
 cd kingscoin-1.1.1.1
-sudo mv /root/kingscoin/kingscoind /root/kingscoin/kingscoin-cli /root/kingscoin/kingscoin-tx /usr/local/bin
+sudo mv kingscoind kingscoin-cli kingscoin-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/kingscoin*
+cd /root
 sudo mkdir /home/kingscoin/.kingscoin
 sudo touch /home/kingscoin/.kingscoin/kingscoin.conf
 echo -e "${GREEN}Configuring Wallet for first node${NC}"
