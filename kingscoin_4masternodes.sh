@@ -67,12 +67,13 @@ sudo mkswap /var/swap.img
 sudo swapon /var/swap.img
 sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd ~
-sudo mkdir /root//kingscoin
+sudo mkdir /root/kingscoin
 cd /root/kingscoin
-wget https://github.com/kingscrypto/KINGSCOIN/releases/download/1.0.0/kingscoin-1.0.0-x86_64-linux-gnu.tar.gz
-tar -xzvf kingscoin-1.0.0-x86_64-linux-gnu.tar.gz
+wget https://github.com/kingscrypto/KINGSCOIN/releases/download/v1.1.1.1/kingscoin-1.1.1.1-Ubuntu16.tar.gz
+tar -xzf kingscoin-1.1.1.1-Ubuntu16.tar.gz
 sudo mv /root/kingscoin/kingscoind /root/kingscoin/kingscoin-cli /root/kingscoin/kingscoin-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/kingscoin*
+rm -rf kingscoin-1.1.1.1-Ubuntu16.tar.gz
 sudo mkdir /home/kingscoin/.kingscoin
 sudo touch /home/kingscoin/.kingscoin/kingscoin.conf
 echo -e "${GREEN}Configuring Wallet for first node${NC}"
