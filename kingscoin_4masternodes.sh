@@ -62,18 +62,16 @@ yes | ufw enable
 cd /var
 sudo touch swap.img
 sudo chmod 600 swap.img
-sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=2000
+sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=4096
 sudo mkswap /var/swap.img
 sudo swapon /var/swap.img
 sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
-cd ~
-sudo mkdir /root/kingscoin
-cd /root/kingscoin
+cd /root
 wget https://github.com/kingscrypto/KINGSCOIN/releases/download/v1.1.1.1/kingscoin-1.1.1.1-Ubuntu16.tar.gz
 tar -xzf kingscoin-1.1.1.1-Ubuntu16.tar.gz
+cd kingscoin-1.1.1.1
 sudo mv /root/kingscoin/kingscoind /root/kingscoin/kingscoin-cli /root/kingscoin/kingscoin-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/kingscoin*
-rm -rf kingscoin-1.1.1.1-Ubuntu16.tar.gz
 sudo mkdir /home/kingscoin/.kingscoin
 sudo touch /home/kingscoin/.kingscoin/kingscoin.conf
 echo -e "${GREEN}Configuring Wallet for first node${NC}"
@@ -88,10 +86,6 @@ echo "rpcport=1778" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "listen=0" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):1777" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "masternodeprivkey=$privkey" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=80.211.174.239" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=80.211.45.25" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=80.211.40.41" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=185.43.210.213" >> /home/kingscoin/.kingscoin/kingscoin.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for second node${NC}"
 sudo mkdir /home/kingscoin2/.kingscoin
@@ -107,10 +101,6 @@ echo "rpcport=1779" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "listen=0" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):1777" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "masternodeprivkey=$privkey2" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "addnode=80.211.174.239" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "addnode=80.211.45.25" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "addnode=80.211.40.41" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "addnode=185.43.210.213" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for third node${NC}"
 sudo mkdir /home/kingscoin3/.kingscoin
@@ -126,10 +116,6 @@ echo "rpcport=1780" >> /home/kingscoin3/.kingscoin/kingscoin.conf
 echo "listen=0" >> /home/kingscoin3/.kingscoin/kingscoin.conf
 echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:1777" >> /home/kingscoin3/.kingscoin/kingscoin.conf
 echo "masternodeprivkey=$privkey3" >> /home/kingscoin3/.kingscoin/kingscoin.conf
-echo "addnode=80.211.174.239" >> /home/kingscoin3/.kingscoin/kingscoin.conf
-echo "addnode=80.211.45.25" >> /home/kingscoin3/.kingscoin/kingscoin.conf
-echo "addnode=80.211.40.41" >> /home/kingscoin3/.kingscoin/kingscoin.conf
-echo "addnode=185.43.210.213" >> /home/kingscoin3/.kingscoin/kingscoin.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for 4th node${NC}"
 sudo mkdir /home/kingscoin4/.kingscoin
@@ -145,10 +131,6 @@ echo "rpcport=1781" >> /home/kingscoin4/.kingscoin/kingscoin.conf
 echo "listen=0" >> /home/kingscoin4/.kingscoin/kingscoin.conf
 echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:1777" >> /home/kingscoin4/.kingscoin/kingscoin.conf
 echo "masternodeprivkey=$privkey4" >> /home/kingscoin4/.kingscoin/kingscoin.conf
-echo "addnode=80.211.174.239" >> /home/kingscoin4/.kingscoin/kingscoin.conf
-echo "addnode=80.211.45.25" >> /home/kingscoin4/.kingscoin/kingscoin.conf
-echo "addnode=80.211.40.41" >> /home/kingscoin4/.kingscoin/kingscoin.conf
-echo "addnode=185.43.210.213" >> /home/kingscoin4/.kingscoin/kingscoin.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
@@ -176,6 +158,11 @@ until kingscoin-cli -datadir=/home/kingscoin4/.kingscoin mnsync status | grep -m
 echo -e ${GREEN}"Last node is fully synced. Your fourth masternode is running!"${NC}
 echo ""
 echo -e ${GREEN}"Congrats! Your KingsCoin Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
+echo "Deleting temporary files"
+cd /root
+rm -rf /root/kingscoin-1.1.1.1
+rm -rf /root/kingscoin-1.1.1.1-Ubuntu16.tar.gz
+rm -rf /root/kingscoin_4masternodes.sh
 echo "If you think that this script helped in some way, feel free to donate for our work:"
 echo "KingsCoins address: K8cKv7AdK8Z8TVvADKKSTT8MvwmbnGxR3j"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
