@@ -87,6 +87,10 @@ echo "rpcport=1778" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "listen=0" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):1777" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "masternodeprivkey=$privkey" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=159.69.31.239" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=80.211.16.64" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=173.212.21" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=207.180.196.173" >> /home/kingscoin/.kingscoin/kingscoin.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for second node${NC}"
 sudo mkdir /home/kingscoin2/.kingscoin
@@ -102,6 +106,10 @@ echo "rpcport=1779" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "listen=0" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):1777" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "masternodeprivkey=$privkey2" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+echo "addnode=159.69.31.239" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=80.211.16.64" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=173.212.21" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=207.180.196.173" >> /home/kingscoin/.kingscoin/kingscoin.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for third node${NC}"
 sudo mkdir /home/kingscoin3/.kingscoin
@@ -117,6 +125,10 @@ echo "rpcport=1780" >> /home/kingscoin3/.kingscoin/kingscoin.conf
 echo "listen=0" >> /home/kingscoin3/.kingscoin/kingscoin.conf
 echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:1777" >> /home/kingscoin3/.kingscoin/kingscoin.conf
 echo "masternodeprivkey=$privkey3" >> /home/kingscoin3/.kingscoin/kingscoin.conf
+echo "addnode=159.69.31.239" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=80.211.16.64" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=173.212.21" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=207.180.196.173" >> /home/kingscoin/.kingscoin/kingscoin.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for 4th node${NC}"
 sudo mkdir /home/kingscoin4/.kingscoin
@@ -132,6 +144,10 @@ echo "rpcport=1781" >> /home/kingscoin4/.kingscoin/kingscoin.conf
 echo "listen=0" >> /home/kingscoin4/.kingscoin/kingscoin.conf
 echo "externalip=[$(hostname  -I | cut -f2 -d' ')]:1777" >> /home/kingscoin4/.kingscoin/kingscoin.conf
 echo "masternodeprivkey=$privkey4" >> /home/kingscoin4/.kingscoin/kingscoin.conf
+echo "addnode=159.69.31.239" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=80.211.16.64" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=173.212.21" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=207.180.196.173" >> /home/kingscoin/.kingscoin/kingscoin.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";

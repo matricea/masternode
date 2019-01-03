@@ -28,11 +28,34 @@ tar -xzf kingscoin-1.1.1.1-Ubuntu16.tar.gz
 cd kingscoin-1.1.1.1
 sudo mv kingscoind kingscoin-cli kingscoin-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/kingscoin*
+
 echo "Deleting old nodes from node config files"
 sed -i '/addnode/d' /home/kingscoin/.kingscoin/kingscoin.conf
 sed -i '/addnode/d' /home/kingscoin2/.kingscoin/kingscoin.conf
 sed -i '/addnode/d' /home/kingscoin3/.kingscoin/kingscoin.conf
 sed -i '/addnode/d' /home/kingscoin4/.kingscoin/kingscoin.conf
+
+echo "Adding new nodes..."
+echo "addnode=159.69.31.239" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=80.211.16.64" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=173.212.21" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "addnode=207.180.196.173" >> /home/kingscoin/.kingscoin/kingscoin.conf
+
+echo "addnode=159.69.31.239" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+echo "addnode=80.211.16.64" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+echo "addnode=173.212.21" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+echo "addnode=207.180.196.173" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+
+echo "addnode=159.69.31.239" >> /home/kingscoin3/.kingscoin/kingscoin.conf
+echo "addnode=80.211.16.64" >> /home/kingscoin3/.kingscoin/kingscoin.conf
+echo "addnode=173.212.21" >> /home/kingscoin3/.kingscoin/kingscoin.conf
+echo "addnode=207.180.196.173" >> /home/kingscoin3/.kingscoin/kingscoin.conf
+
+echo "addnode=159.69.31.239" >> /home/kingscoin4/.kingscoin/kingscoin.conf
+echo "addnode=80.211.16.64" >> /home/kingscoin4/.kingscoin/kingscoin.conf
+echo "addnode=173.212.21" >> /home/kingscoin4/.kingscoin/kingscoin.conf
+echo "addnode=207.180.196.173" >> /home/kingscoin4/.kingscoin/kingscoin.conf
+
 echo "Syncing first node, please wait...";
 kingscoind -datadir=/home/kingscoin/.kingscoin -daemon
 until kingscoin-cli -datadir=/home/kingscoin/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
