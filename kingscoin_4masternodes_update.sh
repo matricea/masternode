@@ -49,7 +49,9 @@ kingscoind -datadir=/home/kingscoin4/.kingscoin -daemon
 until kingscoin-cli -datadir=/home/kingscoin4/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Fourth node is fully synced. Your masternode is running!"${NC}
 sleep 5
-rm -rf kingscoin-1.1.1.1-Ubuntu16.tar.gz
+rm -rf /root/kingscoin-1.1.1.1
+rm -rf /root/kingscoin-1.1.1.1-Ubuntu16.tar.gz
+cd ~
 echo -e ${GREEN}"If you think that this script helped in some way, feel free to donate for our work:"${NC}
 echo "KingsCoins address: K8cKv7AdK8Z8TVvADKKSTT8MvwmbnGxR3j"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
