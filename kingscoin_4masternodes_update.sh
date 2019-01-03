@@ -80,7 +80,7 @@ echo "Deleting temporary files"
 cd /root
 rm -rf /root/kingscoin-1.1.1.1
 rm -rf /root/kingscoin-1.1.1.1-Ubuntu16.tar.gz
-rm -rf /root/kingscoin_4masternodes_updates.sh
+rm -rf /root/kingscoin_4masternodes_update.sh
 cd ~
 echo -e ${GREEN}"If you think that this script helped in some way, feel free to donate for our work:"${NC}
 echo "KingsCoins address: K8cKv7AdK8Z8TVvADKKSTT8MvwmbnGxR3j"
