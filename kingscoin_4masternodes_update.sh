@@ -29,6 +29,10 @@ tar -xzf kingscoin-1.1.1.1-Ubuntu16.tar.gz
 cd kingscoin-1.1.1.1
 sudo mv kingscoind kingscoin-cli kingscoin-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/kingscoin*
+sed -i '/addnode/d' /home/kingscoin/.kingscoin/kingscoin.conf
+sed -i '/addnode/d' /home/kingscoin2/.kingscoin/kingscoin.conf
+sed -i '/addnode/d' /home/kingscoin3/.kingscoin/kingscoin.conf
+sed -i '/addnode/d' /home/kingscoin4/.kingscoin/kingscoin.conf
 echo "Syncing first node, please wait...";
 kingscoind -datadir=/home/kingscoin/.kingscoin -daemon
 until kingscoin-cli -datadir=/home/kingscoin/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
