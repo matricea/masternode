@@ -22,9 +22,13 @@ kingscoin-cli -datadir=/home/kingscoin4/.kingscoin stop
 sleep 10
 echo "Removing binaries..."
 rm -rf kingscoind kingscoin-cli kingscoin-tx
+cd /root
 echo "Downloading latest binaries"
 wget https://github.com/kingscrypto/KINGSCOIN/releases/download/v1.1.1.1/kingscoin-1.1.1.1-Ubuntu16.tar.gz
 tar -xzf kingscoin-1.1.1.1-Ubuntu16.tar.gz
+cd kingscoin-1.1.1.1
+sudo mv kingscoind kingscoin-cli kingscoin-tx /usr/local/bin
+sudo chmod 755 -R  /usr/local/bin/kingscoin*
 echo "Syncing first node, please wait...";
 kingscoind -datadir=/home/kingscoin/.kingscoin -daemon
 until kingscoin-cli -datadir=/home/kingscoin/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
