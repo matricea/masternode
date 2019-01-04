@@ -53,18 +53,19 @@ sudo apt-get -y install libqrencode-dev bsdmainutils unzip
 cd /var
 sudo touch swap.img
 sudo chmod 600 swap.img
-sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=2000
+sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=4096
 sudo mkswap /var/swap.img
 sudo swapon /var/swap.img
 sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd ~
 sudo mkdir /root/scn
 cd /root/scn
-wget https://github.com/securecloudnet/SecureCloud/releases/download/2.1.0/securecloud-2.1.0-x86_64-linux-gnu.tar.gz
-tar -xzvf securecloud-2.1.0-x86_64-linux-gnu.tar.gz
+echo "Downloading latest binaries"
+wget https://github.com/securecloudnet/SecureCloud/releases/download/2.2.0/SecureCloud-2.2.0-linux.tar.gz
+tar -xzf SecureCloud-2.2.0-linux.tar.gz
 sudo mv /root/scn/securecloudd /root/scn/securecloud-cli /root/scn/securecloud-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/securecloud*
-rm -rf securecloud-2.1.0-x86_64-linux-gnu.tar.gz
+rm -rf /root/scn
 sudo mkdir /home/securecloud/.securecloud
 sudo touch /home/securecloud/.securecloud/securecloud.conf
 echo -e "${GREEN}Configuring Wallet for first node${NC}"
@@ -166,6 +167,7 @@ sleep 10
 until securecloud-cli -datadir=/home/securecloud4/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Last node is fully synced. Your fourth masternode is running!"${NC}
 echo ""
+rm -rf /root/securecloud_4masternodes.sh
 echo -e ${GREEN}"Congrats! Your SecureCloud Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
 echo "If you think that this script helped in some way, feel free to donate for our work:"
 echo "SecureCloudNet address: sUhHTix3QzMLFKKGiQ5U7s9MLJNopr3M6B"
