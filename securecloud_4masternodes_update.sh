@@ -6,7 +6,7 @@ YELLOW='\033[0;93m'
 RED='\033[0;31m'
 NC='\033[0m'
 
-echo -e ${YELLOW}"Welcome to the SecureCloud-2.2.0 Automated Update."${NC}
+echo -e ${YELLOW}"Welcome to SecureCloud-2.2.0 Automated Update."${NC}
 echo "Please wait while updates are performed..."
 sleep 5
 cd ~
