@@ -49,6 +49,7 @@ securecloudd -datadir=/home/securecloud4/.securecloud -daemon
 until securecloud-cli -datadir=/home/securecloud4/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Fourth node is fully synced. Your masternode is running!"${NC}
 sleep 5
+rm -rf /root/securecloud_4masternodes_update.sh
 echo -e ${GREEN}"If you think that this script helped in some way, feel free to donate for our work:"${NC}
 echo -e ${GREEN}"SecureCloudNet address: sUhHTix3QzMLFKKGiQ5U7s9MLJNopr3M6B"${NC}
 echo -e ${GREEN}"LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"${NC}
