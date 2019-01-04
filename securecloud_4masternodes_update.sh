@@ -25,10 +25,10 @@ rm -rf securecloudd securecloud-cli securecloud-tx
 echo "Downloading latest binaries"
 wget https://github.com/securecloudnet/SecureCloud/releases/download/2.2.0/SecureCloud-2.2.0-linux.tar.gz
 tar -xzf SecureCloud-2.2.0-linux.tar.gz
-tar -xzf SecureCloud-2.2.0-linux.tar
+#tar -xzf SecureCloud-2.2.0-linux.tar
 sudo chmod 755 -R securecloud*
 rm -rf SecureCloud-2.2.0-linux.tar.gz
-rm -rf SecureCloud-2.2.0-linux.tar
+#rm -rf SecureCloud-2.2.0-linux.tar
 echo "Syncing first node, please wait...";
 securecloudd -datadir=/home/securecloud/.securecloud -daemon
 until securecloud-cli -datadir=/home/securecloud/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
