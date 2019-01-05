@@ -54,11 +54,12 @@ sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd ~
 sudo mkdir /root/scn
 cd /root/scn
-wget https://github.com/securecloudnet/SecureCloud/releases/download/2.1.0/securecloud-2.1.0-x86_64-linux-gnu.tar.gz
-tar -xzvf securecloud-2.1.0-x86_64-linux-gnu.tar.gz
+echo "Downloading latest binaries"
+wget https://github.com/securecloudnet/SecureCloud/releases/download/2.2.0/SecureCloud-2.2.0-linux.tar.gz
+tar -xzf SecureCloud-2.2.0-linux.tar.gz
 sudo mv /root/scn/securecloudd /root/scn/securecloud-cli /root/scn/securecloud-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/securecloud*
-rm -rf securecloud-2.1.0-x86_64-linux-gnu.tar.gz
+rm -rf SecureCloud-2.2.0-linux.tar.gz
 sudo mkdir /home/securecloud/.securecloud
 sudo touch /home/securecloud/.securecloud/securecloud.conf
 echo -e "${GREEN}Configuring Wallet for first node${NC}"
@@ -73,10 +74,10 @@ echo "rpcport=9191" >> /home/securecloud/.securecloud/securecloud.conf
 echo "listen=0" >> /home/securecloud/.securecloud/securecloud.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):9191" >> /home/securecloud/.securecloud/securecloud.conf
 echo "masternodeprivkey=$privkey" >> /home/securecloud/.securecloud/securecloud.conf
-echo "addnode=93.103.247.155" >> /home/securecloud/.securecloud/securecloud.conf
-echo "addnode=80.211.19.145" >> /home/securecloud/.securecloud/securecloud.conf
-echo "addnode=209.250.252.123" >> /home/securecloud/.securecloud/securecloud.conf
-echo "addnode=128.199.164.15" >> /home/securecloud/.securecloud/securecloud.conf
+#echo "addnode=93.103.247.155" >> /home/securecloud/.securecloud/securecloud.conf
+#echo "addnode=80.211.19.145" >> /home/securecloud/.securecloud/securecloud.conf
+#echo "addnode=209.250.252.123" >> /home/securecloud/.securecloud/securecloud.conf
+#echo "addnode=128.199.164.15" >> /home/securecloud/.securecloud/securecloud.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for second node${NC}"
 sudo mkdir /home/securecloud2/.securecloud
@@ -92,10 +93,10 @@ echo "rpcport=9192" >> /home/securecloud2/.securecloud/securecloud.conf
 echo "listen=0" >> /home/securecloud2/.securecloud/securecloud.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):9191" >> /home/securecloud2/.securecloud/securecloud.conf
 echo "masternodeprivkey=$privkey2" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "addnode=93.103.247.155" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "addnode=80.211.19.145" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "addnode=209.250.252.123" >> /home/securecloud2/.securecloud/securecloud.conf
-echo "addnode=128.199.164.15" >> /home/securecloud2/.securecloud/securecloud.conf
+#echo "addnode=93.103.247.155" >> /home/securecloud2/.securecloud/securecloud.conf
+#echo "addnode=80.211.19.145" >> /home/securecloud2/.securecloud/securecloud.conf
+#echo "addnode=209.250.252.123" >> /home/securecloud2/.securecloud/securecloud.conf
+#echo "addnode=128.199.164.15" >> /home/securecloud2/.securecloud/securecloud.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
@@ -110,6 +111,8 @@ sleep 10
 until securecloud-cli -datadir=/home/securecloud2/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your 1st masternode is running!"${NC}
 echo ""
+rm -rf /root/securecloud_2masternodes.sh
+rm -rf /root/scn
 echo -e ${GREEN}"Congrats! Your SecureCloud Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
 echo "If you think that this script helped in some way, feel free to donate for our work:"
 echo "SecureCloudNet address: sUhHTix3QzMLFKKGiQ5U7s9MLJNopr3M6B"
