@@ -10,7 +10,6 @@ echo -e ${YELLOW}"Welcome to SecureCloud-2.2.0 Automated Update."${NC}
 echo "Please wait while updates are performed..."
 sleep 5
 cd ~
-rm -rf securecloud_4masternodes_update.sh
 cd /usr/local/bin
 echo "Stopping first node, please wait...";
 securecloud-cli -datadir=/home/securecloud/.securecloud stop
