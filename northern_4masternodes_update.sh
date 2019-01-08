@@ -77,6 +77,6 @@ echo "Deleting temporary files"
 rm -rf /root/northern_4masternodes_update.sh
 cd ~
 echo -e ${GREEN}"If you think that this script helped in some way, feel free to donate for our work:"${NC}
-echo "Northerns address: K8cKv7AdK8Z8TVvADKKSTT8MvwmbnGxR3j"
+echo "Northerns address: NWRn6Pet1s5SCrQ6FivuX5fGpxkB2DgrfT"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
 echo "The END. You can close now the SSH terminal session";
