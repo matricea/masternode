@@ -38,17 +38,17 @@ echo "addnode=207.148.3.46" >> /home/northern/.northern/northern.conf
 echo "addnode=136.243.185.24" >> /home/northern/.northern/northern.conf
 echo "addnode=107.173.141.125" >> /home/northern/.northern/northern.conf
 
-cho "addnode=45.77.62.203" >> /home/northern2/.northern/northern.conf
+echo "addnode=45.77.62.203" >> /home/northern2/.northern/northern.conf
 echo "addnode=207.148.3.46" >> /home/northern2/.northern/northern.conf
 echo "addnode=136.243.185.24" >> /home/northern2/.northern/northern.conf
 echo "addnode=107.173.141.125" >> /home/northern2/.northern/northern.conf
 
-cho "addnode=45.77.62.203" >> /home/northern3/.northern/northern.conf
+echo "addnode=45.77.62.203" >> /home/northern3/.northern/northern.conf
 echo "addnode=207.148.3.46" >> /home/northern3/.northern/northern.conf
 echo "addnode=136.243.185.24" >> /home/northern3/.northern/northern.conf
 echo "addnode=107.173.141.125" >> /home/northern3/.northern/northern.conf
 
-cho "addnode=45.77.62.203" >> /home/northern4/.northern/northern.conf
+echo "addnode=45.77.62.203" >> /home/northern4/.northern/northern.conf
 echo "addnode=207.148.3.46" >> /home/northern4/.northern/northern.conf
 echo "addnode=136.243.185.24" >> /home/northern4/.northern/northern.conf
 echo "addnode=107.173.141.125" >> /home/northern4/.northern/northern.conf
