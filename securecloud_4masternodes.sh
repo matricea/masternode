@@ -12,7 +12,7 @@ if [[ $(lsb_release -d) != *16.04* ]]; then
   exit 1
 fi
 
-echo -e ${YELLOW}"Welcome to the SecureCloud-2.2.0 Automated Install, Durring this Process Please Hit Enter or Input What is Asked."${NC}
+echo -e ${YELLOW}"Welcome to the SecureCloud-2.3.0 Automated Install, Durring this Process Please Hit Enter or Input What is Asked."${NC}
 echo
 echo -e ${YELLOW}"You Will See alot of code flashing across your screen, don't be alarmed it's supposed to do that. This process can take up to an hour and may appear to be stuck, but I can promise you it's not."${NC}
 echo
@@ -61,8 +61,8 @@ cd ~
 sudo mkdir /root/scn
 cd /root/scn
 echo "Downloading latest binaries"
-wget https://github.com/securecloudnet/SecureCloud/releases/download/2.2.0/SecureCloud-2.2.0-linux.tar.gz
-tar -xzf SecureCloud-2.2.0-linux.tar.gz
+wget https://github.com/securecloudnet/SecureCloud/releases/download/2.3.0/SecureCloud-linux.tar.gz
+tar -xzf SecureCloud-linux.tar.gz
 sudo mv /root/scn/securecloudd /root/scn/securecloud-cli /root/scn/securecloud-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/securecloud*
 rm -rf /root/scn

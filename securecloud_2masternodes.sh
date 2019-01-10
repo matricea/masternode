@@ -55,11 +55,11 @@ cd ~
 sudo mkdir /root/scn
 cd /root/scn
 echo "Downloading latest binaries"
-wget https://github.com/securecloudnet/SecureCloud/releases/download/2.2.0/SecureCloud-2.2.0-linux.tar.gz
-tar -xzf SecureCloud-2.2.0-linux.tar.gz
+wget https://github.com/securecloudnet/SecureCloud/releases/download/2.3.0/SecureCloud-linux.tar.gz
+tar -xzf SecureCloud-linux.tar.gz
 sudo mv /root/scn/securecloudd /root/scn/securecloud-cli /root/scn/securecloud-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/securecloud*
-rm -rf SecureCloud-2.2.0-linux.tar.gz
+rm -rf SecureCloud-linux.tar.gz
 sudo mkdir /home/securecloud/.securecloud
 sudo touch /home/securecloud/.securecloud/securecloud.conf
 echo -e "${GREEN}Configuring Wallet for first node${NC}"

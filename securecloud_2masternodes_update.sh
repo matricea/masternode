@@ -6,7 +6,7 @@ YELLOW='\033[0;93m'
 RED='\033[0;31m'
 NC='\033[0m'
 
-echo -e ${YELLOW}"Welcome to the SecureCloud-2.2.0 Automated Update."${NC}
+echo -e ${YELLOW}"Welcome to the SecureCloud-2.3.0 Automated Update."${NC}
 echo "Please wait while updates are performed..."
 sleep 5
 cd ~
@@ -20,10 +20,10 @@ sleep 10
 echo "Removing binaries..."
 rm -rf securecloudd securecloud-cli securecloud-tx
 echo "Downloading latest binaries"
-wget https://github.com/securecloudnet/SecureCloud/releases/download/2.2.0/SecureCloud-2.2.0-linux.tar.gz
-tar -xzf SecureCloud-2.2.0-linux.tar.gz
+wget https://github.com/securecloudnet/SecureCloud/releases/download/2.3.0/SecureCloud-linux.tar.gz
+tar -xzf SecureCloud-linux.tar.gz
 sudo chmod 755 -R securecloud*
-rm -rf SecureCloud-2.2.0-linux.tar.gz
+rm -rf SecureCloud-linux.tar.gz
 echo "Syncing first node, please wait...";
 securecloudd -datadir=/home/securecloud/.securecloud -daemon
 until securecloud-cli -datadir=/home/securecloud/.securecloud mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
