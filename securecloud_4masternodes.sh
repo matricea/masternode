@@ -61,7 +61,7 @@ cd ~
 sudo mkdir /root/scn
 cd /root/scn
 echo "Downloading latest binaries"
-wget https://github.com/securecloudnet/SecureCloud/releases/download/2.3.0/SecureCloud-linux.tar.gz
+wget https://github.com/securecloudnet/SecureCloud/releases/download/v2.4.0/SecureCloud-linux.tar.gz
 tar -xzf SecureCloud-linux.tar.gz
 sudo mv /root/scn/securecloudd /root/scn/securecloud-cli /root/scn/securecloud-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/securecloud*

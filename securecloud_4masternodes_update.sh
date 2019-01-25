@@ -23,7 +23,7 @@ sleep 10
 echo "Removing binaries..."
 rm -rf securecloudd securecloud-cli securecloud-tx
 echo "Downloading latest binaries"
-wget https://github.com/securecloudnet/SecureCloud/releases/download/2.3.0/SecureCloud-linux.tar.gz
+wget https://github.com/securecloudnet/SecureCloud/releases/download/v2.4.0/SecureCloud-linux.tar.gz
 tar -xzf SecureCloud-linux.tar.gz
 sudo chmod 755 -R securecloud*
 rm -rf SecureCloud-linux.tar.gz
