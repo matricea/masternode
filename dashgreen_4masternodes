@@ -67,31 +67,6 @@ sudo mv dashgreend dashgreen-cli /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/dashgreen*
 cd ~
 rm -rf /root/dashgreen
-echo start of temp script part 1
-echo "Configuring IP - Please Wait......."
-declare -a NODE_IPS
-for ips in $(netstat -i | awk '!/Kernel|Iface|lo/ {print $1," "}')
-do
-  NODE_IPS+=($(curl --interface $ips --connect-timeout 2 -s4 icanhazip.com))
-done
-
-if [ ${#NODE_IPS[@]} -gt 1 ]
-  then
-    echo -e "More than one IP. Please type 0 to use the first IP, 1 for the second and so on...${NC}"
-    INDEX=0
-    for ip in "${NODE_IPS[@]}"
-    do
-      echo ${INDEX} $ip
-      let INDEX=${INDEX}+1
-    done
-    read -e choose_ip
-    IP=${NODE_IPS[$choose_ip]}
-else
-  IP=${NODE_IPS[0]}
-fi
-
-echo "IP Done"
-echo end of temp script part 1
 sudo mkdir /home/dashgreen/.dashgreen
 sudo touch /home/dashgreen/.dashgreen/dashgreen.conf
 echo -e "${GREEN}Configuring Wallet for first node${NC}"
@@ -104,7 +79,7 @@ echo "maxconnections=250" >> /home/dashgreen/.dashgreen/dashgreen.conf
 echo "masternode=1" >> /home/dashgreen/.dashgreen/dashgreen.conf
 echo "rpcport=22333" >> /home/dashgreen/.dashgreen/dashgreen.conf
 echo "listen=0" >> /home/dashgreen/.dashgreen/dashgreen.conf
-echo "externalip=$ip:22332" >> /home/dashgreen/.dashgreen/dashgreen.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):22332" >> /home/dashgreen/.dashgreen/dashgreen.conf
 echo "masternodeprivkey=$privkey" >> /home/dashgreen/.dashgreen/dashgreen.conf
 echo "addnode=80.240.21.15" >> /home/dashgreen/.dashgreen/dashgreen.conf
 echo "addnode=138.68.175.210" >> /home/dashgreen/.dashgreen/dashgreen.conf
@@ -123,7 +98,7 @@ echo "maxconnections=250" >> /home/dashgreen2/.dashgreen/dashgreen.conf
 echo "masternode=1" >> /home/dashgreen2/.dashgreen/dashgreen.conf
 echo "rpcport=22334" >> /home/dashgreen2/.dashgreen/dashgreen.conf
 echo "listen=0" >> /home/dashgreen2/.dashgreen/dashgreen.conf
-echo "externalip=$ip:22332" >> /home/dashgreen2/.dashgreen/dashgreen.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):22332" >> /home/dashgreen2/.dashgreen/dashgreen.conf
 echo "masternodeprivkey=$privkey2" >> /home/dashgreen2/.dashgreen/dashgreen.conf
 echo "addnode=80.240.21.15" >> /home/dashgreen2/.dashgreen/dashgreen.conf
 echo "addnode=138.68.175.210" >> /home/dashgreen2/.dashgreen/dashgreen.conf
@@ -142,7 +117,7 @@ echo "maxconnections=250" >> /home/dashgreen3/.dashgreen/dashgreen.conf
 echo "masternode=1" >> /home/dashgreen3/.dashgreen/dashgreen.conf
 echo "rpcport=22335" >> /home/dashgreen3/.dashgreen/dashgreen.conf
 echo "listen=0" >> /home/dashgreen3/.dashgreen/dashgreen.conf
-echo "externalip=$ip:22332" >> /home/dashgreen3/.dashgreen/dashgreen.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):22332" >> /home/dashgreen3/.dashgreen/dashgreen.conf
 echo "masternodeprivkey=$privkey3" >> /home/dashgreen3/.dashgreen/dashgreen.conf
 echo "addnode=80.240.21.15" >> /home/dashgreen3/.dashgreen/dashgreen.conf
 echo "addnode=138.68.175.210" >> /home/dashgreen3/.dashgreen/dashgreen.conf
@@ -161,7 +136,7 @@ echo "maxconnections=250" >> /home/dashgreen4/.dashgreen/dashgreen.conf
 echo "masternode=1" >> /home/dashgreen4/.dashgreen/dashgreen.conf
 echo "rpcport=22336" >> /home/dashgreen4/.dashgreen/dashgreen.conf
 echo "listen=0" >> /home/dashgreen4/.dashgreen/dashgreen.conf
-echo "externalip=$ip:22332" >> /home/dashgreen4/.dashgreen/dashgreen.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):22332" >> /home/dashgreen4/.dashgreen/dashgreen.conf
 echo "masternodeprivkey=$privkey4" >> /home/dashgreen4/.dashgreen/dashgreen.conf
 echo "addnode=80.240.21.15" >> /home/dashgreen4/.dashgreen/dashgreen.conf
 echo "addnode=138.68.175.210" >> /home/dashgreen4/.dashgreen/dashgreen.conf
