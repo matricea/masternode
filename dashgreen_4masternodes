@@ -85,6 +85,10 @@ echo "addnode=80.240.21.15" >> /home/dashgreen/.dashgreen/dashgreen.conf
 echo "addnode=138.68.175.210" >> /home/dashgreen/.dashgreen/dashgreen.conf
 echo "addnode=209.250.252.123" >> /home/dashgreen/.dashgreen/dashgreen.conf
 echo "addnode=45.76.94.74" >> /home/dashgreen/.dashgreen/dashgreen.conf
+echo "addnode=157.230.100.54" >> /home/dashgreen/.dashgreen/dashgreen.conf
+echo "addnode=95.216.43.205" >> /home/dashgreen/.dashgreen/dashgreen.conf
+echo "addnode=188.40.173.226" >> /home/dashgreen/.dashgreen/dashgreen.conf
+echo "addnode=95.216.37.135" >> /home/dashgreen/.dashgreen/dashgreen.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for second node${NC}"
 sudo mkdir /home/dashgreen2/.dashgreen
@@ -104,6 +108,10 @@ echo "addnode=80.240.21.15" >> /home/dashgreen2/.dashgreen/dashgreen.conf
 echo "addnode=138.68.175.210" >> /home/dashgreen2/.dashgreen/dashgreen.conf
 echo "addnode=209.250.252.123" >> /home/dashgreen2/.dashgreen/dashgreen.conf
 echo "addnode=45.76.94.74" >> /home/dashgreen2/.dashgreen/dashgreen.conf
+echo "addnode=157.230.100.54" >> /home/dashgreen2/.dashgreen/dashgreen.conf
+echo "addnode=95.216.43.205" >> /home/dashgreen2/.dashgreen/dashgreen.conf
+echo "addnode=188.40.173.226" >> /home/dashgreen2/.dashgreen/dashgreen.conf
+echo "addnode=95.216.37.135" >> /home/dashgreen2/.dashgreen/dashgreen.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for third node${NC}"
 sudo mkdir /home/dashgreen3/.dashgreen
@@ -123,6 +131,10 @@ echo "addnode=80.240.21.15" >> /home/dashgreen3/.dashgreen/dashgreen.conf
 echo "addnode=138.68.175.210" >> /home/dashgreen3/.dashgreen/dashgreen.conf
 echo "addnode=209.250.252.123" >> /home/dashgreen3/.dashgreen/dashgreen.conf
 echo "addnode=45.76.94.74" >> /home/dashgreen3/.dashgreen/dashgreen.conf
+echo "addnode=157.230.100.54" >> /home/dashgreen3/.dashgreen/dashgreen.conf
+echo "addnode=95.216.43.205" >> /home/dashgreen3/.dashgreen/dashgreen.conf
+echo "addnode=188.40.173.226" >> /home/dashgreen3/.dashgreen/dashgreen.conf
+echo "addnode=95.216.37.135" >> /home/dashgreen3/.dashgreen/dashgreen.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for 4th node${NC}"
 sudo mkdir /home/dashgreen4/.dashgreen
@@ -142,6 +154,10 @@ echo "addnode=80.240.21.15" >> /home/dashgreen4/.dashgreen/dashgreen.conf
 echo "addnode=138.68.175.210" >> /home/dashgreen4/.dashgreen/dashgreen.conf
 echo "addnode=209.250.252.123" >> /home/dashgreen4/.dashgreen/dashgreen.conf
 echo "addnode=45.76.94.74" >> /home/dashgreen4/.dashgreen/dashgreen.conf
+echo "addnode=157.230.100.54" >> /home/dashgreen4/.dashgreen/dashgreen.conf
+echo "addnode=95.216.43.205" >> /home/dashgreen4/.dashgreen/dashgreen.conf
+echo "addnode=188.40.173.226" >> /home/dashgreen4/.dashgreen/dashgreen.conf
+echo "addnode=95.216.37.135" >> /home/dashgreen4/.dashgreen/dashgreen.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
