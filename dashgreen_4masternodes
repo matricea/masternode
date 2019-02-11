@@ -163,25 +163,25 @@ fi
 echo "Syncing first node, please wait...";
 dashgreend -datadir=/home/dashgreen/.dashgreen -daemon
 sleep 10
-until dashgreen-cli -datadir=/home/dashgreen/.dashgreen mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until dashgreen-cli -datadir=/home/dashgreen/.dashgreen mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. Your 1st masternode is running!"${NC}
 sleep 10
 echo "Syncing second node, please wait...";
 dashgreend -datadir=/home/dashgreen2/.dashgreen -daemon
 sleep 10
-until dashgreen-cli -datadir=/home/dashgreen2/.dashgreen mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until dashgreen-cli -datadir=/home/dashgreen2/.dashgreen mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your second masternode is running!"${NC}
 sleep 10
 echo "Syncing third node, please wait...";
 dashgreend -datadir=/home/dashgreen3/.dashgreen -daemon
 sleep 10
-until dashgreen-cli -datadir=/home/dashgreen3/.dashgreen mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until dashgreen-cli -datadir=/home/dashgreen3/.dashgreen mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Third node is fully synced. Your third masternode is running!"${NC}
 sleep 10
 echo "Syncing fourth node, please wait...";
 dashgreend -datadir=/home/dashgreen4/.dashgreen -daemon
 sleep 10
-until dashgreen-cli -datadir=/home/dashgreen4/.dashgreen mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until dashgreen-cli -datadir=/home/dashgreen4/.dashgreen mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Last node is fully synced. Your fourth masternode is running!"${NC}
 echo ""
 rm -rf /root/dashgreen_masternodes.sh
