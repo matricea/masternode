@@ -29,32 +29,28 @@ cd kingscoin-1.1.1.2-Ubuntu16
 sudo mv kingscoind kingscoin-cli kingscoin-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/kingscoin*
 
-echo "Deleting old nodes from node config files"
+echo "Deleting old nodes from masternodes ip's from the config files"
 sed -i '/addnode/d' /home/kingscoin/.kingscoin/kingscoin.conf
 sed -i '/addnode/d' /home/kingscoin2/.kingscoin/kingscoin.conf
 sed -i '/addnode/d' /home/kingscoin3/.kingscoin/kingscoin.conf
 sed -i '/addnode/d' /home/kingscoin4/.kingscoin/kingscoin.conf
 
 echo "Adding new nodes..."
-echo "addnode=159.69.31.239" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=95.216.174.44" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=173.212.21" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=207.180.196.173" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "connect=159.69.178.130" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "connect=95.216.174.44" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "connect=159.69.31.239" >> /home/kingscoin/.kingscoin/kingscoin.conf
 
-echo "addnode=159.69.31.239" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "addnode=95.216.174.44" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "addnode=173.212.21" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "addnode=207.180.196.173" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+echo "connect=159.69.178.130" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+echo "connect=95.216.174.44" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+echo "connect=159.69.31.239" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 
-echo "addnode=159.69.31.239" >> /home/kingscoin3/.kingscoin/kingscoin.conf
-echo "addnode=95.216.174.44" >> /home/kingscoin3/.kingscoin/kingscoin.conf
-echo "addnode=173.212.21" >> /home/kingscoin3/.kingscoin/kingscoin.conf
-echo "addnode=207.180.196.173" >> /home/kingscoin3/.kingscoin/kingscoin.conf
+echo "connect=159.69.178.130" >> /home/kingscoin3/.kingscoin/kingscoin.conf
+echo "connect=95.216.174.44" >> /home/kingscoin3/.kingscoin/kingscoin.conf
+echo "connect=159.69.31.239" >> /home/kingscoin3/.kingscoin/kingscoin.conf
 
-echo "addnode=159.69.31.239" >> /home/kingscoin4/.kingscoin/kingscoin.conf
-echo "addnode=95.216.174.44" >> /home/kingscoin4/.kingscoin/kingscoin.conf
-echo "addnode=173.212.21" >> /home/kingscoin4/.kingscoin/kingscoin.conf
-echo "addnode=207.180.196.173" >> /home/kingscoin4/.kingscoin/kingscoin.conf
+echo "connect=159.69.178.130" >> /home/kingscoin4/.kingscoin/kingscoin.conf
+echo "connect=95.216.174.44" >> /home/kingscoin4/.kingscoin/kingscoin.conf
+echo "connect=159.69.31.239" >> /home/kingscoin4/.kingscoin/kingscoin.conf
 
 echo "Syncing first node, please wait...";
 kingscoind -datadir=/home/kingscoin/.kingscoin -daemon
@@ -81,6 +77,11 @@ cd /root
 rm -rf /root/kingscoin-1.1.1.2-Ubuntu16
 rm -rf /root/kingscoin-1.1.1.2-Ubuntu16.tar.gz
 rm -rf /root/kingscoin_4masternodes_update.sh
+echo "Deleting old nodes from nodes ip's from the config files"
+sed -i '/connect/d' /home/kingscoin/.kingscoin/kingscoin.conf
+sed -i '/connect/d' /home/kingscoin2/.kingscoin/kingscoin.conf
+sed -i '/connect/d' /home/kingscoin3/.kingscoin/kingscoin.conf
+sed -i '/connect/d' /home/kingscoin4/.kingscoin/kingscoin.conf
 cd ~
 echo -e ${GREEN}"If you think that this script helped in some way, feel free to donate for our work:"${NC}
 echo "KingsCoins address: K8cKv7AdK8Z8TVvADKKSTT8MvwmbnGxR3j"
