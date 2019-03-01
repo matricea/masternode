@@ -21,7 +21,7 @@ cd /root
 echo "Downloading latest binaries"
 wget https://github.com/kingscrypto/KINGSCOIN/releases/download/v1.1.1.2/kingscoin-1.1.1.2-Ubuntu16.tar.gz
 tar -xzf kingscoin-1.1.1.2-Ubuntu16.tar.gz
-cd kingscoin-1.1.1.2
+cd kingscoin-1.1.1.2-Ubuntu16
 sudo mv kingscoind kingscoin-cli kingscoin-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/kingscoin*
 
@@ -52,7 +52,7 @@ echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo "Deleting temporary files"
 cd /root
-rm -rf /root/kingscoin-1.1.1.2
+rm -rf /root/kingscoin-1.1.1.2-Ubuntu16
 rm -rf /root/kingscoin-1.1.1.2-Ubuntu16.tar.gz
 rm -rf /root/kingscoin_2masternodes_update.sh
 cd ~
