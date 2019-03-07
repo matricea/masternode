@@ -25,8 +25,8 @@ read privkey
 echo -e ${GREEN}"Please Enter Your Masternodes Private Key for second node:"${NC}
 read privkey2
 echo "Creating 2 KingsCoin system users with no-login access:"
-sudo adduser --system --home /home/kingscoin kingscoin
-sudo adduser --system --home /home/kingscoin2 kingscoin2
+sudo adduser --system --home /home/kgs kgs
+sudo adduser --system --home /home/kgs2 kgs2
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install software-properties-common
@@ -66,47 +66,47 @@ cd kgs-3.1.1.1-Ubuntu16
 sudo mv kgsd kgs-qt kgs-cli kgs-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/kgs*
 cd /root
-sudo mkdir /home/kingscoin/.kingscoin
-sudo touch /home/kingscoin/.kingscoin/kingscoin.conf
+sudo mkdir /home/kgs/.kgs
+sudo touch /home/kgs/.kgs/kgs.conf
 echo -e "${GREEN}Configuring Wallet for first node${NC}"
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "rpcallowip=127.0.0.1" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "server=1" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "daemon=1" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "maxconnections=250" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "masternode=1" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "rpcport=17711" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "listen=0" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "masternodeprivkey=$privkey" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/kgs/.kgs/kgs.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/kgs/.kgs/kgs.conf
+echo "rpcallowip=127.0.0.1" >> /home/kgs/.kgs/kgs.conf
+echo "server=1" >> /home/kgs/.kgs/kgs.conf
+echo "daemon=1" >> /home/kgs/.kgs/kgs.conf
+echo "maxconnections=250" >> /home/kgs/.kgs/kgs.conf
+echo "masternode=1" >> /home/kgs/.kgs/kgs.conf
+echo "rpcport=17711" >> /home/kgs/.kgs/kgs.conf
+echo "listen=0" >> /home/kgs/.kgs/kgs.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kgs/.kgs/kgs.conf
+echo "masternodeprivkey=$privkey" >> /home/kgs/.kgs/kgs.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for second node${NC}"
-sudo mkdir /home/kingscoin2/.kingscoin
-sudo touch /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "rpcallowip=127.0.0.1" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "server=1" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "daemon=1" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "maxconnections=250" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "masternode=1" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "rpcport=17712" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "listen=0" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "externalip=$(hostname  -I | cut -f2 -d' '):17700" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "masternodeprivkey=$privkey2" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+sudo mkdir /home/kgs2/.kgs
+sudo touch /home/kgs2/.kgs/kgs.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/kgs2/.kgs/kgs.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/kgs2/.kgs/kgs.conf
+echo "rpcallowip=127.0.0.1" >> /home/kgs2/.kgs/kgs.conf
+echo "server=1" >> /home/kgs2/.kgs/kgs.conf
+echo "daemon=1" >> /home/kgs2/.kgs/kgs.conf
+echo "maxconnections=250" >> /home/kgs2/.kgs/kgs.conf
+echo "masternode=1" >> /home/kgs2/.kgs/kgs.conf
+echo "rpcport=17712" >> /home/kgs2/.kgs/kgs.conf
+echo "listen=0" >> /home/kgs2/.kgs/kgs.conf
+echo "externalip=$(hostname  -I | cut -f2 -d' '):17700" >> /home/kgs2/.kgs/kgs.conf
+echo "masternodeprivkey=$privkey2" >> /home/kgs2/.kgs/kgs.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
-kgsd -datadir=/home/kingscoin/.kingscoin -daemon
+kgsd -datadir=/home/kgs/.kgs/ -daemon
 sleep 10
-until kgs-cli -datadir=/home/kingscoin/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until kgs-cli -datadir=/home/kgs/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. Your 1st masternode is running!"${NC}
 sleep 10
 echo "Syncing second node, please wait...";
-kgsd -datadir=/home/kingscoin2/.kingscoin -daemon
+kgsd -datadir=/home/kgs2/.kgs/ -daemon
 sleep 10
-until kgs-cli -datadir=/home/kingscoin2/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until kgs-cli -datadir=/home/kgs2/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your second masternode is running!"${NC}
 sleep 10
 echo ""
