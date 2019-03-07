@@ -93,7 +93,7 @@ echo "maxconnections=250" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "masternode=1" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "rpcport=17712" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "listen=0" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+echo "externalip=$(hostname  -I | cut -f2 -d' '):17700" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "masternodeprivkey=$privkey2" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 sleep 5
 fi
