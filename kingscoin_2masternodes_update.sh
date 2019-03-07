@@ -30,12 +30,12 @@ sed -i '/addnode/d' /home/kingscoin/.kingscoin/kingscoin.conf
 sed -i '/addnode/d' /home/kingscoin2/.kingscoin/kingscoin.conf
 
 echo "Syncing first node, please wait...";
-kgsd -datadir=/home/kingscoin/.kingscoin -daemon
+kgsd -datadir=/home/kingscoin/.kingscoin -resync
 until kgs-cli -datadir=/home/kingscoin/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo "Syncing second node, please wait...";
-kgsd -datadir=/home/kingscoin2/.kingscoin -daemon
+kgsd -datadir=/home/kingscoin2/.kingscoin -resync
 until kgs-cli -datadir=/home/kingscoin2/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
 sleep 5
