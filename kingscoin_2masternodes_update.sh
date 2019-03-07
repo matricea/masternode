@@ -22,21 +22,21 @@ echo "Downloading latest binaries"
 wget https://github.com/kingscrypto/KGS/releases/download/v3.1.1/kgs-3.1.1.1-Ubuntu16.tar.gz
 tar -xzf kgs-3.1.1.1-Ubuntu16.tar.gz
 cd kgs-3.1.1.1-Ubuntu16
-sudo mv kingscoind kingscoin-cli kingscoin-tx /usr/local/bin
-sudo chmod 755 -R  /usr/local/bin/kingscoin*
+sudo mv kgsd kgs-qt kgs-cli kgs-tx /usr/local/bin
+sudo chmod 755 -R  /usr/local/bin/kgs*
 
 echo "Deleting old nodes from node config files..."
 sed -i '/addnode/d' /home/kingscoin/.kingscoin/kingscoin.conf
 sed -i '/addnode/d' /home/kingscoin2/.kingscoin/kingscoin.conf
 
 echo "Syncing first node, please wait...";
-kingscoind -datadir=/home/kingscoin/.kingscoin -daemon
-until kingscoin-cli -datadir=/home/kingscoin/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+kgsd -datadir=/home/kingscoin/.kingscoin -daemon
+until kgs-cli -datadir=/home/kingscoin/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo "Syncing second node, please wait...";
-kingscoind -datadir=/home/kingscoin2/.kingscoin -daemon
-until kingscoin-cli -datadir=/home/kingscoin2/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+kgsd -datadir=/home/kingscoin2/.kingscoin -daemon
+until kgs-cli -datadir=/home/kingscoin2/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo "Deleting temporary files"
