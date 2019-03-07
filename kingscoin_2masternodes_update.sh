@@ -29,6 +29,18 @@ echo "Deleting old nodes from node config files..."
 sed -i '/addnode/d' /home/kingscoin/.kingscoin/kingscoin.conf
 sed -i '/addnode/d' /home/kingscoin2/.kingscoin/kingscoin.conf
 
+echo "Changing old ports with new ones..."
+sed -i '/externalip/d' /home/kingscoin/.kingscoin/kingscoin.conf
+sed -i '/externalip/d' /home/kingscoin2/.kingscoin/kingscoin.conf
+sed -i '/rpcport/d' /home/kingscoin/.kingscoin/kingscoin.conf
+sed -i '/rpcport/d' /home/kingscoin2/.kingscoin/kingscoin.conf
+
+echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+echo "rpcport=17701" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "rpcport=17702" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+
+
 echo "Syncing first node, please wait...";
 kgsd -datadir=/home/kingscoin/.kingscoin -resync
 until kgs-cli -datadir=/home/kingscoin/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
