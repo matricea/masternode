@@ -24,7 +24,7 @@ echo -e ${GREEN}"Please Enter Your Masternodes Private Key for the first node:"$
 read privkey
 echo -e ${GREEN}"Please Enter Your Masternodes Private Key for second node:"${NC}
 read privkey2
-echo "Creating 4 KingsCoin system users with no-login access:"
+echo "Creating 2 KingsCoin system users with no-login access:"
 sudo adduser --system --home /home/kingscoin kingscoin
 sudo adduser --system --home /home/kingscoin2 kingscoin2
 sudo apt-get -y update
@@ -60,11 +60,11 @@ sudo mkswap /var/swap.img
 sudo swapon /var/swap.img
 sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd /root
-wget https://github.com/kingscrypto/KINGSCOIN/releases/download/v1.1.1.1/kingscoin-1.1.1.1-Ubuntu16.tar.gz
-tar -xzf kingscoin-1.1.1.1-Ubuntu16.tar.gz
-cd kingscoin-1.1.1.1
-sudo mv kingscoind kingscoin-cli kingscoin-tx /usr/local/bin
-sudo chmod 755 -R  /usr/local/bin/kingscoin*
+wget https://github.com/kingscrypto/KGS/releases/download/v3.1.1/kgs-3.1.1.1-Ubuntu16.tar.gz
+tar -xzf kgs-3.1.1.1-Ubuntu16.tar.gz
+cd kgs-3.1.1.1-Ubuntu16
+sudo mv kgsd kgs-qt kgs-cli kgs-tx /usr/local/bin
+sudo chmod 755 -R  /usr/local/bin/kgs*
 cd /root
 sudo mkdir /home/kingscoin/.kingscoin
 sudo touch /home/kingscoin/.kingscoin/kingscoin.conf
@@ -76,14 +76,10 @@ echo "server=1" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "daemon=1" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "maxconnections=250" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "masternode=1" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "rpcport=1778" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "rpcport=17701" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "listen=0" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):1777" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "masternodeprivkey=$privkey" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=159.69.31.239" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=80.211.16.64" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=173.212.21" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=207.180.196.173" >> /home/kingscoin/.kingscoin/kingscoin.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for second node${NC}"
 sudo mkdir /home/kingscoin2/.kingscoin
@@ -95,36 +91,32 @@ echo "server=1" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "daemon=1" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "maxconnections=250" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "masternode=1" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "rpcport=1779" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+echo "rpcport=17702" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "listen=0" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):1777" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "masternodeprivkey=$privkey2" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "addnode=159.69.31.239" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=80.211.16.64" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=173.212.21" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "addnode=207.180.196.173" >> /home/kingscoin/.kingscoin/kingscoin.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
-kingscoind -datadir=/home/kingscoin/.kingscoin -daemon
+kgsd -datadir=/home/kingscoin/.kingscoin -daemon
 sleep 10
-until kingscoin-cli -datadir=/home/kingscoin/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until kgs-cli -datadir=/home/kingscoin/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. Your 1st masternode is running!"${NC}
 sleep 10
 echo "Syncing second node, please wait...";
-kingscoind -datadir=/home/kingscoin2/.kingscoin -daemon
+kgsd -datadir=/home/kingscoin2/.kingscoin -daemon
 sleep 10
-until kingscoin-cli -datadir=/home/kingscoin2/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until kgs-cli -datadir=/home/kingscoin2/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your second masternode is running!"${NC}
 sleep 10
 echo ""
 echo -e ${GREEN}"Congrats! Your KingsCoin Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
 echo "Deleting temporary files"
 cd /root
-rm -rf /root/kingscoin-1.1.1.1
-rm -rf /root/kingscoin-1.1.1.1-Ubuntu16.tar.gz
+rm -rf /root/kgs-3.1.1.1-Ubuntu16
+rm -rf /root/kgs-3.1.1.1-Ubuntu16.tar.gz
 rm -rf /root/kingscoin_2masternodes.sh
 echo "If you think that this script helped in some way, feel free to donate for our work:"
-echo "KingsCoins address: K8cKv7AdK8Z8TVvADKKSTT8MvwmbnGxR3j"
+echo "KingsCoins address: KJignF72dMXKas2HcZwGtxibDPBC6j2vm5"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
 echo "The END. You can close now the SSH terminal session";
