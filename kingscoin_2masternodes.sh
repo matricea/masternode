@@ -49,7 +49,7 @@ service fail2ban restart
 ufw default deny incoming
 ufw default allow outgoing
 ufw allow ssh
-ufw allow 1777/tcp
+ufw allow 17700/tcp
 yes | ufw enable
 #sudo apt install git
 cd /var
@@ -76,7 +76,7 @@ echo "server=1" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "daemon=1" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "maxconnections=250" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "masternode=1" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "rpcport=17701" >> /home/kingscoin/.kingscoin/kingscoin.conf
+echo "rpcport=17711" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "listen=0" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kingscoin/.kingscoin/kingscoin.conf
 echo "masternodeprivkey=$privkey" >> /home/kingscoin/.kingscoin/kingscoin.conf
@@ -91,7 +91,7 @@ echo "server=1" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "daemon=1" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "maxconnections=250" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "masternode=1" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "rpcport=17702" >> /home/kingscoin2/.kingscoin/kingscoin.conf
+echo "rpcport=17712" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "listen=0" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kingscoin2/.kingscoin/kingscoin.conf
 echo "masternodeprivkey=$privkey2" >> /home/kingscoin2/.kingscoin/kingscoin.conf
