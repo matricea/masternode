@@ -93,7 +93,7 @@ echo "maxconnections=250" >> /home/kgs2/.kgs/kgs.conf
 echo "masternode=1" >> /home/kgs2/.kgs/kgs.conf
 echo "rpcport=17712" >> /home/kgs2/.kgs/kgs.conf
 echo "listen=0" >> /home/kgs2/.kgs/kgs.conf
-echo "externalip=$(hostname  -I | cut -f2 -d' '):17700" >> /home/kgs2/.kgs/kgs.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kgs2/.kgs/kgs.conf
 echo "masternodeprivkey=$privkey2" >> /home/kgs2/.kgs/kgs.conf
 sleep 5
 fi
