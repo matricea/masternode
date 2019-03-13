@@ -135,7 +135,8 @@ echo "masternodeprivkey=$privkey2" >> /home/kgs4/.kgs/kgs.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
-kgsd sleep 10
+kgsd -datadir=/home/kgs/.kgs/ -daemon 
+sleep 10
 until kingscoin-cli -datadir=/home/kgs/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. Your 1st masternode is running!"${NC}
 sleep 10
