@@ -105,7 +105,7 @@ echo "masternodeprivkey=$privkey2" >> /home/kgs2/.kgs/kgs.conf
 sleep 5
 sudo mkdir /home/kgs3/.kgs
 sudo touch /home/kgs3/.kgs/kgs.conf
-echo -e "${GREEN}Configuring Wallet for first node${NC}"
+echo -e "${GREEN}Configuring Wallet for third node${NC}"
 echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/kgs3/.kgs/kgs.conf
 echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/kgs3/.kgs/kgs.conf
 echo "rpcallowip=127.0.0.1" >> /home/kgs3/.kgs/kgs.conf
@@ -135,25 +135,23 @@ echo "masternodeprivkey=$privkey2" >> /home/kgs4/.kgs/kgs.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
-kingscoind -datadir=/home/kgs/.kgs/ -daemon
-sleep 10
+kgsd sleep 10
 until kingscoin-cli -datadir=/home/kgs/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. Your 1st masternode is running!"${NC}
 sleep 10
 echo "Syncing second node, please wait...";
-kingscoind -datadir=/home/kgs2/.kgs/ -daemon
+kgsd -datadir=/home/kgs2/.kgs/ -daemon
 sleep 10
 until kingscoin-cli -datadir=/home/kgs2/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your second masternode is running!"${NC}
 sleep 10
 echo "Syncing third node, please wait...";
-kingscoind -datadir=/home/kgs3/.kgs/ -daemon
+kgsd -datadir=/home/kgs3/.kgs/ -daemon
 sleep 10
 until kingscoin-cli -datadir=/home/kgs3/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Third node is fully synced. Your third masternode is running!"${NC}
 sleep 10
-echo "Syncing fourth node, please wait...";
-kingscoind -datadir=/home/kgs4/.kgs/ -daemon
+kgsd -datadir=/home/kgs4/.kgs/ -daemon
 sleep 10
 until kingscoin-cli -datadir=/home/kgs4/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Last node is fully synced. Your fourth masternode is running!"${NC}
