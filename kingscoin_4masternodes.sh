@@ -135,26 +135,26 @@ echo "masternodeprivkey=$privkey2" >> /home/kgs4/.kgs/kgs.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
-kgsd -datadir=/home/kgs/.kgs/ -daemon 
+kgsd -datadir=/home/kgs/.kgs/ -daemon
 sleep 10
-until kingscoin-cli -datadir=/home/kgs/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until kgs-cli -datadir=/home/kgs/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. Your 1st masternode is running!"${NC}
 sleep 10
 echo "Syncing second node, please wait...";
 kgsd -datadir=/home/kgs2/.kgs/ -daemon
 sleep 10
-until kingscoin-cli -datadir=/home/kgs2/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until kgs-cli -datadir=/home/kgs2/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your second masternode is running!"${NC}
 sleep 10
 echo "Syncing third node, please wait...";
 kgsd -datadir=/home/kgs3/.kgs/ -daemon
 sleep 10
-until kingscoin-cli -datadir=/home/kgs3/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until kgs-cli -datadir=/home/kgs3/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Third node is fully synced. Your third masternode is running!"${NC}
 sleep 10
 kgsd -datadir=/home/kgs4/.kgs/ -daemon
 sleep 10
-until kingscoin-cli -datadir=/home/kgs4/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until kgs-cli -datadir=/home/kgs4/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Last node is fully synced. Your fourth masternode is running!"${NC}
 echo ""
 echo -e ${GREEN}"Congrats! Your KingsCoin Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
