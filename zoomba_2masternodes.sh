@@ -72,11 +72,11 @@ sudo make install
 cd /home/zoomba/
 sudo mkdir /home/zoomba/.zoomba
 sudo touch /home/zoomba/.zoomba/zoomba.conf
-echo -e "rpcuser=dsfjkdsui3874djnaiksk\nrpcpassword=dskasiue98873kjeih87iakj\nrpcallowip=127.0.0.1\nrpcport=5530\nbind=$(hostname  -I | cut -f1 -d' ')\ndaemon=1\nserver=1\nlisten=0\nmasternode=1\nlogtimestamps=1\nmaxconnections=256\nmasternodeprivkey=$privkey\nexternalIP=$(hostname  -I | cut -f1 -d' '):5530\naddnode=217.69.4.225\naddnode=45.63.97.39\naddnode=136.0.9.13\naddnode=140.82.23.12\naddnode=80.211.184.163" >> /home/zoomba/.zoomba/zoomba.conf
+echo -e "rpcuser=dsfjkdsui3874djnaiksk\nrpcpassword=dskasiue98873kjeih87iakj\nrpcallowip=127.0.0.1\nrpcport=5530\nbind=$(hostname  -I | cut -f1 -d' ')\ndaemon=1\nserver=1\nlisten=0\nmasternode=1\nlogtimestamps=1\nmaxconnections=256\nmasternodeprivkey=$privkey\nexternalIP=$(hostname  -I | cut -f1 -d' '):5530\naddnode=45.77.54.88\naddnode=207.246.68.245\naddnode=149.28.176.127\naddnode=144.202.77.218\naddnode=95.216.120.35\naddnode=89.36.215.204" >> /home/zoomba/.zoomba/zoomba.conf
 cd /home/zoomba2
 sudo mkdir /home/zoomba2/.zoomba
 sudo touch /home/zoomba2/.zoomba/zoomba.conf
-echo -e "rpcuser=dsfjkdsui3874djnaiksk\nrpcpassword=dskasiue98873kjeih87iakj\nrpcallowip=127.0.0.1\nrpcport=5534\nbind=[$(hostname  -I | cut -f2 -d' ')]\ndaemon=1\nserver=1\nport=5533\nlisten=0\nmasternode=1\nlogtimestamps=1\nmaxconnections=256\nmasternodeprivkey=$privkey2\nexternalIP=[$(hostname  -I | cut -f2 -d' ')]:5530\naddnode=217.69.4.225\naddnode=45.63.97.39\naddnode=136.0.9.13\naddnode=140.82.23.12\naddnode=80.211.184.163" >> /home/zoomba2/.zoomba/zoomba.conf
+echo -e "rpcuser=dsfjkdsui3874djnaiksk\nrpcpassword=dskasiue98873kjeih87iakj\nrpcallowip=127.0.0.1\nrpcport=5534\nbind=[$(hostname  -I | cut -f2 -d' ')]\ndaemon=1\nserver=1\nport=5533\nlisten=0\nmasternode=1\nlogtimestamps=1\nmaxconnections=256\nmasternodeprivkey=$privkey2\nexternalIP=[$(hostname  -I | cut -f2 -d' ')]:5530\naddnode=45.77.54.88\naddnode=207.246.68.245\naddnode=149.28.176.127\naddnode=144.202.77.218\naddnode=95.216.120.35\naddnode=89.36.215.204" >> /home/zoomba2/.zoomba/zoomba.conf
 zoombad -datadir=/home/zoomba/.zoomba -daemon
 echo "Syncing first node"
 sleep 2000
