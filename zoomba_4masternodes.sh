@@ -78,7 +78,7 @@ cd ~
 wget https://github.com/zoombacoin/zoomba/releases/download/1.0.1/Zoomba_1.0.1_Linux.zip
 unzip Zoomba_1.0.1_Linux.zip
 cd Zoomba_1.0.1_Linux
-sudo mv zoombad zoomba-qt zoomba-cli zoomba-tx /usr/local/bin
+sudo mv zoombad zoomba-qt zoomba-cli /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/zoomba*
 cd /home/zoomba/
 sudo mkdir /home/zoomba/.zoomba
