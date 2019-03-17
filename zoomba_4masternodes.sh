@@ -68,13 +68,18 @@ sudo mkswap /var/swap.img
 sudo swapon /var/swap.img
 sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd ~
-sudo git clone https://github.com/zoombacoin/zoomba
-sudo chmod -R 755 ~/zoomba
-cd zoomba
-sudo ./autogen.sh
-sudo ./configure --disable-tests --disable-gui-tests
-sudo make
-sudo make install
+#sudo git clone https://github.com/zoombacoin/zoomba
+#sudo chmod -R 755 ~/zoomba
+#cd zoomba
+#sudo ./autogen.sh
+#sudo ./configure --disable-tests --disable-gui-tests
+#sudo make
+#sudo make install
+wget https://github.com/zoombacoin/zoomba/releases/download/1.0.1/Zoomba_1.0.1_Linux.zip
+unzip Zoomba_1.0.1_Linux.zip
+cd Zoomba_1.0.1_Linux
+sudo mv zoombad zoomba-qt zoomba-cli zoomba-tx /usr/local/bin
+sudo chmod 755 -R  /usr/local/bin/zoomba*
 cd /home/zoomba/
 sudo mkdir /home/zoomba/.zoomba
 sudo touch /home/zoomba/.zoomba/zoomba.conf
