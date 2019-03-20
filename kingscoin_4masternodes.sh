@@ -116,7 +116,7 @@ echo "masternode=1" >> /home/kgs3/.kgs/kgs.conf
 echo "rpcport=17713" >> /home/kgs3/.kgs/kgs.conf
 echo "listen=0" >> /home/kgs3/.kgs/kgs.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kgs3/.kgs/kgs.conf
-echo "masternodeprivkey=$privkey" >> /home/kgs3/.kgs/kgs.conf
+echo "masternodeprivkey=$privkey3" >> /home/kgs3/.kgs/kgs.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for fourth node${NC}"
 sudo mkdir /home/kgs4/.kgs
@@ -131,7 +131,7 @@ echo "masternode=1" >> /home/kgs4/.kgs/kgs.conf
 echo "rpcport=17714" >> /home/kgs4/.kgs/kgs.conf
 echo "listen=0" >> /home/kgs4/.kgs/kgs.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kgs4/.kgs/kgs.conf
-echo "masternodeprivkey=$privkey2" >> /home/kgs4/.kgs/kgs.conf
+echo "masternodeprivkey=$privkey4" >> /home/kgs4/.kgs/kgs.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
