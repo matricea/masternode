@@ -84,7 +84,7 @@ echo "listen=0" >> /home/panam/.panam/panam.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):45788" >> /home/panam/.panam/panam.conf
 echo "masternodeprivkey=$privkey" >> /home/panam/.panam/panam.conf
 echo "addnode=[2a00:1028:83a0:4ac2:4936:b996:cb1c:8b85]" >> /home/panam/.panam/panam.conf
-
+echo "addnode=104.156.230.104" >> /home/panam/.panam/panam.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for second node${NC}"
 sudo mkdir /home/panam2
@@ -101,6 +101,8 @@ echo "rpcport=45790" >> /home/panam2/.panam/panam.conf
 echo "listen=0" >> /home/panam2/.panam/panam.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):45788" >> /home/panam2/.panam/panam.conf
 echo "masternodeprivkey=$privkey2" >> /home/panam2/.panam/panam.conf
+echo "addnode=[2a00:1028:83a0:4ac2:4936:b996:cb1c:8b85]" >> /home/panam2/.panam/panam.conf
+echo "addnode=104.156.230.104" >> /home/panam2/.panam/panam.conf
 sleep 5
 sudo mkdir /home/panam3
 sudo mkdir /home/panam3/.panam
@@ -117,6 +119,8 @@ echo "rpcport=45791" >> /home/panam3/.panam/panam.conf
 echo "listen=0" >> /home/panam3/.panam/panam.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):45788" >> /home/panam3/.panam/panam.conf
 echo "masternodeprivkey=$privkey3" >> /home/panam3/.panam/panam.conf
+echo "addnode=[2a00:1028:83a0:4ac2:4936:b996:cb1c:8b85]" >> /home/panam3/.panam/panam.conf
+echo "addnode=104.156.230.104" >> /home/panam3/.panam/panam.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for fourth node${NC}"
 sudo mkdir /home/panam4
@@ -133,6 +137,8 @@ echo "rpcport=45792" >> /home/panam4/.panam/panam.conf
 echo "listen=0" >> /home/panam4/.panam/panam.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):45788" >> /home/panam4/.panam/panam.conf
 echo "masternodeprivkey=$privkey4" >> /home/panam4/.panam/panam.conf
+echo "addnode=[2a00:1028:83a0:4ac2:4936:b996:cb1c:8b85]" >> /home/panam4/.panam/panam.conf
+echo "addnode=104.156.230.104" >> /home/panam4/.panam/panam.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
@@ -161,7 +167,7 @@ echo ""
 echo -e ${GREEN}"Congrats! Your Panam Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
 echo "Deleting temporary files"
 cd /root
-rm -rf /root/panam-1.0.0-x86_64-linux-gnu
+#rm -rf /root/panam-1.0.0-x86_64-linux-gnu
 rm -rf /root/panam-1.0.0-x86_64-linux-gnu.tar.gz
 rm -rf /root/panam_4masternodes.sh
 echo "If you think that this script helped in some way, feel free to donate for our work:"
