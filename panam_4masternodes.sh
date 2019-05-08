@@ -64,10 +64,11 @@ sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd /root
 wget https://github.com/panamcoin/Panam/releases/download/1.0.0/panam-1.0.0-x86_64-linux-gnu.tar.gz
 tar -xzf panam-1.0.0-x86_64-linux-gnu.tar.gz
-cd panam-1.0.0-x86_64-linux-gnu
+#cd panam-1.0.0-x86_64-linux-gnu
 sudo mv panamd panam-cli panam-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/panam*
 cd /root
+sudo mkdir /home/panam
 sudo mkdir /home/panam/.panam
 sudo touch /home/panam/.panam/panam.conf
 echo -e "${GREEN}Configuring Wallet for first node${NC}"
@@ -86,6 +87,7 @@ echo "addnode=[2a00:1028:83a0:4ac2:4936:b996:cb1c:8b85]" >> /home/panam/.panam/p
 
 sleep 5
 echo -e "${GREEN}Configuring Wallet for second node${NC}"
+sudo mkdir /home/panam2
 sudo mkdir /home/panam2/.panam
 sudo touch /home/panam2/.panam/panam.conf
 echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/panam2/.panam/panam.conf
@@ -100,6 +102,7 @@ echo "listen=0" >> /home/panam2/.panam/panam.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):45788" >> /home/panam2/.panam/panam.conf
 echo "masternodeprivkey=$privkey2" >> /home/panam2/.panam/panam.conf
 sleep 5
+sudo mkdir /home/panam3
 sudo mkdir /home/panam3/.panam
 sudo touch /home/panam3/.panam/panam.conf
 echo -e "${GREEN}Configuring Wallet for third node${NC}"
@@ -116,6 +119,7 @@ echo "externalip=$(hostname  -I | cut -f1 -d' '):45788" >> /home/panam3/.panam/p
 echo "masternodeprivkey=$privkey3" >> /home/panam3/.panam/panam.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for fourth node${NC}"
+sudo mkdir /home/panam4
 sudo mkdir /home/panam4/.panam
 sudo touch /home/panam4/.panam/panam.conf
 echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/panam4/.panam/panam.conf
