@@ -12,11 +12,11 @@ if [[ $(lsb_release -d) != *16.04* ]]; then
   exit 1
 fi
 
-echo -e ${YELLOW}"Welcome to the KingsCoin Automated Install, Durring this Process Please Hit Enter or Input What is Asked."${NC}
+echo -e ${YELLOW}"Welcome to the Panam 1.0.0 Automated Install, Durring this Process Please Hit Enter or Input What is Asked."${NC}
 echo
 echo -e ${YELLOW}"You Will See alot of code flashing across your screen, don't be alarmed it's supposed to do that. This process can take up to an hour and may appear to be stuck, but I can promise you it's not."${NC}
 echo
-echo -e ${GREEN}"Are you sure you want to install KingsCoin Masternode? type y/n followed by [ENTER]:"${NC}
+echo -e ${GREEN}"Are you sure you want to install Panam 1.0.0 Masternode? type y/n followed by [ENTER]:"${NC}
 read AGREE
 
 if [[ $AGREE =~ "y" ]] ; then
@@ -28,11 +28,6 @@ echo -e ${GREEN}"Please Enter Your Masternodes Private Key for the third node:"$
 read privkey3
 echo -e ${GREEN}"Please Enter Your Masternodes Private Key for 4th node:"${NC}
 read privkey4
-echo "Creating 4 KingsCoin system users with no-login access:"
-sudo adduser --system --home /home/kgs kgs
-sudo adduser --system --home /home/kgs2 kgs2
-sudo adduser --system --home /home/kgs3 kgs3
-sudo adduser --system --home /home/kgs4 kgs4
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install software-properties-common
@@ -56,7 +51,7 @@ service fail2ban restart
 ufw default deny incoming
 ufw default allow outgoing
 ufw allow ssh
-ufw allow 17700/tcp
+ufw allow 45788/tcp
 yes | ufw enable
 #sudo apt install git
 cd /var
@@ -67,103 +62,105 @@ sudo mkswap /var/swap.img
 sudo swapon /var/swap.img
 sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd /root
-wget https://github.com/kingscrypto/KGS/releases/download/v3.1.1/kgs-3.1.1.1-Ubuntu16.tar.gz
-tar -xzf kgs-3.1.1.1-Ubuntu16.tar.gz
-cd kgs-3.1.1.1-Ubuntu16
-sudo mv kgsd kgs-qt kgs-cli kgs-tx /usr/local/bin
-sudo chmod 755 -R  /usr/local/bin/kgs*
+wget https://github.com/panamcoin/Panam/releases/download/1.0.0/panam-1.0.0-x86_64-linux-gnu.tar.gz
+tar -xzf panam-1.0.0-x86_64-linux-gnu.tar.gz
+cd panam-1.0.0-x86_64-linux-gnu
+sudo mv panamd panam-cli panam-tx /usr/local/bin
+sudo chmod 755 -R  /usr/local/bin/panam*
 cd /root
-sudo mkdir /home/kgs/.kgs
-sudo touch /home/kgs/.kgs/kgs.conf
+sudo mkdir /home/panam/.panam
+sudo touch /home/panam/.panam/panam.conf
 echo -e "${GREEN}Configuring Wallet for first node${NC}"
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/kgs/.kgs/kgs.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/kgs/.kgs/kgs.conf
-echo "rpcallowip=127.0.0.1" >> /home/kgs/.kgs/kgs.conf
-echo "server=1" >> /home/kgs/.kgs/kgs.conf
-echo "daemon=1" >> /home/kgs/.kgs/kgs.conf
-echo "maxconnections=250" >> /home/kgs/.kgs/kgs.conf
-echo "masternode=1" >> /home/kgs/.kgs/kgs.conf
-echo "rpcport=17711" >> /home/kgs/.kgs/kgs.conf
-echo "listen=0" >> /home/kgs/.kgs/kgs.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kgs/.kgs/kgs.conf
-echo "masternodeprivkey=$privkey" >> /home/kgs/.kgs/kgs.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/panam/.panam/panam.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/panam/.panam/panam.conf
+echo "rpcallowip=127.0.0.1" >> /home/panam/.panam/panam.conf
+echo "server=1" >> /home/panam/.panam/panam.conf
+echo "daemon=1" >> /home/panam/.panam/panam.conf
+echo "maxconnections=250" >> /home/panam/.panam/panam.conf
+echo "masternode=1" >> /home/panam/.panam/panam.conf
+echo "rpcport=45789" >> /home/panam/.panam/panam.conf
+echo "listen=0" >> /home/panam/.panam/panam.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):45788" >> /home/panam/.panam/panam.conf
+echo "masternodeprivkey=$privkey" >> /home/panam/.panam/panam.conf
+echo "addnode=[2a00:1028:83a0:4ac2:4936:b996:cb1c:8b85]" >> /home/panam/.panam/panam.conf
+
 sleep 5
 echo -e "${GREEN}Configuring Wallet for second node${NC}"
-sudo mkdir /home/kgs2/.kgs
-sudo touch /home/kgs2/.kgs/kgs.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/kgs2/.kgs/kgs.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/kgs2/.kgs/kgs.conf
-echo "rpcallowip=127.0.0.1" >> /home/kgs2/.kgs/kgs.conf
-echo "server=1" >> /home/kgs2/.kgs/kgs.conf
-echo "daemon=1" >> /home/kgs2/.kgs/kgs.conf
-echo "maxconnections=250" >> /home/kgs2/.kgs/kgs.conf
-echo "masternode=1" >> /home/kgs2/.kgs/kgs.conf
-echo "rpcport=17712" >> /home/kgs2/.kgs/kgs.conf
-echo "listen=0" >> /home/kgs2/.kgs/kgs.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kgs2/.kgs/kgs.conf
-echo "masternodeprivkey=$privkey2" >> /home/kgs2/.kgs/kgs.conf
+sudo mkdir /home/panam2/.panam
+sudo touch /home/panam2/.panam/panam.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/panam2/.panam/panam.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/panam2/.panam/panam.conf
+echo "rpcallowip=127.0.0.1" >> /home/panam2/.panam/panam.conf
+echo "server=1" >> /home/panam2/.panam/panam.conf
+echo "daemon=1" >> /home/panam2/.panam/panam.conf
+echo "maxconnections=250" >> /home/panam2/.panam/panam.conf
+echo "masternode=1" >> /home/panam2/.panam/panam.conf
+echo "rpcport=45790" >> /home/panam2/.panam/panam.conf
+echo "listen=0" >> /home/panam2/.panam/panam.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):45788" >> /home/panam2/.panam/panam.conf
+echo "masternodeprivkey=$privkey2" >> /home/panam2/.panam/panam.conf
 sleep 5
-sudo mkdir /home/kgs3/.kgs
-sudo touch /home/kgs3/.kgs/kgs.conf
+sudo mkdir /home/panam3/.panam
+sudo touch /home/panam3/.panam/panam.conf
 echo -e "${GREEN}Configuring Wallet for third node${NC}"
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/kgs3/.kgs/kgs.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/kgs3/.kgs/kgs.conf
-echo "rpcallowip=127.0.0.1" >> /home/kgs3/.kgs/kgs.conf
-echo "server=1" >> /home/kgs3/.kgs/kgs.conf
-echo "daemon=1" >> /home/kgs3/.kgs/kgs.conf
-echo "maxconnections=250" >> /home/kgs3/.kgs/kgs.conf
-echo "masternode=1" >> /home/kgs3/.kgs/kgs.conf
-echo "rpcport=17713" >> /home/kgs3/.kgs/kgs.conf
-echo "listen=0" >> /home/kgs3/.kgs/kgs.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kgs3/.kgs/kgs.conf
-echo "masternodeprivkey=$privkey3" >> /home/kgs3/.kgs/kgs.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/panam3/.panam/panam.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/panam3/.panam/panam.conf
+echo "rpcallowip=127.0.0.1" >> /home/panam3/.panam/panam.conf
+echo "server=1" >> /home/panam3/.panam/panam.conf
+echo "daemon=1" >> /home/panam3/.panam/panam.conf
+echo "maxconnections=250" >> /home/panam3/.panam/panam.conf
+echo "masternode=1" >> /home/panam3/.panam/panam.conf
+echo "rpcport=45791" >> /home/panam3/.panam/panam.conf
+echo "listen=0" >> /home/panam3/.panam/panam.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):45788" >> /home/panam3/.panam/panam.conf
+echo "masternodeprivkey=$privkey3" >> /home/panam3/.panam/panam.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for fourth node${NC}"
-sudo mkdir /home/kgs4/.kgs
-sudo touch /home/kgs4/.kgs/kgs.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/kgs4/.kgs/kgs.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/kgs4/.kgs/kgs.conf
-echo "rpcallowip=127.0.0.1" >> /home/kgs4/.kgs/kgs.conf
-echo "server=1" >> /home/kgs4/.kgs/kgs.conf
-echo "daemon=1" >> /home/kgs4/.kgs/kgs.conf
-echo "maxconnections=250" >> /home/kgs4/.kgs/kgs.conf
-echo "masternode=1" >> /home/kgs4/.kgs/kgs.conf
-echo "rpcport=17714" >> /home/kgs4/.kgs/kgs.conf
-echo "listen=0" >> /home/kgs4/.kgs/kgs.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kgs4/.kgs/kgs.conf
-echo "masternodeprivkey=$privkey4" >> /home/kgs4/.kgs/kgs.conf
+sudo mkdir /home/panam4/.panam
+sudo touch /home/panam4/.panam/panam.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/panam4/.panam/panam.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/panam4/.panam/panam.conf
+echo "rpcallowip=127.0.0.1" >> /home/panam4/.panam/panam.conf
+echo "server=1" >> /home/panam4/.panam/panam.conf
+echo "daemon=1" >> /home/panam4/.panam/panam.conf
+echo "maxconnections=250" >> /home/panam4/.panam/panam.conf
+echo "masternode=1" >> /home/panam4/.panam/panam.conf
+echo "rpcport=45792" >> /home/panam4/.panam/panam.conf
+echo "listen=0" >> /home/panam4/.panam/panam.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):45788" >> /home/panam4/.panam/panam.conf
+echo "masternodeprivkey=$privkey4" >> /home/panam4/.panam/panam.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
-kgsd -datadir=/home/kgs/.kgs/ -daemon
+panamd -datadir=/home/panam/.panam/ -daemon
 sleep 10
-until kgs-cli -datadir=/home/kgs/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until panam-cli -datadir=/home/panam/.panam/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. Your 1st masternode is running!"${NC}
 sleep 10
 echo "Syncing second node, please wait...";
-kgsd -datadir=/home/kgs2/.kgs/ -daemon
+panamd -datadir=/home/panam2/.panam/ -daemon
 sleep 10
-until kgs-cli -datadir=/home/kgs2/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until panam-cli -datadir=/home/panam2/.panam/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your second masternode is running!"${NC}
 sleep 10
 echo "Syncing third node, please wait...";
-kgsd -datadir=/home/kgs3/.kgs/ -daemon
+panamd -datadir=/home/panam3/.panam/ -daemon
 sleep 10
-until kgs-cli -datadir=/home/kgs3/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until panam-cli -datadir=/home/panam3/.panam/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Third node is fully synced. Your third masternode is running!"${NC}
 sleep 10
-kgsd -datadir=/home/kgs4/.kgs/ -daemon
+panamd -datadir=/home/panam4/.panam/ -daemon
 sleep 10
-until kgs-cli -datadir=/home/kgs4/.kgs/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until panam-cli -datadir=/home/panam4/.panam/ mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Last node is fully synced. Your fourth masternode is running!"${NC}
 echo ""
-echo -e ${GREEN}"Congrats! Your KingsCoin Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
+echo -e ${GREEN}"Congrats! Your Panam Masternodes are now installed and started. Please wait from 10-20 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
 echo "Deleting temporary files"
 cd /root
-rm -rf /root/kgs-3.1.1.1-Ubuntu16
-rm -rf /root/kgs-3.1.1.1-Ubuntu16.tar.gz
-rm -rf /root/kingscoin_4masternodes.sh
+rm -rf /root/panam-1.0.0-x86_64-linux-gnu
+rm -rf /root/panam-1.0.0-x86_64-linux-gnu.tar.gz
+rm -rf /root/panam_4masternodes.sh
 echo "If you think that this script helped in some way, feel free to donate for our work:"
-echo "KingsCoins address: KJignF72dMXKas2HcZwGtxibDPBC6j2vm5"
+echo "Panam address: PBgGuKGk3h3vayyYBWZj7SGLvD7nyL52of"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
 echo "The END. You can close now the SSH terminal session";

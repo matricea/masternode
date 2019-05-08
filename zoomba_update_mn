@@ -1,0 +1,44 @@
+#!/bin/bash
+
+#Setup Variables
+GREEN='\033[0;32m'
+YELLOW='\033[0;93m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+echo -e ${YELLOW}"Welcome to the Zoomba Automated Update."${NC}
+echo "Please wait while updates are performed..."
+
+echo Searching for Zoomba nodes inside the system
+sleep 5
+find /root -type f -iname "zoomba.conf"|grep -i ".zoomba"|grep -v "bak"|awk '{print "/usr/local/bin/zoomba-cli -conf="substr($0,1,length($0)) " -datadir="substr($0,1,length($0)-16) " stop"}'|sh
+
+#rm -rf zoombad zoomba-cli zoomba-tx
+#wget
+
+#tar -xzf zoomba-linux.tar.gz
+#rm -rf zoomba-linux.tar.gz
+
+echo ""
+echo Starting Masternodes
+echo ""
+
+find /root -type f -iname "zoomba.conf"|grep -i ".zoomba"|grep -v "bak"|awk '{print "/usr/local/bin/zoombad -daemon -conf="substr($0,1,length($0)) " -datadir="substr($0,1,length($0)-16) " -pid="substr($0,1,length($0)-13) "zoomba.pid"}'|sh
+
+echo ""
+echo Please wait masternodes are started
+echo ""
+sleep 10
+
+find /root -type f -iname "zoomba.conf"|grep -i ".zoomba"|grep -v "bak"|awk '{print "/usr/local/bin/zoomba-cli -conf="substr($0,1,length($0)) " -datadir="substr($0,1,length($0)-16) " masternode start-all 1"}'|sh
+find /root -type f -iname "zoomba.conf"|grep -i ".zoomba"|grep -v "bak"|awk '{print "/usr/local/bin/zoomba-cli -conf="substr($0,1,length($0)) " -datadir="substr($0,1,length($0)-16) " masternode start local"}'|sh
+find /root -type f -iname "zoomba.conf"|grep -i ".zoomba"|grep -v "bak"|awk '{print "/usr/local/bin/zoomba-cli -conf="substr($0,1,length($0)) " -datadir="substr($0,1,length($0)-16) " masternode status"}'|sh
+
+# echo If you see errors when the script tried to activate the Masternodes you can run the following commands again and again if you required .....
+
+echo "find /root -type f -iname \"zoomba.conf\"|grep -i \".zoomba\"|grep -v \"bak\"|awk '{print \"/usr/local/bin/zoomba-cli -conf=\"substr(\$0,1,length(\$0)) \" -datadir=\"substr(\$0,1,length(\$0)-16) \" masternode start-all 1\"}'|sh"
+echo
+echo "find /root -type f -iname \"zoomba.conf\"|grep -i \".zoomba\"|grep -v \"bak\"|awk '{print \"/usr/local/bin/zoomba-cli -conf=\"substr(\$0,1,length(\$0)) \" -datadir=\"substr(\$0,1,length(\$0)-16) \" masternode start local\"}'|sh"
+echo
+echo "find /root -type f -iname \"zoomba.conf\"|grep -i \".zoomba\"|grep -v \"bak\"|awk '{print \"/usr/local/bin/zoomba-cli -conf=\"substr(\$0,1,length(\$0)) \" -datadir=\"substr(\$0,1,length(\$0)-16) \" masternode status\"}'|sh"
+echo
