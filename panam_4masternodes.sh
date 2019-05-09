@@ -86,6 +86,9 @@ echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):45788" >> /home/panam/.pana
 echo "masternodeprivkey=$privkey" >> /home/panam/.panam/panam.conf
 echo "addnode=[2a00:1028:83a0:4ac2:4936:b996:cb1c:8b85]" >> /home/panam/.panam/panam.conf
 echo "addnode=104.156.230.104" >> /home/panam/.panam/panam.conf
+echo "addnode=194.228.11.177" >> /home/panam/.panam/panam.conf
+echo "addnode=80.209.224.35" >> /home/panam/.panam/panam.conf
+echo "addnode=[2001:19f0:ac01:1a83:5400:2ff:fe06:8a44]" >> /home/panam/.panam/panam.conf
 sleep 5
 echo -e "${GREEN}Configuring Wallet for second node${NC}"
 sudo mkdir /home/panam2
@@ -105,6 +108,9 @@ echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):45788" >> /home/panam2/.pan
 echo "masternodeprivkey=$privkey2" >> /home/panam2/.panam/panam.conf
 echo "addnode=[2a00:1028:83a0:4ac2:4936:b996:cb1c:8b85]" >> /home/panam2/.panam/panam.conf
 echo "addnode=104.156.230.104" >> /home/panam2/.panam/panam.conf
+echo "addnode=194.228.11.177" >> /home/panam2/.panam/panam.conf
+echo "addnode=80.209.224.35" >> /home/panam2/.panam/panam.conf
+echo "addnode=[2001:19f0:ac01:1a83:5400:2ff:fe06:8a44]" >> /home/panam2/.panam/panam.conf
 sleep 5
 sudo mkdir /home/panam3
 sudo mkdir /home/panam3/.panam
@@ -143,6 +149,9 @@ echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):45788" >> /home/panam4/.pan
 echo "masternodeprivkey=$privkey4" >> /home/panam4/.panam/panam.conf
 echo "addnode=[2a00:1028:83a0:4ac2:4936:b996:cb1c:8b85]" >> /home/panam4/.panam/panam.conf
 echo "addnode=104.156.230.104" >> /home/panam4/.panam/panam.conf
+echo "addnode=194.228.11.177" >> /home/panam4/.panam/panam.conf
+echo "addnode=80.209.224.35" >> /home/panam4/.panam/panam.conf
+echo "addnode=[2001:19f0:ac01:1a83:5400:2ff:fe06:8a44]" >> /home/panam4/.panam/panam.conf
 sleep 5
 fi
 echo "Syncing first node, please wait...";
