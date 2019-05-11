@@ -6,58 +6,63 @@ YELLOW='\033[0;93m'
 RED='\033[0;31m'
 NC='\033[0m'
 
-echo -e ${YELLOW}"Welcome to the Kingscoin Automated Update(2in1)."${NC}
+echo -e ${YELLOW}"Welcome to the Zoomba Automated Update(2in1)."${NC}
 echo "Please wait while updates are performed..."
 sleep 5
 echo "Stopping first node, please wait...";
-kingscoin-cli -datadir=/home/kingscoin/.kingscoin stop
+zoomba-cli -datadir=/home/zoomba/.zoomba stop
 echo "Stopping second node, please wait...";
-kingscoin-cli -datadir=/home/kingscoin2/.kingscoin stop
+zoomba-cli -datadir=/home/zoomba2/.zoomba stop
 sleep 10
 echo "Removing binaries..."
 cd /usr/local/bin
-rm -rf kingscoind kingscoin-cli kingscoin-tx
+rm -rf zoombad zoomba-cli zoomba-tx
 cd /root
 echo "Downloading latest binaries"
-wget https://github.com/kingscrypto/KGS/releases/download/v3.1.1/kgs-3.1.1.1-Ubuntu16.tar.gz
-tar -xzf kgs-3.1.1.1-Ubuntu16.tar.gz
-cd kgs-3.1.1.1-Ubuntu16
-sudo mv kgsd kgs-qt kgs-cli kgs-tx /usr/local/bin
-sudo chmod 755 -R  /usr/local/bin/kgs*
+wget https://github.com/zoombacoin/zoomba/releases/download/1.0.2/zoomba-1.0.2-ubuntu1604.zip
+unzip zoomba-1.0.2-ubuntu1604.zip
+sudo mv zoombad zoomba-cli zoomba-tx /usr/local/bin
+sudo chmod 755 -R  /usr/local/bin/zoomba*
 
-echo "Deleting old nodes from node config files..."
-sed -i '/addnode/d' /home/kingscoin/.kingscoin/kingscoin.conf
-sed -i '/addnode/d' /home/kingscoin2/.kingscoin/kingscoin.conf
+echo "Adding new nodes"
+echo "addnode=173.249.22.124" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=66.42.111.56" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=173.249.22.207" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=207.246.68.245" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=80.241.216.101" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=54.39.25.93" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=104.156.230.104" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=173.199.70.184" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba/.zoomba/zoomba.conf
 
-echo "Changing old ports with new ones..."
-sed -i '/externalip/d' /home/kingscoin/.kingscoin/kingscoin.conf
-sed -i '/externalip/d' /home/kingscoin2/.kingscoin/kingscoin.conf
-sed -i '/rpcport/d' /home/kingscoin/.kingscoin/kingscoin.conf
-sed -i '/rpcport/d' /home/kingscoin2/.kingscoin/kingscoin.conf
-
-echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):17700" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-echo "rpcport=17701" >> /home/kingscoin/.kingscoin/kingscoin.conf
-echo "rpcport=17702" >> /home/kingscoin2/.kingscoin/kingscoin.conf
-
+echo "addnode=173.249.22.124" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=66.42.111.56" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=173.249.22.207" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=207.246.68.245" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=80.241.216.101" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=54.39.25.93" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=104.156.230.104" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=173.199.70.184" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba2/.zoomba/zoomba.conf
 
 echo "Syncing first node, please wait...";
-kgsd -datadir=/home/kingscoin/.kingscoin -resync
-until kgs-cli -datadir=/home/kingscoin/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+zoombad -datadir=/home/zoomba/.zoomba -resync
+until zoomba-cli -datadir=/home/zoomba/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo "Syncing second node, please wait...";
-kgsd -datadir=/home/kingscoin2/.kingscoin -resync
-until kgs-cli -datadir=/home/kingscoin2/.kingscoin mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+zoombad -datadir=/home/zoomba2/.zoomba -resync
+until zoomba-cli -datadir=/home/zoomba2/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo "Deleting temporary files"
 cd /root
-rm -rf /root/kgs-3.1.1.1-Ubuntu16
-rm -rf /root/kgs-3.1.1.1-Ubuntu16.tar.gz
-rm -rf /root/kingscoin_2masternodes_update.sh
+rm -rf /root/zoomba-1.0.2-ubuntu1604.zip
+rm -rf /root/zoomba_2masternodes_update.sh
 cd ~
 echo -e ${GREEN}"If you think that this script helped in some way, feel free to donate for our work:"${NC}
-echo "KingsCoins address: K8cKv7AdK8Z8TVvADKKSTT8MvwmbnGxR3j"
+echo "Zoomba address: ZfkuV8WefFSiL1urBGamqsZ9h5osWJaoKX"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
 echo "The END. You can close now the SSH terminal session";
