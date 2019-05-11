@@ -136,7 +136,7 @@ until zoomba-cli -datadir=/home/zoomba2/.zoomba mnsync status | grep -m 1 '"IsBl
 echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
 
 echo -e ${GREEN}"Congrats! Your Masternodes are now installed and has started. Please wait 15-20 minutes in order to give the masternode enough time to sync, then start the node from your Windows wallet."${NC}
-rm -rf /root/zoomba-1.0.2-ubuntu1604.zip
+rm -rf /root/Zoomba_1.0.1_Linux.zip
 rm -rf /root/zoomba_2masternodes.sh
 cd ~
 echo -e ${GREEN}"If you think that this script helped in some way, feel free to donate for our work:"${NC}
