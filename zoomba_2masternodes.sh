@@ -76,14 +76,71 @@ sudo chmod 755 -R  /usr/local/bin/zoomba*
 cd /home/zoomba/
 sudo mkdir /home/zoomba/.zoomba
 sudo touch /home/zoomba/.zoomba/zoomba.conf
-echo -e "rpcuser=dsfjkdsui3874djnaiksk\nrpcpassword=dskasiue98873kjeih87iakj\nrpcallowip=127.0.0.1\nrpcport=5530\nbind=$(hostname  -I | cut -f1 -d' ')\ndaemon=1\nserver=1\nlisten=0\nmasternode=1\nlogtimestamps=1\nmaxconnections=256\nmasternodeprivkey=$privkey\nexternalIP=$(hostname  -I | cut -f1 -d' '):5530\naddnode=45.77.54.88\naddnode=207.246.68.245\naddnode=149.28.176.127\naddnode=144.202.77.218\naddnode=95.216.120.35\naddnode=89.36.215.204" >> /home/zoomba/.zoomba/zoomba.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/zoomba/.zoomba/zoomba.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/zoomba/.zoomba/zoomba.conf
+echo "rpcallowip=127.0.0.1" >> /home/zoomba/.zoomba/zoomba.conf
+echo "server=1" >> /home/zoomba/.zoomba/zoomba.conf
+echo "daemon=1" >> /home/zoomba/.zoomba/zoomba.conf
+echo "maxconnections=250" >> /home/zoomba/.zoomba/zoomba.conf
+echo "masternode=1" >> /home/zoomba/.zoomba/zoomba.conf
+echo "rpcport=5531" >> /home/zoomba/.zoomba/zoomba.conf
+echo "port=55311" >> /home/zoomba/.zoomba/zoomba.conf
+echo "listen=1" >> /home/zoomba/.zoomba/zoomba.conf
+echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):5530" >> /home/zoomba/.zoomba/zoomba.conf
+echo "masternodeprivkey=$privkey" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=173.249.22.124" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=66.42.111.56" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=173.249.22.207" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=207.246.68.245" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=80.241.216.101" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=54.39.25.93" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=104.156.230.104" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=173.199.70.184" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba/.zoomba/zoomba.conf
 cd /home/zoomba2
 sudo mkdir /home/zoomba2/.zoomba
 sudo touch /home/zoomba2/.zoomba/zoomba.conf
-echo -e "rpcuser=dsfjkdsui3874djnaiksk\nrpcpassword=dskasiue98873kjeih87iakj\nrpcallowip=127.0.0.1\nrpcport=5534\nbind=[$(hostname  -I | cut -f2 -d' ')]\ndaemon=1\nserver=1\nport=5533\nlisten=0\nmasternode=1\nlogtimestamps=1\nmaxconnections=256\nmasternodeprivkey=$privkey2\nexternalIP=[$(hostname  -I | cut -f2 -d' ')]:5530\naddnode=45.77.54.88\naddnode=207.246.68.245\naddnode=149.28.176.127\naddnode=144.202.77.218\naddnode=95.216.120.35\naddnode=89.36.215.204" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/zoomba2/.zoomba/zoomba.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/zoomba2/.zoomba/zoomba.conf
+echo "rpcallowip=127.0.0.1" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "server=1" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "daemon=1" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "maxconnections=250" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "masternode=1" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "rpcport=5532" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "port=55322" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "listen=1" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):5530" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "masternodeprivkey=$privkey" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=173.249.22.124" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=66.42.111.56" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=173.249.22.207" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=207.246.68.245" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=80.241.216.101" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=54.39.25.93" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=104.156.230.104" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=173.199.70.184" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba2/.zoomba/zoomba.conf
+
+echo "Syncing first node, please wait...";
 zoombad -datadir=/home/zoomba/.zoomba -daemon
-echo "Syncing first node"
-sleep 2000
-zoombad -datadir=/home/zoomba2/.zoomba -daemon
-echo -e ${GREEN}"Congrats! Your Masternode is now installed and has started. Please wait 5-10 minutes in order to give the masternode enough time to sync, then start the node from your Windows wallet."${NC}
+until zoomba-cli -datadir=/home/zoomba/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+echo -e ${GREEN}"First node is fully synced. Your masternode is running!"${NC}
+sleep 5
+
+echo "Syncing second node, please wait...";
+zoombad -datadir=/home/zoomba2/.zoomba -resync
+until zoomba-cli -datadir=/home/zoomba2/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
+
+echo -e ${GREEN}"Congrats! Your Masternodes are now installed and has started. Please wait 15-20 minutes in order to give the masternode enough time to sync, then start the node from your Windows wallet."${NC}
+rm -rf /root/zoomba-1.0.2-ubuntu1604.zip
+rm -rf /root/zoomba_2masternodes.sh
+cd ~
+echo -e ${GREEN}"If you think that this script helped in some way, feel free to donate for our work:"${NC}
+echo "Zoomba address: ZfkuV8WefFSiL1urBGamqsZ9h5osWJaoKX"
+echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
+echo "The END. You can close now the SSH terminal session";
 fi
