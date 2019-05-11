@@ -16,7 +16,7 @@ zoomba-cli -datadir=/home/zoomba2/.zoomba stop
 sleep 10
 echo "Removing binaries..."
 cd /usr/local/bin
-rm -rf zoombad zoomba-cli zoomba-tx
+rm -rf zoomba*
 cd /root
 echo "Downloading latest binaries"
 wget https://github.com/zoombacoin/zoomba/releases/download/1.0.2/zoomba-1.0.2-ubuntu1604.zip
