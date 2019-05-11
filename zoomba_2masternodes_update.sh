@@ -6,7 +6,7 @@ YELLOW='\033[0;93m'
 RED='\033[0;31m'
 NC='\033[0m'
 
-echo -e ${YELLOW}"Welcome to the Zoomba Automated Update(2in1)."${NC}
+echo -e ${RED}"Welcome to the Zoomba Automated Update(2in1)."${NC}
 echo "Please wait while updates are performed..."
 sleep 5
 echo "Stopping first node, please wait...";
