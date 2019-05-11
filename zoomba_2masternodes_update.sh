@@ -8,7 +8,7 @@ NC='\033[0m'
 
 echo -e ${RED}"Welcome to the Zoomba Automated Update(2in1)."${NC}
 echo "Please wait while updates are performed..."
-sleep 5
+sleep 2
 echo "Stopping first node, please wait...";
 zoomba-cli -datadir=/home/zoomba/.zoomba stop
 echo "Stopping second node, please wait...";
@@ -24,7 +24,7 @@ unzip zoomba-1.0.2-ubuntu1604.zip
 sudo mv zoombad zoomba-cli zoomba-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/zoomba*
 
-echo "Adding new nodes"
+echo "Adding new nodes into the Zoomba config file"
 echo "addnode=173.249.22.124" >> /home/zoomba/.zoomba/zoomba.conf
 echo "addnode=66.42.111.56" >> /home/zoomba/.zoomba/zoomba.conf
 echo "addnode=173.249.22.207" >> /home/zoomba/.zoomba/zoomba.conf
