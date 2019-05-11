@@ -62,16 +62,9 @@ sudo mkswap /var/swap.img
 sudo swapon /var/swap.img
 sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd ~
-#sudo git clone https://github.com/zoombacoin/zoomba
-#sudo chmod -R 755 ~/zoomba
-#cd zoomba
-#sudo ./autogen.sh
-#sudo ./configure --disable-tests --disable-gui-tests
-#sudo make
-#sudo make install
-wget https://github.com/zoombacoin/zoomba/releases/download/1.0.1/Zoomba_1.0.1_Linux.zip
-unzip Zoomba_1.0.1_Linux.zip
-sudo mv zoombad zoomba-qt zoomba-cli /usr/local/bin
+wget https://github.com/zoombacoin/zoomba/releases/download/1.0.2/zoomba-1.0.2-ubuntu1604.zip
+unzip zoomba-1.0.2-ubuntu1604.zip
+sudo mv zoombad zoomba-cli /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/zoomba*
 cd /home/zoomba/
 sudo mkdir /home/zoomba/.zoomba
@@ -136,7 +129,7 @@ until zoomba-cli -datadir=/home/zoomba2/.zoomba mnsync status | grep -m 1 '"IsBl
 echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
 
 echo -e ${GREEN}"Congrats! Your Masternodes are now installed and has started. Please wait 15-20 minutes in order to give the masternode enough time to sync, then start the node from your Windows wallet."${NC}
-rm -rf /root/Zoomba_1.0.1_Linux.zip
+rm -rf /root/zoomba-1.0.2-ubuntu1604.zip
 rm -rf /root/zoomba_2masternodes.sh
 cd ~
 echo -e ${GREEN}"If you think that this script helped in some way, feel free to donate for our work:"${NC}
