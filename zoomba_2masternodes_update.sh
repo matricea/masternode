@@ -49,12 +49,12 @@ echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba2/.zoomb
 
 echo "Syncing first node, please wait...";
 zoombad -datadir=/home/zoomba/.zoomba -resync
-until zoomba-cli -datadir=/home/zoomba/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until zoomba-cli -datadir=/home/zoomba/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo "Syncing second node, please wait...";
 zoombad -datadir=/home/zoomba2/.zoomba -resync
-until zoomba-cli -datadir=/home/zoomba2/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
+until zoomba-cli -datadir=/home/zoomba2/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo "Deleting temporary files"
