@@ -19,15 +19,11 @@ echo
 echo -e ${GREEN}"Are you sure you want to install Zoomba Masternode? type y/n followed by [ENTER]:"${NC}
 read AGREE
 
-
 if [[ $AGREE =~ "y" ]] ; then
 echo -e ${GREEN}"Please Enter Your Masternodes Private Key:"${NC}
 read privkey
 echo -e ${GREEN}"Please Enter Your Masternodes Private Key for second node:"${NC}
 read privkey2
-echo "Creating 2 Zoomba system users with no-login access:"
-sudo adduser --system --home /home/zoomba zoomba
-sudo adduser --system --home /home/zoomba2 zoomba2
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install software-properties-common
@@ -66,6 +62,7 @@ wget https://github.com/zoombacoin/zoomba/releases/download/1.0.2/zoomba-1.0.2-u
 unzip zoomba-1.0.2-ubuntu1604.zip
 sudo mv zoombad zoomba-cli /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/zoomba*
+sudo mkdir /home/zoomba
 cd /home/zoomba/
 sudo mkdir /home/zoomba/.zoomba
 sudo touch /home/zoomba/.zoomba/zoomba.conf
@@ -91,6 +88,7 @@ echo "addnode=104.156.230.104" >> /home/zoomba/.zoomba/zoomba.conf
 echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/zoomba/.zoomba/zoomba.conf
 echo "addnode=173.199.70.184" >> /home/zoomba/.zoomba/zoomba.conf
 echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba/.zoomba/zoomba.conf
+sudo mkdir /home/zoomba2
 cd /home/zoomba2
 sudo mkdir /home/zoomba2/.zoomba
 sudo touch /home/zoomba2/.zoomba/zoomba.conf
