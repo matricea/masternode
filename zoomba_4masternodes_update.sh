@@ -96,7 +96,7 @@ sleep 5
 echo "Deleting temporary files"
 cd /root
 rm -rf /root/zoomba-1.0.2-ubuntu1604.zip
-rm -rf /root/zoomba_2masternodes_update.sh
+rm -rf /root/zoomba_4masternodes_update.sh
 cd ~
 echo -e ${GREEN}"If you think that this script helped in some way, feel free to donate for our work:"${NC}
 echo "Zoomba address: ZfkuV8WefFSiL1urBGamqsZ9h5osWJaoKX"
