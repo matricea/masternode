@@ -10,7 +10,7 @@ echo -e ${RED}"Welcome to the Zoomba Automated Update(2in1)."${NC}
 echo "Please wait while updates are performed..."
 sleep 2
 echo "Stopping first node, please wait...";
-zoomba-cli -datadir=/root/zoomba/.zoomba stop
+zoomba-cli stop
 sleep 10
 echo "Removing binaries..."
 cd /usr/local/bin
@@ -35,8 +35,8 @@ echo "addnode=173.199.70.184" >> /root/zoomba/.zoomba/zoomba.conf
 echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /root/zoomba/.zoomba/zoomba.conf
 
 echo "Syncing first node, please wait...";
-zoombad -datadir=/root/zoomba/.zoomba
-until zoomba-cli -datadir=/root/zoomba/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
+zoombad -daemon
+until zoomba-cli mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"The node is fully synced. Your masternode is running!"${NC}
 sleep 5
 sleep 5
