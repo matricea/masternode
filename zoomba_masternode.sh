@@ -58,10 +58,10 @@ sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd ~
 wget https://github.com/zoombacoin/zoomba/releases/download/1.0.2/zoomba-1.0.2-ubuntu1604.zip
 unzip zoomba-1.0.2-ubuntu1604.zip
-sudo mv zoombad zoomba-cli /usr/local/bin
+sudo mv zoombad zoomba-cli zoomba-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/zoomba*
-sudo mkdir /home/zoomba
-cd /home/zoomba/
+sudo mkdir /root/zoomba
+cd /root/zoomba
 sudo mkdir /root/zoomba/.zoomba
 sudo touch /root/zoomba/.zoomba/zoomba.conf
 echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /root/zoomba/.zoomba/zoomba.conf
