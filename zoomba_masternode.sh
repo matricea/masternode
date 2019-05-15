@@ -64,8 +64,8 @@ sudo mkdir /root/zoomba
 cd /root/zoomba
 sudo mkdir /root/zoomba/.zoomba
 sudo touch /root/zoomba/.zoomba/zoomba.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /root/zoomba/.zoomba/zoomba.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /root/zoomba/.zoomba/zoomba.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1`" >> /root/zoomba/.zoomba/zoomba.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1`" >> /root/zoomba/.zoomba/zoomba.conf
 echo "rpcallowip=127.0.0.1" >> /root/zoomba/.zoomba/zoomba.conf
 echo "server=1" >> /root/zoomba/.zoomba/zoomba.conf
 echo "daemon=1" >> /root/zoomba/.zoomba/zoomba.conf
