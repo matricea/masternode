@@ -23,16 +23,16 @@ sudo mv zoombad zoomba-cli zoomba-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/zoomba*
 
 echo "Adding new nodes into the Zoomba config file"
-echo "addnode=173.249.22.124" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=66.42.111.56" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=173.249.22.207" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=207.246.68.245" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=80.241.216.101" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=54.39.25.93" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=104.156.230.104" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=173.199.70.184" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /root/zoomba/.zoomba/zoomba.conf
+echo "addnode=173.249.22.124" >> /root/.zoomba/zoomba.conf
+echo "addnode=66.42.111.56" >> /root/.zoomba/zoomba.conf
+echo "addnode=173.249.22.207" >> /root/.zoomba/zoomba.conf
+echo "addnode=207.246.68.245" >> /root/.zoomba/zoomba.conf
+echo "addnode=80.241.216.101" >> /root/.zoomba/zoomba.conf
+echo "addnode=54.39.25.93" >> /root/.zoomba/zoomba.conf
+echo "addnode=104.156.230.104" >> /root/.zoomba/zoomba.conf
+echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /root/.zoomba/zoomba.conf
+echo "addnode=173.199.70.184" >> /root/.zoomba/zoomba.conf
+echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /root/.zoomba/zoomba.conf
 
 echo "Syncing first node, please wait...";
 zoombad -daemon

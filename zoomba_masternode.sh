@@ -60,32 +60,31 @@ wget https://github.com/zoombacoin/zoomba/releases/download/1.0.2/zoomba-1.0.2-u
 unzip zoomba-1.0.2-ubuntu1604.zip
 sudo mv zoombad zoomba-cli zoomba-tx /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/zoomba*
-sudo mkdir /root/zoomba
-cd /root/zoomba
-sudo mkdir /root/zoomba/.zoomba
-sudo touch /root/zoomba/.zoomba/zoomba.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1`" >> /root/zoomba/.zoomba/zoomba.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1`" >> /root/zoomba/.zoomba/zoomba.conf
-echo "rpcallowip=127.0.0.1" >> /root/zoomba/.zoomba/zoomba.conf
-echo "server=1" >> /root/zoomba/.zoomba/zoomba.conf
-echo "daemon=1" >> /root/zoomba/.zoomba/zoomba.conf
-echo "maxconnections=250" >> /root/zoomba/.zoomba/zoomba.conf
-echo "masternode=1" >> /root/zoomba/.zoomba/zoomba.conf
-echo "rpcport=5531" >> /root/zoomba/.zoomba/zoomba.conf
-echo "port=55311" >> /root/zoomba/.zoomba/zoomba.conf
-echo "listen=1" >> /root/zoomba/.zoomba/zoomba.conf
-echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):5530" >> /root/zoomba/.zoomba/zoomba.conf
-echo "masternodeprivkey=$privkey" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=173.249.22.124" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=66.42.111.56" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=173.249.22.207" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=207.246.68.245" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=80.241.216.101" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=54.39.25.93" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=104.156.230.104" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=173.199.70.184" >> /root/zoomba/.zoomba/zoomba.conf
-echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /root/zoomba/.zoomba/zoomba.conf
+sudo mkdir /root/.zoomba
+cd /root/.zoomba
+sudo touch /root/.zoomba/zoomba.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /root/.zoomba/zoomba.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /root/.zoomba/zoomba.conf
+echo "rpcallowip=127.0.0.1" >> /root/.zoomba/zoomba.conf
+echo "server=1" >> /root/.zoomba/zoomba.conf
+echo "daemon=1" >> /root/.zoomba/zoomba.conf
+echo "maxconnections=250" >> /root/.zoomba/zoomba.conf
+echo "masternode=1" >> /root/.zoomba/zoomba.conf
+echo "rpcport=5531" >> /root/.zoomba/zoomba.conf
+echo "port=55311" >> /root/.zoomba/zoomba.conf
+echo "listen=1" >> /root/.zoomba/zoomba.conf
+echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):5530" >> /root/.zoomba/zoomba.conf
+echo "masternodeprivkey=$privkey" >> /root/.zoomba/zoomba.conf
+echo "addnode=173.249.22.124" >> /root/.zoomba/zoomba.conf
+echo "addnode=66.42.111.56" >> /root/.zoomba/zoomba.conf
+echo "addnode=173.249.22.207" >> /root/.zoomba/zoomba.conf
+echo "addnode=207.246.68.245" >> /root/.zoomba/zoomba.conf
+echo "addnode=80.241.216.101" >> /root/.zoomba/zoomba.conf
+echo "addnode=54.39.25.93" >> /root/.zoomba/zoomba.conf
+echo "addnode=104.156.230.104" >> /root/.zoomba/zoomba.conf
+echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /root/.zoomba/zoomba.conf
+echo "addnode=173.199.70.184" >> /root/.zoomba/zoomba.conf
+echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /root/.zoomba/zoomba.conf
 
 echo "Syncing the node, please wait...";
 zoombad -daemon
