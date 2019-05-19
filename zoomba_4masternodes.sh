@@ -93,6 +93,9 @@ echo "addnode=104.156.230.104" >> /home/zoomba/.zoomba/zoomba.conf
 echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/zoomba/.zoomba/zoomba.conf
 echo "addnode=173.199.70.184" >> /home/zoomba/.zoomba/zoomba.conf
 echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=51.68.44.169" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=80.211.184.163" >> /home/zoomba/.zoomba/zoomba.conf
+echo "addnode=1209.97.147.101" >> /home/zoomba/.zoomba/zoomba.conf
 sudo mkdir /home/zoomba2
 cd /home/zoomba2
 sudo mkdir /home/zoomba2/.zoomba
@@ -119,6 +122,9 @@ echo "addnode=104.156.230.104" >> /home/zoomba2/.zoomba/zoomba.conf
 echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/zoomba2/.zoomba/zoomba.conf
 echo "addnode=173.199.70.184" >> /home/zoomba2/.zoomba/zoomba.conf
 echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=51.68.44.169" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=80.211.184.163" >> /home/zoomba2/.zoomba/zoomba.conf
+echo "addnode=1209.97.147.101" >> /home/zoomba2/.zoomba/zoomba.conf
 sudo mkdir /home/zoomba3
 cd /home/zoomba3
 sudo mkdir /home/zoomba3/.zoomba
@@ -145,6 +151,9 @@ echo "addnode=104.156.230.104" >> /home/zoomba3/.zoomba/zoomba.conf
 echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/zoomba3/.zoomba/zoomba.conf
 echo "addnode=173.199.70.184" >> /home/zoomba3/.zoomba/zoomba.conf
 echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba3/.zoomba/zoomba.conf
+echo "addnode=51.68.44.169" >> /home/zoomba3/.zoomba/zoomba.conf
+echo "addnode=80.211.184.163" >> /home/zoomba3/.zoomba/zoomba.conf
+echo "addnode=1209.97.147.101" >> /home/zoomba3/.zoomba/zoomba.conf
 sudo mkdir /home/zoomba4
 cd /home/zoomba4
 sudo mkdir /home/zoomba4/.zoomba
@@ -171,6 +180,9 @@ echo "addnode=104.156.230.104" >> /home/zoomba4/.zoomba/zoomba.conf
 echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/zoomba4/.zoomba/zoomba.conf
 echo "addnode=173.199.70.184" >> /home/zoomba4/.zoomba/zoomba.conf
 echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba4/.zoomba/zoomba.conf
+echo "addnode=51.68.44.169" >> /home/zoomba4/.zoomba/zoomba.conf
+echo "addnode=80.211.184.163" >> /home/zoomba4/.zoomba/zoomba.conf
+echo "addnode=1209.97.147.101" >> /home/zoomba4/.zoomba/zoomba.conf
 
 echo "Syncing first node, please wait...";
 zoombad -datadir=/home/zoomba/.zoomba -daemon
