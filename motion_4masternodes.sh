@@ -12,11 +12,11 @@ if [[ $(lsb_release -d) != *16.04* ]]; then
   exit 1
 fi
 
-echo -e ${YELLOW}"Welcome to the Zoomba Automated Install, Durring this Process Please Hit Enter or Input What is Asked."${NC}
+echo -e ${YELLOW}"Welcome to the Motion Automated Install, Durring this Process Please Hit Enter or Input What is Asked."${NC}
 echo
 echo -e ${YELLOW}"You Will See alot of code flashing across your screen, don't be alarmed it's supposed to do that. This process can take up to an hour and may appear to be stuck, but I can promise you it's not."${NC}
 echo
-echo -e ${GREEN}"Are you sure you want to install Zoomba Masternode? type y/n followed by [ENTER]:"${NC}
+echo -e ${GREEN}"Are you sure you want to install Motion Masternode? type y/n followed by [ENTER]:"${NC}
 read AGREE
 
 if [[ $AGREE =~ "y" ]] ; then
@@ -52,7 +52,7 @@ service fail2ban restart
 ufw default deny incoming
 ufw default allow outgoing
 ufw allow ssh
-ufw allow 5530/tcp
+ufw allow 7979/tcp
 yes | ufw enable
 sudo apt install git
 cd /var
@@ -63,152 +63,152 @@ sudo mkswap /var/swap.img
 sudo swapon /var/swap.img
 sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd ~
-wget https://github.com/zoombacoin/zoomba/releases/download/1.0.2/zoomba-1.0.2-ubuntu1604.zip
-unzip zoomba-1.0.2-ubuntu1604.zip
-sudo mv zoombad zoomba-cli /usr/local/bin
-sudo chmod 755 -R  /usr/local/bin/zoomba*
-sudo mkdir /home/zoomba
-cd /home/zoomba/
-sudo mkdir /home/zoomba/.zoomba
-sudo touch /home/zoomba/.zoomba/zoomba.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/zoomba/.zoomba/zoomba.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/zoomba/.zoomba/zoomba.conf
-echo "rpcallowip=127.0.0.1" >> /home/zoomba/.zoomba/zoomba.conf
-echo "server=1" >> /home/zoomba/.zoomba/zoomba.conf
-echo "daemon=1" >> /home/zoomba/.zoomba/zoomba.conf
-echo "maxconnections=250" >> /home/zoomba/.zoomba/zoomba.conf
-echo "masternode=1" >> /home/zoomba/.zoomba/zoomba.conf
-echo "rpcport=5531" >> /home/zoomba/.zoomba/zoomba.conf
-echo "port=55311" >> /home/zoomba/.zoomba/zoomba.conf
-echo "listen=1" >> /home/zoomba/.zoomba/zoomba.conf
-echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):5530" >> /home/zoomba/.zoomba/zoomba.conf
-echo "masternodeprivkey=$privkey" >> /home/zoomba/.zoomba/zoomba.conf
-echo "addnode=173.249.22.124" >> /home/zoomba/.zoomba/zoomba.conf
-echo "addnode=66.42.111.56" >> /home/zoomba/.zoomba/zoomba.conf
-echo "addnode=173.249.22.207" >> /home/zoomba/.zoomba/zoomba.conf
-echo "addnode=207.246.68.245" >> /home/zoomba/.zoomba/zoomba.conf
-echo "addnode=80.241.216.101" >> /home/zoomba/.zoomba/zoomba.conf
-echo "addnode=54.39.25.93" >> /home/zoomba/.zoomba/zoomba.conf
-echo "addnode=104.156.230.104" >> /home/zoomba/.zoomba/zoomba.conf
-echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/zoomba/.zoomba/zoomba.conf
-echo "addnode=173.199.70.184" >> /home/zoomba/.zoomba/zoomba.conf
-echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba/.zoomba/zoomba.conf
-echo "addnode=51.68.44.169" >> /home/zoomba/.zoomba/zoomba.conf
-echo "addnode=80.211.184.163" >> /home/zoomba/.zoomba/zoomba.conf
-echo "addnode=1209.97.147.101" >> /home/zoomba/.zoomba/zoomba.conf
-sudo mkdir /home/zoomba2
-cd /home/zoomba2
-sudo mkdir /home/zoomba2/.zoomba
-sudo touch /home/zoomba2/.zoomba/zoomba.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/zoomba2/.zoomba/zoomba.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/zoomba2/.zoomba/zoomba.conf
-echo "rpcallowip=127.0.0.1" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "server=1" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "daemon=1" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "maxconnections=250" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "masternode=1" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "rpcport=5532" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "port=55322" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "listen=1" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):5530" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "masternodeprivkey=$privkey" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "addnode=173.249.22.124" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "addnode=66.42.111.56" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "addnode=173.249.22.207" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "addnode=207.246.68.245" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "addnode=80.241.216.101" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "addnode=54.39.25.93" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "addnode=104.156.230.104" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "addnode=173.199.70.184" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "addnode=51.68.44.169" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "addnode=80.211.184.163" >> /home/zoomba2/.zoomba/zoomba.conf
-echo "addnode=1209.97.147.101" >> /home/zoomba2/.zoomba/zoomba.conf
-sudo mkdir /home/zoomba3
-cd /home/zoomba3
-sudo mkdir /home/zoomba3/.zoomba
-sudo touch /home/zoomba3/.zoomba/zoomba.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/zoomba3/.zoomba/zoomba.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/zoomba3/.zoomba/zoomba.conf
-echo "rpcallowip=127.0.0.1" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "server=1" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "daemon=1" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "maxconnections=250" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "masternode=1" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "rpcport=5533" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "port=55333" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "listen=1" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):5530" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "masternodeprivkey=$privkey" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "addnode=173.249.22.124" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "addnode=66.42.111.56" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "addnode=173.249.22.207" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "addnode=207.246.68.245" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "addnode=80.241.216.101" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "addnode=54.39.25.93" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "addnode=104.156.230.104" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "addnode=173.199.70.184" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "addnode=51.68.44.169" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "addnode=80.211.184.163" >> /home/zoomba3/.zoomba/zoomba.conf
-echo "addnode=1209.97.147.101" >> /home/zoomba3/.zoomba/zoomba.conf
-sudo mkdir /home/zoomba4
-cd /home/zoomba4
-sudo mkdir /home/zoomba4/.zoomba
-sudo touch /home/zoomba4/.zoomba/zoomba.conf
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/zoomba4/.zoomba/zoomba.conf
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/zoomba4/.zoomba/zoomba.conf
-echo "rpcallowip=127.0.0.1" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "server=1" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "daemon=1" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "maxconnections=250" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "masternode=1" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "rpcport=5534" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "port=55344" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "listen=1" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):5530" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "masternodeprivkey=$privkey" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "addnode=173.249.22.124" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "addnode=66.42.111.56" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "addnode=173.249.22.207" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "addnode=207.246.68.245" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "addnode=80.241.216.101" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "addnode=54.39.25.93" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "addnode=104.156.230.104" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "addnode=173.199.70.184" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "addnode=51.68.44.169" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "addnode=80.211.184.163" >> /home/zoomba4/.zoomba/zoomba.conf
-echo "addnode=1209.97.147.101" >> /home/zoomba4/.zoomba/zoomba.conf
+wget https://github.com/motioncrypto/motion/releases/download/v0.1.2/motion-v0.1.2-lin-64bits.zip
+unzip motion-v0.1.2-lin-64bits.zip
+sudo mv motiond motion-cli motion-tx /usr/local/bin
+sudo chmod 755 -R  /usr/local/bin/motion*
+sudo mkdir /home/motion
+cd /home/motion/
+sudo mkdir /home/motion/.motion
+sudo touch /home/motion/.motion/motion.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/motion/.motion/motion.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/motion/.motion/motion.conf
+echo "rpcallowip=127.0.0.1" >> /home/motion/.motion/motion.conf
+echo "server=1" >> /home/motion/.motion/motion.conf
+echo "daemon=1" >> /home/motion/.motion/motion.conf
+echo "maxconnections=250" >> /home/motion/.motion/motion.conf
+echo "masternode=1" >> /home/motion/.motion/motion.conf
+echo "rpcport=7980" >> /home/motion/.motion/motion.conf
+echo "port=79800" >> /home/motion/.motion/motion.conf
+echo "listen=1" >> /home/motion/.motion/motion.conf
+echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):7979" >> /home/motion/.motion/motion.conf
+echo "masternodeprivkey=$privkey" >> /home/motion/.motion/motion.conf
+echo "addnode=173.249.22.124" >> /home/motion/.motion/motion.conf
+echo "addnode=66.42.111.56" >> /home/motion/.motion/motion.conf
+echo "addnode=173.249.22.207" >> /home/motion/.motion/motion.conf
+echo "addnode=207.246.68.245" >> /home/motion/.motion/motion.conf
+echo "addnode=80.241.216.101" >> /home/motion/.motion/motion.conf
+echo "addnode=54.39.25.93" >> /home/motion/.motion/motion.conf
+echo "addnode=104.156.230.104" >> /home/motion/.motion/motion.conf
+echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/motion/.motion/motion.conf
+echo "addnode=173.199.70.184" >> /home/motion/.motion/motion.conf
+echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/motion/.motion/motion.conf
+echo "addnode=51.68.44.169" >> /home/motion/.motion/motion.conf
+echo "addnode=80.211.184.163" >> /home/motion/.motion/motion.conf
+echo "addnode=1209.97.147.101" >> /home/motion/.motion/motion.conf
+sudo mkdir /home/motion2
+cd /home/motion2
+sudo mkdir /home/motion2/.motion
+sudo touch /home/motion2/.motion/motion.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/motion2/.motion/motion.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/motion2/.motion/motion.conf
+echo "rpcallowip=127.0.0.1" >> /home/motion2/.motion/motion.conf
+echo "server=1" >> /home/motion2/.motion/motion.conf
+echo "daemon=1" >> /home/motion2/.motion/motion.conf
+echo "maxconnections=250" >> /home/motion2/.motion/motion.conf
+echo "masternode=1" >> /home/motion2/.motion/motion.conf
+echo "rpcport=7981" >> /home/motion2/.motion/motion.conf
+echo "port=79811" >> /home/motion2/.motion/motion.conf
+echo "listen=1" >> /home/motion2/.motion/motion.conf
+echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):7979" >> /home/motion2/.motion/motion.conf
+echo "masternodeprivkey=$privkey" >> /home/motion2/.motion/motion.conf
+echo "addnode=173.249.22.124" >> /home/motion2/.motion/motion.conf
+echo "addnode=66.42.111.56" >> /home/motion2/.motion/motion.conf
+echo "addnode=173.249.22.207" >> /home/motion2/.motion/motion.conf
+echo "addnode=207.246.68.245" >> /home/motion2/.motion/motion.conf
+echo "addnode=80.241.216.101" >> /home/motion2/.motion/motion.conf
+echo "addnode=54.39.25.93" >> /home/motion2/.motion/motion.conf
+echo "addnode=104.156.230.104" >> /home/motion2/.motion/motion.conf
+echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/motion2/.motion/motion.conf
+echo "addnode=173.199.70.184" >> /home/motion2/.motion/motion.conf
+echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/motion2/.motion/motion.conf
+echo "addnode=51.68.44.169" >> /home/motion2/.motion/motion.conf
+echo "addnode=80.211.184.163" >> /home/motion2/.motion/motion.conf
+echo "addnode=1209.97.147.101" >> /home/motion2/.motion/motion.conf
+sudo mkdir /home/motion3
+cd /home/motion3
+sudo mkdir /home/motion3/.motion
+sudo touch /home/motion3/.motion/motion.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/motion3/.motion/motion.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/motion3/.motion/motion.conf
+echo "rpcallowip=127.0.0.1" >> /home/motion3/.motion/motion.conf
+echo "server=1" >> /home/motion3/.motion/motion.conf
+echo "daemon=1" >> /home/motion3/.motion/motion.conf
+echo "maxconnections=250" >> /home/motion3/.motion/motion.conf
+echo "masternode=1" >> /home/motion3/.motion/motion.conf
+echo "rpcport=7982" >> /home/motion3/.motion/motion.conf
+echo "port=79822" >> /home/motion3/.motion/motion.conf
+echo "listen=1" >> /home/motion3/.motion/motion.conf
+echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):7979" >> /home/motion3/.motion/motion.conf
+echo "masternodeprivkey=$privkey" >> /home/motion3/.motion/motion.conf
+echo "addnode=173.249.22.124" >> /home/motion3/.motion/motion.conf
+echo "addnode=66.42.111.56" >> /home/motion3/.motion/motion.conf
+echo "addnode=173.249.22.207" >> /home/motion3/.motion/motion.conf
+echo "addnode=207.246.68.245" >> /home/motion3/.motion/motion.conf
+echo "addnode=80.241.216.101" >> /home/motion3/.motion/motion.conf
+echo "addnode=54.39.25.93" >> /home/motion3/.motion/motion.conf
+echo "addnode=104.156.230.104" >> /home/motion3/.motion/motion.conf
+echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/motion3/.motion/motion.conf
+echo "addnode=173.199.70.184" >> /home/motion3/.motion/motion.conf
+echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/motion3/.motion/motion.conf
+echo "addnode=51.68.44.169" >> /home/motion3/.motion/motion.conf
+echo "addnode=80.211.184.163" >> /home/motion3/.motion/motion.conf
+echo "addnode=1209.97.147.101" >> /home/motion3/.motion/motion.conf
+sudo mkdir /home/motion4
+cd /home/motion4
+sudo mkdir /home/motion4/.motion
+sudo touch /home/motion4/.motion/motion.conf
+echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> /home/motion4/.motion/motion.conf
+echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> /home/motion4/.motion/motion.conf
+echo "rpcallowip=127.0.0.1" >> /home/motion4/.motion/motion.conf
+echo "server=1" >> /home/motion4/.motion/motion.conf
+echo "daemon=1" >> /home/motion4/.motion/motion.conf
+echo "maxconnections=250" >> /home/motion4/.motion/motion.conf
+echo "masternode=1" >> /home/motion4/.motion/motion.conf
+echo "rpcport=7983" >> /home/motion4/.motion/motion.conf
+echo "port=79833" >> /home/motion4/.motion/motion.conf
+echo "listen=1" >> /home/motion4/.motion/motion.conf
+echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):7979" >> /home/motion4/.motion/motion.conf
+echo "masternodeprivkey=$privkey" >> /home/motion4/.motion/motion.conf
+echo "addnode=173.249.22.124" >> /home/motion4/.motion/motion.conf
+echo "addnode=66.42.111.56" >> /home/motion4/.motion/motion.conf
+echo "addnode=173.249.22.207" >> /home/motion4/.motion/motion.conf
+echo "addnode=207.246.68.245" >> /home/motion4/.motion/motion.conf
+echo "addnode=80.241.216.101" >> /home/motion4/.motion/motion.conf
+echo "addnode=54.39.25.93" >> /home/motion4/.motion/motion.conf
+echo "addnode=104.156.230.104" >> /home/motion4/.motion/motion.conf
+echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/motion4/.motion/motion.conf
+echo "addnode=173.199.70.184" >> /home/motion4/.motion/motion.conf
+echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/motion4/.motion/motion.conf
+echo "addnode=51.68.44.169" >> /home/motion4/.motion/motion.conf
+echo "addnode=80.211.184.163" >> /home/motion4/.motion/motion.conf
+echo "addnode=1209.97.147.101" >> /home/motion4/.motion/motion.conf
 
 echo "Syncing first node, please wait...";
-zoombad -datadir=/home/zoomba/.zoomba -daemon
-until zoomba-cli -datadir=/home/zoomba/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
+motiond -datadir=/home/motion/.motion -daemon
+until motion-cli -datadir=/home/motion/.motion mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo "Syncing second node, please wait...";
-zoombad -datadir=/home/zoomba2/.zoomba -resync
-until zoomba-cli -datadir=/home/zoomba2/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
+motiond -datadir=/home/motion2/.motion -resync
+until motion-cli -datadir=/home/motion2/.motion mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
 echo "Syncing third node, please wait...";
-zoombad -datadir=/home/zoomba3/.zoomba
-until zoomba-cli -datadir=/home/zoomba3/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
+motiond -datadir=/home/motion3/.motion
+until motion-cli -datadir=/home/motion3/.motion mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo "Syncing forth node, please wait...";
-zoombad -datadir=/home/zoomba4/.zoomba
-until zoomba-cli -datadir=/home/zoomba4/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
+motiond -datadir=/home/motion4/.motion
+until motion-cli -datadir=/home/motion4/.motion mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo -e ${GREEN}"Congrats! Your Masternodes are now installed and has started. Please wait 15-20 minutes in order to give the masternode enough time to sync, then start the node from your Windows wallet."${NC}
-rm -rf /root/zoomba-1.0.2-ubuntu1604.zip
-rm -rf /root/zoomba_4masternodes.sh
+rm -rf /root/motion-1.0.2-ubuntu1604.zip
+rm -rf /root/motion_4masternodes.sh
 cd ~
 echo -e ${GREEN}"If you think that this script helped in some way, feel free to donate for our work:"${NC}
-echo "Zoomba address: ZfkuV8WefFSiL1urBGamqsZ9h5osWJaoKX"
+echo "Motion address: ZfkuV8WefFSiL1urBGamqsZ9h5osWJaoKX"
 echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
 echo "The END. You can close now the SSH terminal session";
 fi
