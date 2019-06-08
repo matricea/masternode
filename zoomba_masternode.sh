@@ -71,7 +71,7 @@ echo "daemon=1" >> /root/.zoomba/zoomba.conf
 echo "maxconnections=250" >> /root/.zoomba/zoomba.conf
 echo "masternode=1" >> /root/.zoomba/zoomba.conf
 echo "rpcport=5531" >> /root/.zoomba/zoomba.conf
-echo "port=55311" >> /root/.zoomba/zoomba.conf
+#echo "port=55311" >> /root/.zoomba/zoomba.conf
 echo "listen=1" >> /root/.zoomba/zoomba.conf
 echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):5530" >> /root/.zoomba/zoomba.conf
 echo "masternodeprivkey=$privkey" >> /root/.zoomba/zoomba.conf
@@ -85,6 +85,15 @@ echo "addnode=104.156.230.104" >> /root/.zoomba/zoomba.conf
 echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /root/.zoomba/zoomba.conf
 echo "addnode=173.199.70.184" >> /root/.zoomba/zoomba.conf
 echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /root/.zoomba/zoomba.conf
+echo "addnode=51.68.44.169" >> /root/.zoomba/zoomba.conf
+echo "addnode=80.211.184.163" >> /root/.zoomba/zoomba.conf
+echo "addnode=173.249.3.53" >> /root/.zoomba/zoomba.conf
+echo "addnode=149.28.61.160" >> /root/.zoomba/zoomba.conf
+echo "addnode=95.164.8.207" >> /root/.zoomba/zoomba.conf
+echo "addnode=167.86.73.15" >> /root/.zoomba/zoomba.conf
+echo "addnode=185.250.205.138" >> /root/.zoomba/zoomba.conf
+echo "addnode=207.148.9.75" >> /root/.zoomba/zoomba.conf
+echo "addnode=66.42.119.174" >> /root/.zoomba/zoomba.conf
 
 echo "Syncing the node, please wait...";
 zoombad -daemon
