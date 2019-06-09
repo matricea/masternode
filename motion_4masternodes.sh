@@ -83,19 +83,6 @@ echo "port=79800" >> /home/motion/.motion/motion.conf
 echo "listen=1" >> /home/motion/.motion/motion.conf
 echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):7979" >> /home/motion/.motion/motion.conf
 echo "masternodeprivkey=$privkey" >> /home/motion/.motion/motion.conf
-echo "addnode=173.249.22.124" >> /home/motion/.motion/motion.conf
-echo "addnode=66.42.111.56" >> /home/motion/.motion/motion.conf
-echo "addnode=173.249.22.207" >> /home/motion/.motion/motion.conf
-echo "addnode=207.246.68.245" >> /home/motion/.motion/motion.conf
-echo "addnode=80.241.216.101" >> /home/motion/.motion/motion.conf
-echo "addnode=54.39.25.93" >> /home/motion/.motion/motion.conf
-echo "addnode=104.156.230.104" >> /home/motion/.motion/motion.conf
-echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/motion/.motion/motion.conf
-echo "addnode=173.199.70.184" >> /home/motion/.motion/motion.conf
-echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/motion/.motion/motion.conf
-echo "addnode=51.68.44.169" >> /home/motion/.motion/motion.conf
-echo "addnode=80.211.184.163" >> /home/motion/.motion/motion.conf
-echo "addnode=1209.97.147.101" >> /home/motion/.motion/motion.conf
 sudo mkdir /home/motion2
 cd /home/motion2
 sudo mkdir /home/motion2/.motion
@@ -112,19 +99,6 @@ echo "port=79811" >> /home/motion2/.motion/motion.conf
 echo "listen=1" >> /home/motion2/.motion/motion.conf
 echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):7979" >> /home/motion2/.motion/motion.conf
 echo "masternodeprivkey=$privkey" >> /home/motion2/.motion/motion.conf
-echo "addnode=173.249.22.124" >> /home/motion2/.motion/motion.conf
-echo "addnode=66.42.111.56" >> /home/motion2/.motion/motion.conf
-echo "addnode=173.249.22.207" >> /home/motion2/.motion/motion.conf
-echo "addnode=207.246.68.245" >> /home/motion2/.motion/motion.conf
-echo "addnode=80.241.216.101" >> /home/motion2/.motion/motion.conf
-echo "addnode=54.39.25.93" >> /home/motion2/.motion/motion.conf
-echo "addnode=104.156.230.104" >> /home/motion2/.motion/motion.conf
-echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/motion2/.motion/motion.conf
-echo "addnode=173.199.70.184" >> /home/motion2/.motion/motion.conf
-echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/motion2/.motion/motion.conf
-echo "addnode=51.68.44.169" >> /home/motion2/.motion/motion.conf
-echo "addnode=80.211.184.163" >> /home/motion2/.motion/motion.conf
-echo "addnode=1209.97.147.101" >> /home/motion2/.motion/motion.conf
 sudo mkdir /home/motion3
 cd /home/motion3
 sudo mkdir /home/motion3/.motion
@@ -141,19 +115,6 @@ echo "port=79822" >> /home/motion3/.motion/motion.conf
 echo "listen=1" >> /home/motion3/.motion/motion.conf
 echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):7979" >> /home/motion3/.motion/motion.conf
 echo "masternodeprivkey=$privkey" >> /home/motion3/.motion/motion.conf
-echo "addnode=173.249.22.124" >> /home/motion3/.motion/motion.conf
-echo "addnode=66.42.111.56" >> /home/motion3/.motion/motion.conf
-echo "addnode=173.249.22.207" >> /home/motion3/.motion/motion.conf
-echo "addnode=207.246.68.245" >> /home/motion3/.motion/motion.conf
-echo "addnode=80.241.216.101" >> /home/motion3/.motion/motion.conf
-echo "addnode=54.39.25.93" >> /home/motion3/.motion/motion.conf
-echo "addnode=104.156.230.104" >> /home/motion3/.motion/motion.conf
-echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/motion3/.motion/motion.conf
-echo "addnode=173.199.70.184" >> /home/motion3/.motion/motion.conf
-echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/motion3/.motion/motion.conf
-echo "addnode=51.68.44.169" >> /home/motion3/.motion/motion.conf
-echo "addnode=80.211.184.163" >> /home/motion3/.motion/motion.conf
-echo "addnode=1209.97.147.101" >> /home/motion3/.motion/motion.conf
 sudo mkdir /home/motion4
 cd /home/motion4
 sudo mkdir /home/motion4/.motion
@@ -170,37 +131,24 @@ echo "port=79833" >> /home/motion4/.motion/motion.conf
 echo "listen=1" >> /home/motion4/.motion/motion.conf
 echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):7979" >> /home/motion4/.motion/motion.conf
 echo "masternodeprivkey=$privkey" >> /home/motion4/.motion/motion.conf
-echo "addnode=173.249.22.124" >> /home/motion4/.motion/motion.conf
-echo "addnode=66.42.111.56" >> /home/motion4/.motion/motion.conf
-echo "addnode=173.249.22.207" >> /home/motion4/.motion/motion.conf
-echo "addnode=207.246.68.245" >> /home/motion4/.motion/motion.conf
-echo "addnode=80.241.216.101" >> /home/motion4/.motion/motion.conf
-echo "addnode=54.39.25.93" >> /home/motion4/.motion/motion.conf
-echo "addnode=104.156.230.104" >> /home/motion4/.motion/motion.conf
-echo "addnode=[2001:19f0:ac01:1a83:5400:02ff:fe06:8a44]" >> /home/motion4/.motion/motion.conf
-echo "addnode=173.199.70.184" >> /home/motion4/.motion/motion.conf
-echo "addnode=[2001:19f0:6801:1f35:5400:02ff:fe07:9e71]" >> /home/motion4/.motion/motion.conf
-echo "addnode=51.68.44.169" >> /home/motion4/.motion/motion.conf
-echo "addnode=80.211.184.163" >> /home/motion4/.motion/motion.conf
-echo "addnode=1209.97.147.101" >> /home/motion4/.motion/motion.conf
 
 echo "Syncing first node, please wait...";
 motiond -datadir=/home/motion/.motion -daemon
-until motion-cli -datadir=/home/motion/.motion mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
+until motion-cli -datadir=/home/motion/.motion mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"First node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo "Syncing second node, please wait...";
 motiond -datadir=/home/motion2/.motion -resync
-until motion-cli -datadir=/home/motion2/.motion mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
+until motion-cli -datadir=/home/motion2/.motion mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
 echo "Syncing third node, please wait...";
 motiond -datadir=/home/motion3/.motion
-until motion-cli -datadir=/home/motion3/.motion mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
+until motion-cli -datadir=/home/motion3/.motion mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo "Syncing forth node, please wait...";
 motiond -datadir=/home/motion4/.motion
-until motion-cli -datadir=/home/motion4/.motion mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
+until motion-cli -datadir=/home/motion4/.motion mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Second node is fully synced. Your masternode is running!"${NC}
 sleep 5
 echo -e ${GREEN}"Congrats! Your Masternodes are now installed and has started. Please wait 15-20 minutes in order to give the masternode enough time to sync, then start the node from your Windows wallet."${NC}
@@ -209,6 +157,6 @@ rm -rf /root/motion_4masternodes.sh
 cd ~
 echo -e ${GREEN}"If you think that this script helped in some way, feel free to donate for our work:"${NC}
 echo "Motion address: ZfkuV8WefFSiL1urBGamqsZ9h5osWJaoKX"
-echo "LTC address: LbF8hSejc8oc4L81CrzdYengYBpr6xNczn"
+echo "LTC address: M7yDTtFyGqZZanVbXs4iVw98etrZczuS2W"
 echo "The END. You can close now the SSH terminal session";
 fi
