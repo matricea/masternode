@@ -79,7 +79,6 @@ echo "daemon=1" >> /home/motion/.motion/motion.conf
 echo "maxconnections=250" >> /home/motion/.motion/motion.conf
 echo "masternode=1" >> /home/motion/.motion/motion.conf
 echo "rpcport=7980" >> /home/motion/.motion/motion.conf
-echo "port=79800" >> /home/motion/.motion/motion.conf
 echo "listen=1" >> /home/motion/.motion/motion.conf
 echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):7979" >> /home/motion/.motion/motion.conf
 echo "masternodeprivkey=$privkey" >> /home/motion/.motion/motion.conf
@@ -95,8 +94,7 @@ echo "daemon=1" >> /home/motion2/.motion/motion.conf
 echo "maxconnections=250" >> /home/motion2/.motion/motion.conf
 echo "masternode=1" >> /home/motion2/.motion/motion.conf
 echo "rpcport=7981" >> /home/motion2/.motion/motion.conf
-echo "port=79811" >> /home/motion2/.motion/motion.conf
-echo "listen=1" >> /home/motion2/.motion/motion.conf
+echo "listen=0" >> /home/motion2/.motion/motion.conf
 echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):7979" >> /home/motion2/.motion/motion.conf
 echo "masternodeprivkey=$privkey" >> /home/motion2/.motion/motion.conf
 sudo mkdir /home/motion3
@@ -111,8 +109,7 @@ echo "daemon=1" >> /home/motion3/.motion/motion.conf
 echo "maxconnections=250" >> /home/motion3/.motion/motion.conf
 echo "masternode=1" >> /home/motion3/.motion/motion.conf
 echo "rpcport=7982" >> /home/motion3/.motion/motion.conf
-echo "port=79822" >> /home/motion3/.motion/motion.conf
-echo "listen=1" >> /home/motion3/.motion/motion.conf
+echo "listen=0" >> /home/motion3/.motion/motion.conf
 echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):7979" >> /home/motion3/.motion/motion.conf
 echo "masternodeprivkey=$privkey" >> /home/motion3/.motion/motion.conf
 sudo mkdir /home/motion4
@@ -127,8 +124,7 @@ echo "daemon=1" >> /home/motion4/.motion/motion.conf
 echo "maxconnections=250" >> /home/motion4/.motion/motion.conf
 echo "masternode=1" >> /home/motion4/.motion/motion.conf
 echo "rpcport=7983" >> /home/motion4/.motion/motion.conf
-echo "port=79833" >> /home/motion4/.motion/motion.conf
-echo "listen=1" >> /home/motion4/.motion/motion.conf
+echo "listen=0" >> /home/motion4/.motion/motion.conf
 echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):7979" >> /home/motion4/.motion/motion.conf
 echo "masternodeprivkey=$privkey" >> /home/motion4/.motion/motion.conf
 
